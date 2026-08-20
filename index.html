@@ -16,7 +16,7 @@
             color: #333;
         }
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             background: #ffffff;
             padding: 30px;
@@ -28,7 +28,7 @@
         label { font-weight: bold; display: block; margin-bottom: 8px; }
         textarea {
             width: 100%;
-            height: 180px;
+            height: 160px;
             padding: 10px;
             box-sizing: border-box;
             border: 1px solid #ccc;
@@ -62,18 +62,47 @@
             margin-top: 15px;
         }
         button:hover { background-color: #0052a3; }
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
+        
+        /* Analysis Card Styles */
+        .results-card {
             margin-top: 30px;
-            font-size: 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
         }
-        .results-table th, .results-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
+        .card-header {
+            background: #f2f4f8;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .results-table th { background-color: #f2f2f2; }
+        .card-header h2 { margin: 0; font-size: 18px; color: #2c3e50; }
+        .metric-row {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .metric-row:last-child { border-bottom: none; }
+        .metric-label {
+            font-weight: bold;
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .metric-value {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .metric-explanation {
+            font-size: 13.5px;
+            color: #555;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        
+        /* Verdict Status Colors */
         .status-human { color: #28a745; font-weight: bold; }
         .status-review { color: #856404; font-weight: bold; }
         .status-hybrid { color: #d97706; font-weight: bold; }
@@ -164,7 +193,6 @@ function deepArtifactCheck(text) {
 }
 
 function analyzeDocument(text, fileName = "Pasted Text") {
-    // Split sentences and words
     const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
     const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
     
@@ -204,7 +232,20 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         verdict = "Highly Likely AI / Bot";
         statusClass = "status-bot";
     }
+
+    // Contextual explanation builders
+    const entropyExp = `Measures character-level randomness. A value of <strong>${entropy.toFixed(2)}</strong> reflects the character distribution predictability. Standard prose ranges from 4.0 to 5.2. Modern AI and formal human prose both reside in this domain, making character entropy useful primarily as a baseline profile.`;
     
+    const lexDivExp = `Measures vocabulary richness (unique words divided by total words). A ratio of <strong>${lexDiv.toFixed(2)}</strong> indicates that <strong>${Math.round(lexDiv * 100)}%</strong> of the words used in this piece are unique. ${lexDiv > 0.60 ? 'This demonstrates dynamic, varied vocabulary choice.' : 'This reflects a more repetitive or highly structured vocabulary usage.'}`;
+    
+    const sentVarExp = `Measures the structural rhythm and variation in sentence length. A variance score of <strong>${variance.toFixed(1)}</strong> reflects ${variance > 25 ? 'significant variation between short and long sentences—a natural hallmark of human writing.' : 'relatively uniform sentence lengths, a structural pattern typical of AI generation.'}`;
+    
+    const humanPercExp = `An overall composite rating of <strong>${finalScore.toFixed(1)}%</strong> derived from combining sentence variance, vocabulary richness, and artifact penalties. Evaluated independently against absolute baseline standards rather than relative class comparisons.`;
+    
+    const flagsExp = flags.length > 0 
+        ? `The scan detected specific AI structural artifacts: <strong>${flags.join(', ')}</strong>. These markers trigger penalties against the base human score.`
+        : `No synthetic citation patterns, rigid LLM prompt headers, or signature AI buzzwords were detected.`;
+
     return {
         fileName,
         entropy: entropy.toFixed(2),
@@ -213,13 +254,16 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         score: finalScore.toFixed(1),
         verdict,
         statusClass,
-        flags: flags.length > 0 ? flags.join(", ") : "None"
+        entropyExp,
+        lexDivExp,
+        sentVarExp,
+        humanPercExp,
+        flagsExp
     };
 }
 
 async function processInput() {
     const errorDiv = document.getElementById('errorMessage');
-    const resultsDiv = document.getElementById('resultsContainer');
     errorDiv.innerText = "";
     
     const pastedText = document.getElementById('textInput').value.trim();
@@ -261,39 +305,46 @@ async function processInput() {
         }
 
         const res = analyzeDocument(textToAnalyze, name);
-        renderTable(res);
+        renderCard(res);
         
     } catch (err) {
         errorDiv.innerText = err.message;
     }
 }
 
-function renderTable(res) {
+function renderCard(res) {
     const html = `
-        <table class="results-table">
-            <thead>
-                <tr>
-                    <th>Source Name</th>
-                    <th>Entropy</th>
-                    <th>Lex Div</th>
-                    <th>Sent Var</th>
-                    <th>Human %</th>
-                    <th>Final Assessment</th>
-                    <th>Flags Triggered</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>${res.fileName}</strong></td>
-                    <td>${res.entropy}</td>
-                    <td>${res.lexDiv}</td>
-                    <td>${res.sentVar}</td>
-                    <td>${res.score}%</td>
-                    <td class="${res.statusClass}">${res.verdict}</td>
-                    <td>${res.flags}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="results-card">
+            <div class="card-header">
+                <h2>Analysis Results: ${res.fileName}</h2>
+                <span class="${res.statusClass}">${res.verdict}</span>
+            </div>
+            
+            <div class="metric-row">
+                <div class="metric-label">Human Authenticity Score: <span class="metric-value">${res.score}%</span></div>
+                <div class="metric-explanation">${res.humanPercExp}</div>
+            </div>
+            
+            <div class="metric-row">
+                <div class="metric-label">Shannon Character Entropy: <span class="metric-value">${res.entropy}</span></div>
+                <div class="metric-explanation">${res.entropyExp}</div>
+            </div>
+            
+            <div class="metric-row">
+                <div class="metric-label">Lexical Diversity: <span class="metric-value">${res.lexDiv}</span></div>
+                <div class="metric-explanation">${res.lexDivExp}</div>
+            </div>
+            
+            <div class="metric-row">
+                <div class="metric-label">Sentence Length Variance: <span class="metric-value">${res.sentVar}</span></div>
+                <div class="metric-explanation">${res.sentVarExp}</div>
+            </div>
+            
+            <div class="metric-row">
+                <div class="metric-label">Flags Triggered</div>
+                <div class="metric-explanation">${res.flagsExp}</div>
+            </div>
+        </div>
     `;
     document.getElementById('resultsContainer').innerHTML = html;
 }
