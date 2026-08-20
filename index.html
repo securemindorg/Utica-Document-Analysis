@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Stylometrics Text Analyzer</title>
+    <!-- External Libraries for parsing PDF and DOCX files client-side -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 { margin-top: 0; color: #2c3e50; }
+        .input-section { margin-bottom: 25px; }
+        label { font-weight: bold; display: block; margin-bottom: 8px; }
+        textarea {
+            width: 100%;
+            height: 180px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .file-upload-box {
+            border: 2px dashed #bbb;
+            padding: 20px;
+            text-align: center;
+            background: #fafafa;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .or-divider {
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            color: #777;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+        button:hover { background-color: #0052a3; }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .results-table th { background-color: #f2f2f2; }
+        .status-human { color: #28a745; font-weight: bold; }
+        .status-review { color: #856404; font-weight: bold; }
+        .status-hybrid { color: #d97706; font-weight: bold; }
+        .status-bot { color: #dc3545; font-weight: bold; }
+        .error-msg { color: #dc3545; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Stylometrics & AI Artifact Analyzer</h1>
+    <p>Paste your text below or upload a document (<strong>.txt, .pdf, .docx</strong>) to calculate character entropy, sentence variance, lexical diversity, and scan for synthetic AI patterns.</p>
+    
+    <div class="input-section">
+        <label for="textInput">Option 1: Paste Text</label>
+        <textarea id="textInput" placeholder="Paste essay or assignment text here..."></textarea>
+        
+        <div class="or-divider">— OR —</div>
+        
+        <label for="fileInput">Option 2: Upload Document (.txt, .pdf, .docx)</label>
+        <div class="file-upload-box">
+            <input type="file" id="fileInput" accept=".txt, .pdf, .docx">
+        </div>
+        
+        <button onclick="processInput()">Run Analysis</button>
+        <div id="errorMessage" class="error-msg"></div>
+    </div>
+
+    <div id="resultsContainer"></div>
+</div>
+
+<script>
+// Configure PDF.js worker URL
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const AI_SIGNATURES = new Set([
+    'delve', 'testament', 'pivotal', 'foster', 'synergy', 'bespoke', 
+    'demystify', 'furthermore', 'moreover', 'in conclusion', 'tapestry',
+    'beacon', 'realm', 'multifaceted', 'underscore'
+]);
+
+function calculateShannonEntropy(text) {
+    if (!text) return 0.0;
+    const totalChars = text.length;
+    const counts = {};
+    for (let char of text) {
+        counts[char] = (counts[char] || 0) + 1;
+    }
+    let entropy = 0.0;
+    for (let char in counts) {
+        const p = counts[char] / totalChars;
+        entropy -= p * Math.log2(p);
+    }
+    return entropy;
+}
+
+function deepArtifactCheck(text) {
+    let penalty = 0;
+    const flags = [];
+    
+    // 1. Academic/arXiv/DOI link hallucination trends
+    const arxivRegex = /(arxiv:\s*\d{4}\.\d{4,5}|arxiv\.org\/abs\/\d{4}\.\d{4,5}|doi\.org\/10\.\d{4})/gi;
+    const arxivFinds = text.match(arxivRegex);
+    if (arxivFinds) {
+        penalty += 25;
+        flags.push(`Synthetic Citation Pattern (${arxivFinds.length} found)`);
+    }
+    
+    // 2. Rigid structural headers common in prompt outputs
+    const headerRegex = /^(Concern|Introduction|The Concern|References):/gm;
+    const headerMatches = text.match(headerRegex);
+    if (headerMatches) {
+        const uniqueHeaders = [...new Set(headerMatches.map(h => h.replace(':', '')))];
+        penalty += 10;
+        flags.push(`LLM Section Headers: [${uniqueHeaders.join(', ')}]`);
+    }
+
+    // 3. Vocabulary Tells
+    const cleanWords = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
+    const foundBuzzwords = cleanWords.filter(w => AI_SIGNATURES.has(w));
+    const uniqueBuzzwords = [...new Set(foundBuzzwords)];
+    if (uniqueBuzzwords.length >= 2) {
+        penalty += Math.min(20, uniqueBuzzwords.length * 5);
+        flags.push(`AI Vocabulary Overuse: [${uniqueBuzzwords.join(', ')}]`);
+    }
+    
+    return { penalty, flags };
+}
+
+function analyzeDocument(text, fileName = "Pasted Text") {
+    // Split sentences and words
+    const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+    const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
+    
+    const totalWords = words.length;
+    const totalSentences = sentences.length;
+    
+    if (totalWords < 30 || totalSentences < 2) {
+        throw new Error("Text is too short for a reliable analysis. Please provide at least 30 words and 2 sentences.");
+    }
+    
+    const entropy = calculateShannonEntropy(text);
+    const lexDiv = (new Set(words)).size / totalWords;
+    
+    const lengths = sentences.map(s => s.split(/\s+/).filter(Boolean).length);
+    const meanLen = lengths.reduce((a, b) => a + b, 0) / totalSentences;
+    const variance = lengths.reduce((a, b) => a + Math.pow(b - meanLen, 2), 0) / totalSentences;
+    
+    const vScore = Math.min(35, (variance / 45) * 35);
+    const dScore = Math.min(35, (lexDiv / 0.65) * 35);
+    const baseScore = 35 + vScore + dScore;
+    
+    const { penalty, flags } = deepArtifactCheck(text);
+    const finalScore = Math.max(0, Math.min(100, baseScore - penalty));
+    
+    let verdict = "";
+    let statusClass = "";
+    if (finalScore > 75 && flags.length === 0) {
+        verdict = "Highly Likely Human";
+        statusClass = "status-human";
+    } else if (finalScore >= 55) {
+        verdict = "Likely Human (Review Manually)";
+        statusClass = "status-review";
+    } else if (finalScore >= 40) {
+        verdict = "Suspected AI Hybrid / Style Masked";
+        statusClass = "status-hybrid";
+    } else {
+        verdict = "Highly Likely AI / Bot";
+        statusClass = "status-bot";
+    }
+    
+    return {
+        fileName,
+        entropy: entropy.toFixed(2),
+        lexDiv: lexDiv.toFixed(2),
+        sentVar: variance.toFixed(1),
+        score: finalScore.toFixed(1),
+        verdict,
+        statusClass,
+        flags: flags.length > 0 ? flags.join(", ") : "None"
+    };
+}
+
+async function processInput() {
+    const errorDiv = document.getElementById('errorMessage');
+    const resultsDiv = document.getElementById('resultsContainer');
+    errorDiv.innerText = "";
+    
+    const pastedText = document.getElementById('textInput').value.trim();
+    const fileInput = document.getElementById('fileInput');
+    
+    try {
+        let textToAnalyze = "";
+        let name = "Pasted Text";
+        
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            name = file.name;
+            const ext = name.split('.').pop().toLowerCase();
+            
+            if (ext === 'txt') {
+                textToAnalyze = await file.text();
+            } else if (ext === 'docx') {
+                const arrayBuffer = await file.arrayBuffer();
+                const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+                textToAnalyze = result.value;
+            } else if (ext === 'pdf') {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                let extractedText = "";
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const content = await page.getTextContent();
+                    const pageText = content.items.map(item => item.str).join(" ");
+                    extractedText += pageText + "\n";
+                }
+                textToAnalyze = extractedText;
+            } else {
+                throw new Error("Unsupported file format. Please upload a .txt, .docx, or .pdf file.");
+            }
+        } else if (pastedText.length > 0) {
+            textToAnalyze = pastedText;
+        } else {
+            throw new Error("Please paste text or select a file to analyze.");
+        }
+
+        const res = analyzeDocument(textToAnalyze, name);
+        renderTable(res);
+        
+    } catch (err) {
+        errorDiv.innerText = err.message;
+    }
+}
+
+function renderTable(res) {
+    const html = `
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Source Name</th>
+                    <th>Entropy</th>
+                    <th>Lex Div</th>
+                    <th>Sent Var</th>
+                    <th>Human %</th>
+                    <th>Final Assessment</th>
+                    <th>Flags Triggered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>${res.fileName}</strong></td>
+                    <td>${res.entropy}</td>
+                    <td>${res.lexDiv}</td>
+                    <td>${res.sentVar}</td>
+                    <td>${res.score}%</td>
+                    <td class="${res.statusClass}">${res.verdict}</td>
+                    <td>${res.flags}</td>
+                </tr>
+            </tbody>
+        </table>
+    `;
+    document.getElementById('resultsContainer').innerHTML = html;
+}
+</script>
+
+</body>
+</html>
