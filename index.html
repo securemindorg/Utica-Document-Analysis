@@ -171,7 +171,7 @@ function deepArtifactCheck(text) {
         flags.push(`Synthetic Citation Pattern (${arxivFinds.length} found)`);
     }
     
-    // 2. Rigid structural headers common in prompt outputs
+    // 2. Rigid structural headers
     const headerRegex = /^(Concern|Introduction|The Concern|References):/gm;
     const headerMatches = text.match(headerRegex);
     if (headerMatches) {
@@ -188,7 +188,49 @@ function deepArtifactCheck(text) {
         penalty += Math.min(20, uniqueBuzzwords.length * 5);
         flags.push(`AI Vocabulary Overuse: [${uniqueBuzzwords.join(', ')}]`);
     }
-    
+
+    // NEW 4. Repeated Sentence Openers (e.g., "It is...", "It can...", "It has...")
+    const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+    if (sentences.length >= 3) {
+        let maxRepetitiveStarts = 1;
+        let currentCount = 1;
+        let lastFirstWord = "";
+
+        for (let i = 0; i < sentences.length; i++) {
+            const firstWord = sentences[i].split(/\s+/)[0]?.toLowerCase();
+            if (firstWord && firstWord === lastFirstWord) {
+                currentCount++;
+                if (currentCount > maxRepetitiveStarts) maxRepetitiveStarts = currentCount;
+            } else {
+                currentCount = 1;
+                lastFirstWord = firstWord;
+            }
+        }
+
+        if (maxRepetitiveStarts >= 3) {
+            penalty += 25;
+            flags.push(`Repetitive Sentence Syntax (${maxRepetitiveStarts} consecutive sentences start with '${lastFirstWord}')`);
+        }
+    }
+
+    // NEW 5. High Keyphrase Recalling / Phrase Redundancy
+    // Checks if the text constantly loops back to the exact same subject terms
+    const wordFreq = {};
+    const stopwords = new Set(['the', 'is', 'at', 'which', 'on', 'a', 'an', 'and', 'or', 'to', 'in', 'of', 'for', 'with', 'be', 'has', 'been', 'it', 'by']);
+    cleanWords.forEach(w => {
+        if (!stopwords.has(w) && w.length > 2) {
+            wordFreq[w] = (wordFreq[w] || 0) + 1;
+        }
+    });
+
+    // If a single non-stopword accounts for over 6% of short text, flag phrase repetition
+    const maxFreq = Math.max(...Object.values(wordFreq), 0);
+    if (cleanWords.length < 100 && maxFreq >= 4) {
+        penalty += 20;
+        const repeatedWord = Object.keys(wordFreq).find(key => wordFreq[key] === maxFreq);
+        flags.push(`Monotonous Subject Focus (Word '${repeatedWord}' repeated ${maxFreq}x in short span)`);
+    }
+
     return { penalty, flags };
 }
 
@@ -210,9 +252,13 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const meanLen = lengths.reduce((a, b) => a + b, 0) / totalSentences;
     const variance = lengths.reduce((a, b) => a + Math.pow(b - meanLen, 2), 0) / totalSentences;
     
-    const vScore = Math.min(35, (variance / 45) * 35);
-    const dScore = Math.min(35, (lexDiv / 0.65) * 35);
-    const baseScore = 35 + vScore + dScore;
+    // CALIBRATED BASE WEIGHTS:
+    // Increased variance divisor scale to 85 so short texts don't inflate easily
+    const vScore = Math.min(30, (variance / 85) * 30);
+    const dScore = Math.min(30, (lexDiv / 0.75) * 30);
+    
+    // Lower base score to 25 to force artifacts and stylometrics to earn human status
+    const baseScore = 25 + vScore + dScore;
     
     const { penalty, flags } = deepArtifactCheck(text);
     const finalScore = Math.max(0, Math.min(100, baseScore - penalty));
@@ -233,18 +279,17 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         statusClass = "status-bot";
     }
 
-    // Contextual explanation builders
     const entropyExp = `Measures character-level randomness. A value of <strong>${entropy.toFixed(2)}</strong> reflects the character distribution predictability. Standard prose ranges from 4.0 to 5.2. Modern AI and formal human prose both reside in this domain, making character entropy useful primarily as a baseline profile.`;
     
-    const lexDivExp = `Measures vocabulary richness (unique words divided by total words). A ratio of <strong>${lexDiv.toFixed(2)}</strong> indicates that <strong>${Math.round(lexDiv * 100)}%</strong> of the words used in this piece are unique. ${lexDiv > 0.60 ? 'This demonstrates dynamic, varied vocabulary choice.' : 'This reflects a more repetitive or highly structured vocabulary usage.'}`;
+    const lexDivExp = `Measures vocabulary richness. A ratio of <strong>${lexDiv.toFixed(2)}</strong> indicates that <strong>${Math.round(lexDiv * 100)}%</strong> of the words used in this piece are unique.`;
     
-    const sentVarExp = `Measures the structural rhythm and variation in sentence length. A variance score of <strong>${variance.toFixed(1)}</strong> reflects ${variance > 25 ? 'significant variation between short and long sentences—a natural hallmark of human writing.' : 'relatively uniform sentence lengths, a structural pattern typical of AI generation.'}`;
+    const sentVarExp = `Measures structural rhythm. A variance score of <strong>${variance.toFixed(1)}</strong> reflects ${variance > 50 ? 'significant variation between short and long sentences—a natural hallmark of human writing.' : 'uniform or robotic sentence rhythms.'}`;
     
-    const humanPercExp = `An overall composite rating of <strong>${finalScore.toFixed(1)}%</strong> derived from combining sentence variance, vocabulary richness, and artifact penalties. Evaluated independently against absolute baseline standards rather than relative class comparisons.`;
+    const humanPercExp = `An overall composite rating of <strong>${finalScore.toFixed(1)}%</strong> derived from combining sentence variance, vocabulary richness, and artifact penalties.`;
     
     const flagsExp = flags.length > 0 
-        ? `The scan detected specific AI structural artifacts: <strong>${flags.join(', ')}</strong>. These markers trigger penalties against the base human score.`
-        : `No synthetic citation patterns, rigid LLM prompt headers, or signature AI buzzwords were detected.`;
+        ? `The scan detected specific structural artifacts: <strong>${flags.join(', ')}</strong>.`
+        : `No synthetic citation patterns, rigid headers, repetitive syntax, or signature AI buzzwords were detected.`;
 
     return {
         fileName,
