@@ -24,6 +24,36 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         h1 { margin-top: 0; color: #2c3e50; }
+        
+        /* Privacy and Methodology Notice Header */
+        .notice-header {
+            background-color: #eef6ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+        .notice-header h3 {
+            margin: 0 0 8px 0;
+            color: #004085;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .notice-header ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #333;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+        .notice-header li {
+            margin-bottom: 4px;
+        }
+        .notice-header li:last-child {
+            margin-bottom: 0;
+        }
+
         .input-section { margin-bottom: 25px; }
         label { font-weight: bold; display: block; margin-bottom: 8px; }
         textarea {
@@ -123,6 +153,17 @@
 
 <div class="container">
     <h1>Stylometrics & Advanced Text Analytics</h1>
+
+    <!-- Privacy and Methodology Notice -->
+    <div class="notice-header">
+        <h3>Important Privacy & Usage Information</h3>
+        <ul>
+            <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is sent to an external server or stored anywhere.</li>
+            <li><strong>No AI Used in Analysis:</strong> This tool relies exclusively on deterministic statistical algorithms, mathematical formulas (e.g., Shannon Entropy), and explicit pattern matching. No artificial intelligence or machine learning models are used to evaluate your text.</li>
+            <li><strong>Interpretative Guidelines:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review. Scores should be interpreted in context rather than taken at absolute face value.</li>
+        </ul>
+    </div>
+
     <p>Paste text below or upload a document (<strong>.txt, .pdf, .docx</strong>) to evaluate AI artifacts, readability, vocabulary richness, clause complexity, and stylistic tone.</p>
     
     <div class="input-section">
