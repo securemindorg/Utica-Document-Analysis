@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Stylometrics Text Analyzer</title>
+    <title>Advanced Stylometrics & Text Analytics</title>
     <!-- External Libraries for parsing PDF and DOCX files client-side -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
@@ -16,7 +16,7 @@
             color: #333;
         }
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background: #ffffff;
             padding: 30px;
@@ -63,7 +63,7 @@
         }
         button:hover { background-color: #0052a3; }
         
-        /* Analysis Card Styles */
+        /* Analysis Card & Section Styles */
         .results-card {
             margin-top: 30px;
             border: 1px solid #e0e0e0;
@@ -80,6 +80,15 @@
             align-items: center;
         }
         .card-header h2 { margin: 0; font-size: 18px; color: #2c3e50; }
+        .section-title {
+            background: #e9ecef;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #495057;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
         .metric-row {
             padding: 15px 20px;
             border-bottom: 1px solid #f0f0f0;
@@ -113,12 +122,12 @@
 <body>
 
 <div class="container">
-    <h1>University Stylometrics & AI Artifact Analyzer</h1>
-    <p>Paste your text below or upload a document (<strong>.txt, .pdf, .docx</strong>) to calculate character entropy, sentence variance, lexical diversity, and scan for synthetic AI patterns.<b>Note: Nothing will leave your browser; no data will be sent outside of your computer.</b></p>
+    <h1>Stylometrics & Advanced Text Analytics</h1>
+    <p>Paste text below or upload a document (<strong>.txt, .pdf, .docx</strong>) to evaluate AI artifacts, readability, vocabulary richness, clause complexity, and stylistic tone.</p>
     
     <div class="input-section">
         <label for="textInput">Option 1: Paste Text</label>
-        <textarea id="textInput" placeholder="Paste essay or assignment text here..."></textarea>
+        <textarea id="textInput" placeholder="Paste essay, introduction, or assignment text here..."></textarea>
         
         <div class="or-divider">— OR —</div>
         
@@ -127,7 +136,7 @@
             <input type="file" id="fileInput" accept=".txt, .pdf, .docx">
         </div>
         
-        <button onclick="processInput()">Run Analysis</button>
+        <button onclick="processInput()">Run Comprehensive Analysis</button>
         <div id="errorMessage" class="error-msg"></div>
     </div>
 
@@ -143,6 +152,18 @@ const AI_SIGNATURES = new Set([
     'demystify', 'furthermore', 'moreover', 'in conclusion', 'tapestry',
     'beacon', 'realm', 'multifaceted', 'underscore'
 ]);
+
+const HEDGING_WORDS = new Set(['perhaps', 'possibly', 'maybe', 'might', 'could', 'suggests', 'seems', 'appears', 'tentative', 'likelihood']);
+const ASSERTIVE_WORDS = new Set(['definitely', 'certainly', 'proven', 'undoubtedly', 'always', 'never', 'clearly', 'demonstrates', 'establishes']);
+
+function countSyllables(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (word.length <= 3) return 1;
+    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+    word = word.replace(/^y/, '');
+    const matches = word.match(/[aeiouy]{1,2}/g);
+    return matches ? matches.length : 1;
+}
 
 function calculateShannonEntropy(text) {
     if (!text) return 0.0;
@@ -163,7 +184,7 @@ function deepArtifactCheck(text) {
     let penalty = 0;
     const flags = [];
     
-    // 1. Academic/arXiv/DOI link hallucination trends
+    // 1. Academic Citation Hallucinations
     const arxivRegex = /(arxiv:\s*\d{4}\.\d{4,5}|arxiv\.org\/abs\/\d{4}\.\d{4,5}|doi\.org\/10\.\d{4})/gi;
     const arxivFinds = text.match(arxivRegex);
     if (arxivFinds) {
@@ -171,7 +192,7 @@ function deepArtifactCheck(text) {
         flags.push(`Synthetic Citation Pattern (${arxivFinds.length} found)`);
     }
     
-    // 2. Rigid structural headers
+    // 2. Rigid Structural Headers
     const headerRegex = /^(Concern|Introduction|The Concern|References):/gm;
     const headerMatches = text.match(headerRegex);
     if (headerMatches) {
@@ -189,7 +210,7 @@ function deepArtifactCheck(text) {
         flags.push(`AI Vocabulary Overuse: [${uniqueBuzzwords.join(', ')}]`);
     }
 
-    // NEW 4. Repeated Sentence Openers (e.g., "It is...", "It can...", "It has...")
+    // 4. Repeated Sentence Openers
     const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
     if (sentences.length >= 3) {
         let maxRepetitiveStarts = 1;
@@ -213,17 +234,15 @@ function deepArtifactCheck(text) {
         }
     }
 
-    // NEW 5. High Keyphrase Recalling / Phrase Redundancy
-    // Checks if the text constantly loops back to the exact same subject terms
+    // 5. Subject Monotony / Word Redundancy
     const wordFreq = {};
-    const stopwords = new Set(['the', 'is', 'at', 'which', 'on', 'a', 'an', 'and', 'or', 'to', 'in', 'of', 'for', 'with', 'be', 'has', 'been', 'it', 'by']);
+    const stopwords = new Set(['the', 'is', 'at', 'which', 'on', 'a', 'an', 'and', 'or', 'to', 'in', 'of', 'for', 'with', 'be', 'has', 'been', 'it', 'by', 'that', 'this', 'are', 'was', 'as']);
     cleanWords.forEach(w => {
         if (!stopwords.has(w) && w.length > 2) {
             wordFreq[w] = (wordFreq[w] || 0) + 1;
         }
     });
 
-    // If a single non-stopword accounts for over 6% of short text, flag phrase repetition
     const maxFreq = Math.max(...Object.values(wordFreq), 0);
     if (cleanWords.length < 100 && maxFreq >= 4) {
         penalty += 20;
@@ -245,6 +264,7 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         throw new Error("Text is too short for a reliable analysis. Please provide at least 30 words and 2 sentences.");
     }
     
+    // Core Stylometrics
     const entropy = calculateShannonEntropy(text);
     const lexDiv = (new Set(words)).size / totalWords;
     
@@ -252,12 +272,9 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const meanLen = lengths.reduce((a, b) => a + b, 0) / totalSentences;
     const variance = lengths.reduce((a, b) => a + Math.pow(b - meanLen, 2), 0) / totalSentences;
     
-    // CALIBRATED BASE WEIGHTS:
-    // Increased variance divisor scale to 85 so short texts don't inflate easily
+    // AI Score Weighting
     const vScore = Math.min(30, (variance / 85) * 30);
     const dScore = Math.min(30, (lexDiv / 0.75) * 30);
-    
-    // Lower base score to 25 to force artifacts and stylometrics to earn human status
     const baseScore = 25 + vScore + dScore;
     
     const { penalty, flags } = deepArtifactCheck(text);
@@ -279,17 +296,30 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         statusClass = "status-bot";
     }
 
-    const entropyExp = `Measures character-level randomness. A value of <strong>${entropy.toFixed(2)}</strong> reflects the character distribution predictability. Standard prose ranges from 4.0 to 5.2. Modern AI and formal human prose both reside in this domain, making character entropy useful primarily as a baseline profile.`;
-    
-    const lexDivExp = `Measures vocabulary richness. A ratio of <strong>${lexDiv.toFixed(2)}</strong> indicates that <strong>${Math.round(lexDiv * 100)}%</strong> of the words used in this piece are unique.`;
-    
-    const sentVarExp = `Measures structural rhythm. A variance score of <strong>${variance.toFixed(1)}</strong> reflects ${variance > 50 ? 'significant variation between short and long sentences—a natural hallmark of human writing.' : 'uniform or robotic sentence rhythms.'}`;
-    
-    const humanPercExp = `An overall composite rating of <strong>${finalScore.toFixed(1)}%</strong> derived from combining sentence variance, vocabulary richness, and artifact penalties.`;
-    
-    const flagsExp = flags.length > 0 
-        ? `The scan detected specific structural artifacts: <strong>${flags.join(', ')}</strong>.`
-        : `No synthetic citation patterns, rigid headers, repetitive syntax, or signature AI buzzwords were detected.`;
+    // --- ADDITIONAL TEXT ANALYTICS ---
+
+    // 1. Readability Metrics
+    const totalSyllables = words.reduce((acc, w) => acc + countSyllables(w), 0);
+    const fleschEase = Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords))));
+    const gradeLevel = Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59);
+
+    // 2. Nominalization & Style Metrics
+    const nominalizations = words.filter(w => (w.endsWith('tion') || w.endsWith('ment') || w.endsWith('ance') || w.endsWith('ence')) && w.length > 5);
+    const nomRatio = (nominalizations.length / totalWords) * 100;
+
+    // 3. Tone & Hedging Analysis
+    const hedgeCount = words.filter(w => HEDGING_WORDS.has(w)).length;
+    const assertCount = words.filter(w => ASSERTIVE_WORDS.has(w)).length;
+
+    // 4. Punctuation Profile
+    const emDashes = (text.match(/—|--/g) || []).length;
+    const semicolons = (text.match(/;/g) || []).length;
+    const exclamations = (text.match(/!/g) || []).length;
+    const questions = (text.match(/\?/g) || []).length;
+
+    // 5. Clause & Structure Complexity
+    const complexSentences = sentences.filter(s => s.includes(',') || s.includes(';') || s.includes(' which ') || s.includes(' although ')).length;
+    const complexRatio = (complexSentences / totalSentences) * 100;
 
     return {
         fileName,
@@ -299,11 +329,17 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         score: finalScore.toFixed(1),
         verdict,
         statusClass,
-        entropyExp,
-        lexDivExp,
-        sentVarExp,
-        humanPercExp,
-        flagsExp
+        flags: flags.length > 0 ? flags.join(', ') : "None",
+        fleschEase: fleschEase.toFixed(1),
+        gradeLevel: gradeLevel.toFixed(1),
+        nomRatio: nomRatio.toFixed(1),
+        hedgeCount,
+        assertCount,
+        emDashes,
+        semicolons,
+        exclamations,
+        questions,
+        complexRatio: complexRatio.toFixed(1)
     };
 }
 
@@ -364,30 +400,62 @@ function renderCard(res) {
                 <h2>Analysis Results: ${res.fileName}</h2>
                 <span class="${res.statusClass}">${res.verdict}</span>
             </div>
+
+            <!-- AI & STYLOMETRICS SECTION -->
+            <div class="section-title">AI Detection & Stylometrics Baseline</div>
             
             <div class="metric-row">
                 <div class="metric-label">Human Authenticity Score: <span class="metric-value">${res.score}%</span></div>
-                <div class="metric-explanation">${res.humanPercExp}</div>
+                <div class="metric-explanation">Evaluates sentence length variance, lexical richness, and structural rhythm against baseline thresholds.</div>
             </div>
             
             <div class="metric-row">
-                <div class="metric-label">Shannon Character Entropy: <span class="metric-value">${res.entropy}</span></div>
-                <div class="metric-explanation">${res.entropyExp}</div>
+                <div class="metric-label">Flags & Artifacts Triggered</div>
+                <div class="metric-explanation"><strong>${res.flags}</strong></div>
             </div>
-            
+
             <div class="metric-row">
-                <div class="metric-label">Lexical Diversity: <span class="metric-value">${res.lexDiv}</span></div>
-                <div class="metric-explanation">${res.lexDivExp}</div>
+                <div class="metric-label">Shannon Character Entropy: <span class="metric-value">${res.entropy}</span> | Lexical Diversity: <span class="metric-value">${res.lexDiv}</span> | Sentence Variance: <span class="metric-value">${res.sentVar}</span></div>
+                <div class="metric-explanation">Character entropy reflects string distribution predictability. Diversity indicates unique vocabulary ratio. Sentence variance measures rhythm changes.</div>
             </div>
-            
+
+            <!-- READABILITY SECTION -->
+            <div class="section-title">Readability & Grade Level</div>
+
             <div class="metric-row">
-                <div class="metric-label">Sentence Length Variance: <span class="metric-value">${res.sentVar}</span></div>
-                <div class="metric-explanation">${res.sentVarExp}</div>
+                <div class="metric-label">Flesch Reading Ease: <span class="metric-value">${res.fleschEase} / 100</span></div>
+                <div class="metric-explanation">Higher scores mean easier reading. Plain English ranges between 60–70; technical or academic text typically falls below 40.</div>
             </div>
-            
+
             <div class="metric-row">
-                <div class="metric-label">Flags Triggered</div>
-                <div class="metric-explanation">${res.flagsExp}</div>
+                <div class="metric-label">Flesch-Kincaid Grade Level: <span class="metric-value">Grade ${res.gradeLevel}</span></div>
+                <div class="metric-explanation">Translates text complexity directly into a U.S. educational grade level based on sentence length and syllable count per word.</div>
+            </div>
+
+            <!-- PROSE STYLE SECTION -->
+            <div class="section-title">Prose Structure & Syntax Analysis</div>
+
+            <div class="metric-row">
+                <div class="metric-label">Nominalization Ratio ("Zombie Nouns"): <span class="metric-value">${res.nomRatio}%</span></div>
+                <div class="metric-explanation">Measures the percentage of abstract nouns converted from verbs (e.g., words ending in <em>-tion, -ment, -ance</em>). High ratios (>5%) can make writing feel bloated or overly passive.</div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-label">Sentence Clause Complexity: <span class="metric-value">${res.complexRatio}%</span></div>
+                <div class="metric-explanation">Percentage of sentences using multi-clause structures or conjunctions. Dynamic prose balances simple declarative statements with complex sentences.</div>
+            </div>
+
+            <!-- TONE & PUNCTUATION SECTION -->
+            <div class="section-title">Tone Profile & Punctuation Habits</div>
+
+            <div class="metric-row">
+                <div class="metric-label">Hedging vs. Assertiveness Words</div>
+                <div class="metric-explanation">Detected <strong>${res.hedgeCount}</strong> hedging terms (e.g., <em>suggests, perhaps, might</em>) vs. <strong>${res.assertCount}</strong> assertive terms (e.g., <em>definitely, clearly, proven</em>). Useful for evaluating confidence and academic nuance.</div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-label">Punctuation Fingerprint</div>
+                <div class="metric-explanation">Em-Dashes (—/--): <strong>${res.emDashes}</strong> | Semicolons (;): <strong>${res.semicolons}</strong> | Exclamations (!): <strong>${res.exclamations}</strong> | Questions (?): <strong>${res.questions}</strong>. Tracks individual authorship style habits and formatting choices.</div>
             </div>
         </div>
     `;
