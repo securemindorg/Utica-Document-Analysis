@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Stylometrics & Text Analytics</title>
+    <title>Utica University - Advanced Stylometrics & Text Analytics</title>
     <!-- External Libraries for parsing PDF and DOCX files client-side -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
     <style>
+        :root {
+            --utica-blue: #002D62;
+            --utica-blue-hover: #001f44;
+            --utica-orange: #E85523;
+            --utica-orange-hover: #d14310;
+            --utica-light-blue: #eef4fb;
+            --bg-gray: #f4f6f9;
+            --text-dark: #222222;
+            --metric-normal: #002D62;
+            --metric-warning: #E85523;
+            --metric-fail: #dc3545;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
         }
         .container {
             max-width: 950px;
@@ -21,21 +34,28 @@
             background: #ffffff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 45, 98, 0.08);
+            border-top: 6px solid var(--utica-orange);
         }
-        h1 { margin-top: 0; color: #2c3e50; }
+        h1 { 
+            margin-top: 0; 
+            color: var(--utica-blue);
+            font-size: 26px;
+            border-bottom: 2px solid var(--utica-light-blue);
+            padding-bottom: 10px;
+        }
         
         /* Privacy and Methodology Notice Header */
         .notice-header {
-            background-color: #eef6ff;
-            border-left: 4px solid #0066cc;
+            background-color: var(--utica-light-blue);
+            border-left: 4px solid var(--utica-blue);
             padding: 15px 20px;
             margin-bottom: 25px;
             border-radius: 0 4px 4px 0;
         }
         .notice-header h3 {
             margin: 0 0 8px 0;
-            color: #004085;
+            color: var(--utica-blue);
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -55,7 +75,7 @@
         }
 
         .input-section { margin-bottom: 25px; }
-        label { font-weight: bold; display: block; margin-bottom: 8px; }
+        label { font-weight: bold; display: block; margin-bottom: 8px; color: var(--utica-blue); }
         textarea {
             width: 100%;
             height: 160px;
@@ -66,11 +86,15 @@
             font-size: 14px;
             font-family: inherit;
         }
+        textarea:focus {
+            outline: none;
+            border-color: var(--utica-blue);
+        }
         .file-upload-box {
-            border: 2px dashed #bbb;
+            border: 2px dashed #b0c4de;
             padding: 20px;
             text-align: center;
-            background: #fafafa;
+            background: var(--utica-light-blue);
             border-radius: 4px;
             margin-top: 10px;
         }
@@ -81,43 +105,46 @@
             color: #777;
         }
         button {
-            background-color: #0066cc;
+            background-color: var(--utica-orange);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 24px;
             font-size: 16px;
             border-radius: 4px;
             cursor: pointer;
             width: 100%;
             margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
         }
-        button:hover { background-color: #0052a3; }
+        button:hover { background-color: var(--utica-orange-hover); }
         
         /* Analysis Card & Section Styles */
         .results-card {
             margin-top: 30px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #d0d7de;
             border-radius: 6px;
             overflow: hidden;
             background: #fff;
         }
         .card-header {
-            background: #f2f4f8;
+            background: var(--utica-blue);
+            color: #ffffff;
             padding: 15px 20px;
-            border-bottom: 1px solid #e0e0e0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .card-header h2 { margin: 0; font-size: 18px; color: #2c3e50; }
+        .card-header h2 { margin: 0; font-size: 18px; color: #ffffff; }
         .section-title {
-            background: #e9ecef;
+            background: var(--utica-light-blue);
             padding: 8px 20px;
             font-weight: bold;
             font-size: 14px;
-            color: #495057;
+            color: var(--utica-blue);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border-bottom: 1px solid #d0d7de;
         }
         .metric-row {
             padding: 15px 20px;
@@ -127,12 +154,19 @@
         .metric-label {
             font-weight: bold;
             font-size: 15px;
-            color: #333;
+            color: var(--utica-blue);
             margin-bottom: 4px;
         }
         .metric-value {
             font-weight: bold;
-            color: #0066cc;
+            color: var(--metric-normal);
+        }
+        .metric-value.below-threshold {
+            color: var(--metric-warning);
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #ffeeba;
         }
         .metric-explanation {
             font-size: 13.5px;
@@ -141,30 +175,37 @@
             line-height: 1.4;
         }
         
-        /* Verdict Status Colors */
-        .status-human { color: #28a745; font-weight: bold; }
-        .status-review { color: #856404; font-weight: bold; }
-        .status-hybrid { color: #d97706; font-weight: bold; }
-        .status-bot { color: #dc3545; font-weight: bold; }
+        /* Verdict Status Styling */
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        .status-human { background-color: #28a745; color: #fff; }
+        .status-review { background-color: var(--utica-orange); color: #fff; }
+        .status-hybrid { background-color: #d97706; color: #fff; }
+        .status-bot { background-color: #dc3545; color: #fff; }
         .error-msg { color: #dc3545; font-weight: bold; margin-top: 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Stylometrics & Advanced Text Analytics</h1>
+    <h1>Utica University - Stylometrics & Text Analytics</h1>
 
     <!-- Privacy and Methodology Notice -->
     <div class="notice-header">
         <h3>Important Privacy & Usage Information</h3>
         <ul>
-            <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is sent to an external server or stored anywhere.</li>
-            <li><strong>No AI Used in Analysis:</strong> This tool relies exclusively on deterministic statistical algorithms, mathematical formulas (e.g., Shannon Entropy), and explicit pattern matching. No artificial intelligence or machine learning models are used to evaluate your text.</li>
-            <li><strong>Interpretative Guidelines:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review. Scores should be interpreted in context rather than taken at absolute face value.</li>
+            <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser[cite: 12]. No data is sent to an external server or stored anywhere[cite: 12].</li>
+            <li><strong>No AI Used in Analysis:</strong> This tool relies exclusively on deterministic statistical algorithms, mathematical formulas (e.g., Shannon Entropy), and explicit pattern matching[cite: 12]. No artificial intelligence or machine learning models are used to evaluate your text[cite: 12].</li>
+            <li><strong>Interpretative Guidelines:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review[cite: 12]. Scores should be interpreted in context rather than taken at absolute face value[cite: 12].</li>
         </ul>
     </div>
 
-    <p>Paste text below or upload a document (<strong>.txt, .pdf, .docx</strong>) to evaluate AI artifacts, readability, vocabulary richness, clause complexity, and stylistic tone.</p>
+    <p>Paste text below or upload a document (<strong>.txt, .pdf, .docx</strong>) to evaluate AI artifacts, readability, vocabulary richness, clause complexity, and stylistic tone[cite: 12].</p>
     
     <div class="input-section">
         <label for="textInput">Option 1: Paste Text</label>
@@ -337,28 +378,20 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         statusClass = "status-bot";
     }
 
-    // --- ADDITIONAL TEXT ANALYTICS ---
-
-    // 1. Readability Metrics
+    // Readability Metrics
     const totalSyllables = words.reduce((acc, w) => acc + countSyllables(w), 0);
     const fleschEase = Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords))));
     const gradeLevel = Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59);
 
-    // 2. Nominalization & Style Metrics
+    // Style & Tone Metrics
     const nominalizations = words.filter(w => (w.endsWith('tion') || w.endsWith('ment') || w.endsWith('ance') || w.endsWith('ence')) && w.length > 5);
     const nomRatio = (nominalizations.length / totalWords) * 100;
-
-    // 3. Tone & Hedging Analysis
     const hedgeCount = words.filter(w => HEDGING_WORDS.has(w)).length;
     const assertCount = words.filter(w => ASSERTIVE_WORDS.has(w)).length;
-
-    // 4. Punctuation Profile
     const emDashes = (text.match(/—|--/g) || []).length;
     const semicolons = (text.match(/;/g) || []).length;
     const exclamations = (text.match(/!/g) || []).length;
     const questions = (text.match(/\?/g) || []).length;
-
-    // 5. Clause & Structure Complexity
     const complexSentences = sentences.filter(s => s.includes(',') || s.includes(';') || s.includes(' which ') || s.includes(' although ')).length;
     const complexRatio = (complexSentences / totalSentences) * 100;
 
@@ -434,20 +467,32 @@ async function processInput() {
     }
 }
 
+// Helper function to apply Utica Orange highlight class when metrics fall below normal threshold limits
+function checkThreshold(value, threshold, condition = 'below') {
+    const val = parseFloat(value);
+    let isBelow = false;
+    if (condition === 'below') {
+        isBelow = val < threshold;
+    } else if (condition === 'above') {
+        isBelow = val > threshold;
+    }
+    return isBelow ? `metric-value below-threshold` : `metric-value`;
+}
+
 function renderCard(res) {
     const html = `
         <div class="results-card">
             <div class="card-header">
                 <h2>Analysis Results: ${res.fileName}</h2>
-                <span class="${res.statusClass}">${res.verdict}</span>
+                <span class="status-badge ${res.statusClass}">${res.verdict}</span>
             </div>
 
             <!-- AI & STYLOMETRICS SECTION -->
             <div class="section-title">AI Detection & Stylometrics Baseline</div>
             
             <div class="metric-row">
-                <div class="metric-label">Human Authenticity Score: <span class="metric-value">${res.score}%</span></div>
-                <div class="metric-explanation">Evaluates sentence length variance, lexical richness, and structural rhythm against baseline thresholds.</div>
+                <div class="metric-label">Human Authenticity Score: <span class="${checkThreshold(res.score, 55, 'below')}">${res.score}%</span></div>
+                <div class="metric-explanation">Evaluates sentence length variance, lexical richness, and structural rhythm against baseline thresholds. Expected: &gt;55%</div>
             </div>
             
             <div class="metric-row">
@@ -456,15 +501,19 @@ function renderCard(res) {
             </div>
 
             <div class="metric-row">
-                <div class="metric-label">Shannon Character Entropy: <span class="metric-value">${res.entropy}</span> | Lexical Diversity: <span class="metric-value">${res.lexDiv}</span> | Sentence Variance: <span class="metric-value">${res.sentVar}</span></div>
-                <div class="metric-explanation">Character entropy reflects string distribution predictability. Diversity indicates unique vocabulary ratio. Sentence variance measures rhythm changes.</div>
+                <div class="metric-label">
+                    Shannon Character Entropy: <span class="${checkThreshold(res.entropy, 4.0, 'below')}">${res.entropy}</span> | 
+                    Lexical Diversity: <span class="${checkThreshold(res.lexDiv, 0.45, 'below')}">${res.lexDiv}</span> | 
+                    Sentence Variance: <span class="${checkThreshold(res.sentVar, 25.0, 'below')}">${res.sentVar}</span>
+                </div>
+                <div class="metric-explanation">Character entropy reflects string distribution predictability (&gt;4.0 expected). Diversity indicates unique vocabulary ratio (&gt;0.45 expected). Sentence variance measures rhythm changes (&gt;25.0 expected).</div>
             </div>
 
             <!-- READABILITY SECTION -->
             <div class="section-title">Readability & Grade Level</div>
 
             <div class="metric-row">
-                <div class="metric-label">Flesch Reading Ease: <span class="metric-value">${res.fleschEase} / 100</span></div>
+                <div class="metric-label">Flesch Reading Ease: <span class="${checkThreshold(res.fleschEase, 40.0, 'below')}">${res.fleschEase} / 100</span></div>
                 <div class="metric-explanation">Higher scores mean easier reading. Plain English ranges between 60–70; technical or academic text typically falls below 40.</div>
             </div>
 
@@ -477,13 +526,13 @@ function renderCard(res) {
             <div class="section-title">Prose Structure & Syntax Analysis</div>
 
             <div class="metric-row">
-                <div class="metric-label">Nominalization Ratio ("Zombie Nouns"): <span class="metric-value">${res.nomRatio}%</span></div>
-                <div class="metric-explanation">Measures the percentage of abstract nouns converted from verbs (e.g., words ending in <em>-tion, -ment, -ance</em>). High ratios (>5%) can make writing feel bloated or overly passive.</div>
+                <div class="metric-label">Nominalization Ratio ("Zombie Nouns"): <span class="${checkThreshold(res.nomRatio, 5.0, 'above')}">${res.nomRatio}%</span></div>
+                <div class="metric-explanation">Measures the percentage of abstract nouns converted from verbs (e.g., words ending in <em>-tion, -ment, -ance</em>). Ratios over 5.0% make writing feel bloated or overly passive.</div>
             </div>
 
             <div class="metric-row">
-                <div class="metric-label">Sentence Clause Complexity: <span class="metric-value">${res.complexRatio}%</span></div>
-                <div class="metric-explanation">Percentage of sentences using multi-clause structures or conjunctions. Dynamic prose balances simple declarative statements with complex sentences.</div>
+                <div class="metric-label">Sentence Clause Complexity: <span class="${checkThreshold(res.complexRatio, 30.0, 'below')}">${res.complexRatio}%</span></div>
+                <div class="metric-explanation">Percentage of sentences using multi-clause structures or conjunctions (&gt;30% expected for dynamic academic prose).</div>
             </div>
 
             <!-- TONE & PUNCTUATION SECTION -->
