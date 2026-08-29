@@ -28,51 +28,17 @@ A lightweight, privacy-focused web application designed for students and profess
 
 | Category | Metric | Description & Target Thresholds |
 | --- | --- | --- |
-| **Authenticity & Stylometrics** | **Human Authenticity Score** | Composite score incorporating sentence length variance, length-independent lexical richness (MATTR), Zipfian curve fit, and artifact penalties. Expected: `>55%`.
-
- |
-|  | **Shannon Character Entropy** | Measures string distribution predictability based on character frequency. Expected: `>4.0`.
-
- |
-|  | **Lexical Diversity (TTR & MATTR)** | Reports standard Type-Token Ratio (TTR expected `>0.45`) and 50-word Moving-Average Type-Token Ratio (MATTR expected `>0.65`) for length-invariant vocabulary breadth.
-
- |
-|  | **Sentence Variance** | Measures rhythm and variance in sentence length to detect monotonous syntax. Expected: `>25.0`.
-
- |
-|  | **Artifact & Flag Checks** | Scans for invisible zero-width Unicode (`U+200B`), web copy-paste non-breaking spaces (`U+00A0`), synthetic multi-word trigrams (*"in today's rapidly evolving"*), synthetic citations (arXiv/DOI hallucinations), repetitive sentence openers, rigid LLM section headers, low vocabulary burstiness, and paragraph length symmetry.
-
- |
-| **Distribution & Structural Symmetry** | **Zipf's Law Fit ($R^2$)** | Coefficient of determination measuring how closely word frequency distribution matches Zipf's power law. Expected: `>0.85`.
-
- |
-|  | **Vocabulary Burstiness** | Evaluates whether top content words cluster naturally within specific paragraphs rather than being uniformly spaced across the entire document. Expected dispersion score: `>0.35`.
-
- |
-|  | **Paragraph Symmetry (CV)** | Measures coefficient of variation across paragraph lengths. LLM output exhibits low variation (`CV < 0.22`), while human text varies dynamically between short transitions and dense thematic blocks.
-
- |
-| **Readability** | **Flesch Reading Ease** | Score from 0–100 measuring structural reading accessibility. Technical/academic text typically scores below `40.0`.
-
- |
-|  | **Flesch-Kincaid Grade Level** | Translates sentence length and syllable density directly into U.S. educational grade levels.
-
- |
-| **Prose Structure** | **Nominalization Ratio** | Percentage of abstract "zombie nouns" converted from verbs (words ending in *-tion, -ment, -ance, -ence*). Ratios above `5.0%` indicate bloated prose.
-
- |
-|  | **Passive Voice Ratio** | Percentage of sentences utilizing auxiliary verbs with past-participles (e.g., *"was conducted by"*). Ratios above `25.0%` indicate overly passive prose.
-
- |
-|  | **Sentence Clause Complexity** | Percentage of multi-clause or conjunction-heavy sentences. Expected: `>30%` for complex academic prose.
-
- |
-| **Tone & Punctuation** | **Hedging vs. Assertive Terms** | Counts cautious terms (*suggests, perhaps, might*) against assertive terms (*definitely, proven, clearly*).
-
- |
-|  | **Punctuation Fingerprint** | Tracks usage frequency of em-dashes (`—`), semicolons (`;`), exclamation marks (`!`), and questions (`?`).
-
- |
+| **Authenticity & Stylometrics** | **Human Authenticity Score** | Overall composite score based on sentence length variance, lexical richness, and artifact penalties. Expected: `>55%`. |
+| **Authenticity & Stylometrics** | **Shannon Character Entropy** | Measures string distribution predictability based on character frequency. Expected: `>4.0`. |
+| **Authenticity & Stylometrics** | **Lexical Diversity (TTR)** | Ratio of unique words to total words in the passage. Expected: `>0.45`. |
+| **Authenticity & Stylometrics** | **Sentence Variance** | Measures rhythm and variance in sentence length to detect monotonous syntax. Expected: `>25.0`. |
+| **Authenticity & Stylometrics** | **Artifact & Flag Checks** | Detects synthetic citations (e.g., arXiv/DOI hallucination patterns), repetitive sentence openers, rigid LLM section headers, and AI buzzword overuse. |
+| **Readability** | **Flesch Reading Ease** | Score from 0–100 measuring structural reading accessibility. Technical/academic text typically scores below `40.0`. |
+| **Readability** | **Flesch-Kincaid Grade Level** | Translates sentence length and syllable density directly into U.S. educational grade levels. |
+| **Prose Structure** | **Nominalization Ratio** | Percentage of abstract "zombie nouns" converted from verbs (words ending in *-tion, -ment, -ance, -ence*). Ratios above `5.0%` indicate bloated prose. |
+| **Prose Structure** | **Sentence Clause Complexity** | Percentage of multi-clause or conjunction-heavy sentences. Expected: `>30%` for complex academic prose. |
+| **Tone & Punctuation** | **Hedging vs. Assertive Terms** | Counts cautious terms (*suggests, perhaps, might*) against assertive terms (*definitely, proven, clearly*). |
+| **Tone & Punctuation** | **Punctuation Fingerprint** | Tracks usage frequency of em-dashes (`—`), semicolons (`;`), exclamation marks (`!`), and questions (`?`). |
 
 ---
 
