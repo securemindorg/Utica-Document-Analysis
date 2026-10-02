@@ -1,3 +1,5 @@
+## LIVE DEMO AT: http://www.securemind.org/Utica-Document-Analysis
+
 # Utica University - Stylometrics & Text Analytics
 
 A lightweight, privacy-focused web application designed for students and professors at Utica University to analyze academic text for stylistic patterns, readability metrics, syntactic structure, and deterministic markers of machine-generated text.
