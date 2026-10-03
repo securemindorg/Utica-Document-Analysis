@@ -1,0 +1,26 @@
+================================================================================
+UNIFIED STYLOMETRIC ANALYSIS REPORT (PRE-LLM MICUSP VS. POST-LLM MOODLE)
+Execution Timestamp: 2026-10-02 18:05:37
+================================================================================
+
+[1/3] Processing Moodle Exports...
+-> Successfully processed 355 Moodle submissions.
+
+[2/3] Processing MICUSP Baseline PDFs...
+-> Successfully processed 365 MICUSP baseline papers.
+
+[3/3] Generating Unified Comparative Report...
+
+=== UNIFIED COMPARATIVE STYLOMETRIC DRIFT TABLE ===
+| Metric       | MICUSP Baseline (Mean ± SD)   | Moodle Cohort (Mean ± SD)   |   Cohen's d |    p-value |
+|:-------------|:------------------------------|:----------------------------|------------:|-----------:|
+| Sentence_Var | 242.204 ± 172.713             | 266.993 ± 1046.936          |       0.033 | 0.66       |
+| MATTR        | 0.697 ± 0.047                 | 0.732 ± 0.043               |       0.776 | 9.1333e-24 |
+| Zipf_R2      | 0.951 ± 0.026                 | 0.924 ± 0.031               |      -0.931 | 2.6173e-32 |
+| Flesch_Ease  | 38.846 ± 8.394                | 21.593 ± 12.890             |      -1.591 | 3.7879e-75 |
+| Auth_Score   | 82.187 ± 7.693                | 74.911 ± 12.972             |      -0.684 | 1.2505e-18 |
+| Flag_Count   | 0.507 ± 0.627                 | 0.586 ± 0.721               |       0.117 | 0.117      |
+
+Empirical Baseline False Positive Rate (FPR) on MICUSP: 44.38% (162/365 papers flagged)
+
+Execution finished. Output report logged to: unified_analysis_report_20261002_180537.txt
