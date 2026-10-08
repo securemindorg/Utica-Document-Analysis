@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Stylometrics & Text Analytics</title>
+    <title>Formative Stylometrics & Technical Document Analytics</title>
     <!-- External Libraries for parsing PDF, DOCX, ZIP files and rendering charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
@@ -304,8 +304,8 @@
 <div class="container">
     <div class="header-bar">
         <div class="header-title-group">
-            <h1>University - Stylometrics & Text Analytics</h1>
-            <div class="last-updated-badge">Last Updated: August 28, 2026</div>
+            <h1>University - Stylometric & Structural Analytics</h1>
+            <div class="last-updated-badge">Last Updated: October 7, 2026 (Calibrated Thresholds)</div>
         </div>
         <a href="https://github.com/securemindorg/Utica-Document-Analysis" target="_blank" class="github-btn">
             <svg viewBox="0 0 24 24">
@@ -319,10 +319,11 @@
     <div class="notice-header">
         <h3>Important Privacy & Usage Information</h3>
         <ul>
+            <li><strong>Tuned Thresholds (October 7th 2026): </strong> I'm currently in the process of finalizing a research study using hundreds of historic papers, as such I've updated the thresholds for detection based on the results of that paper. </li>
             <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is sent to an external server or stored anywhere.</li>
-            <li><strong>No AI Used in Analysis:</strong> This tool relies exclusively on deterministic statistical algorithms, mathematical formulas (e.g., Shannon Entropy, MATTR, Zipf's Law), and explicit pattern matching. No artificial intelligence or machine learning models are used to evaluate your text.</li>
-            <li><strong>Interpretative Guidelines:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review. Scores should be interpreted in context rather than taken at absolute face value.</li>
-            <li><strong>Thesis/Dissertation Analysis:</strong> Do not take results at face value for full Thesis or Dissertation documents. Due to the technical nature and number of iterations, these students have much more advanced styles of writing and may get improperly detected as AI.</li>
+            <li><strong>Deterministic Analytics:</strong> This tool relies exclusively on deterministic statistical algorithms, mathematical formulas (e.g., Shannon Entropy, MATTR, Zipf's Law), and explicit pattern matching. No artificial intelligence or machine learning models are used to evaluate your text.</li>
+            <li><strong>Formative Interpretation:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review. Scores should be interpreted in context rather than taken at absolute face value.</li>
+            <li><strong>Thesis/Dissertation Analysis:</strong> Do not take results at face value for full Thesis or Dissertation documents. Due to the technical nature and number of iterations, these students have much more advanced styles of writing and may get improperly evaluated or flagged.</li>
             <li><strong>PowerPoint Presentations:</strong> Uploading or extracting text from PowerPoint files (.pptx) will not produce accurate results due to bulleted structures, minimal prose length, and low sentence density. Please submit standard document formats (.docx, .pdf, .txt).</li>
         </ul>
     </div>
@@ -423,7 +424,7 @@ function calculateMATTR(words, windowSize = 50) {
 
 // 2. Zipf's Law Goodness of Fit (R^2 Correlation)
 function calculateZipfFit(words) {
-    if (words.length < 30) return 0.95; // Default neutral fit for very short text
+    if (words.length < 30) return 0.95; 
     const freqMap = {};
     words.forEach(w => freqMap[w] = (freqMap[w] || 0) + 1);
     const freqs = Object.values(freqMap).sort((a, b) => b - a);
@@ -559,14 +560,14 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
     const headerRegex = /^(Concern|Introduction|The Concern|References):/gm;
     const headerMatches = rawText.match(headerRegex);
     if (headerMatches) {
-        const uniqueHeaders = [...new Set(headerMatches.map(h => h.replace(':', '')))];
+        const uniqueHeaders = ...new Set(headerMatches.map(h => h.replace(':', '')))];
         penalty += 10;
         flags.push(`LLM Section Headers: [${uniqueHeaders.join(', ')}]`);
     }
 
     // 5. Single Vocabulary Tells
     const foundBuzzwords = cleanWords.filter(w => AI_SIGNATURES.has(w));
-    const uniqueBuzzwords = [...new Set(foundBuzzwords)];
+    const uniqueBuzzwords = ...new Set(foundBuzzwords)];
     if (uniqueBuzzwords.length >= 2) {
         penalty += Math.min(20, uniqueBuzzwords.length * 5);
         flags.push(`AI Vocabulary Overuse: [${uniqueBuzzwords.join(', ')}]`);
@@ -613,7 +614,7 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
 }
 
 function analyzeDocument(text, fileName = "Pasted Text") {
-    const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+    const sentences = text.split(/.!?]+/).map(s => s.trim()).filter(Boolean);
     const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
     
     const totalWords = words.length;
@@ -634,8 +635,8 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const meanLen = lengths.reduce((a, b) => a + b, 0) / totalSentences;
     const variance = lengths.reduce((a, b) => a + Math.pow(b - meanLen, 2), 0) / totalSentences;
     
-    // Weighted Score
-    const vScore = Math.min(25, (variance / 85) * 25);
+    // Weighted Score (Calibrated against empirical sentence variance collapse threshold of 50.0)
+    const vScore = Math.min(25, (variance / 50.0) * 25);
     const mScore = Math.min(25, (mattr / 0.75) * 25);
     const zScore = zipfFit >= 0.85 ? 15 : 5;
     const baseScore = 25 + vScore + mScore + zScore;
@@ -646,20 +647,20 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     let verdict = "";
     let statusClass = "";
     if (finalScore > 75 && flags.length === 0) {
-        verdict = "Highly Likely Human";
+        verdict = "Highly Likely Human Prototyping";
         statusClass = "status-human";
     } else if (finalScore >= 55) {
-        verdict = "Likely Human (Review Manually)";
+        verdict = "Standard Technical Register (Review)";
         statusClass = "status-review";
     } else if (finalScore >= 40) {
-        verdict = "Suspected AI Hybrid / Style Masked";
+        verdict = "Suspected Structural Drift / Hybrid";
         statusClass = "status-hybrid";
     } else {
-        verdict = "Highly Likely AI / Bot";
+        verdict = "Significant Stylistic Collapse / Bot Pattern";
         statusClass = "status-bot";
     }
 
-    // Readability Metrics
+    // Readability Metrics (Calibrated FRE warning down to 25.0 for technical student cohorts)
     const totalSyllables = words.reduce((acc, w) => acc + countSyllables(w), 0);
     const fleschEase = Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords))));
     const gradeLevel = Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59);
@@ -832,12 +833,12 @@ function renderCard(res) {
                 <span class="status-badge ${res.statusClass}">${res.verdict}</span>
             </div>
 
-            <!-- AI & STYLOMETRICS SECTION -->
-            <div class="section-title">AI Detection & Stylometrics Baseline</div>
+            <!-- STYLOMETRICS BASELINE SECTION -->
+            <div class="section-title">Stylometric Baseline & Structural Drift</div>
             
             <div class="metric-row">
-                <div class="metric-label">Human Authenticity Score: <span class="${checkThreshold(res.score, 55, 'below')}">${res.score}%</span></div>
-                <div class="metric-explanation">Evaluates sentence length variance, lexical richness (MATTR), Zipfian fit, and structural rhythm against baseline thresholds. Expected: &gt;55%</div>
+                <div class="metric-label">Stylometric Alignment Score: <span class="${checkThreshold(res.score, 55, 'below')}">${res.score}%</span></div>
+                <div class="metric-explanation">Evaluates sentence length variance (collapse threshold $\le 50.0\text{ words}^2$), lexical richness (MATTR), Zipfian fit, and structural rhythm against baseline thresholds. Expected: &gt;55%</div>
             </div>
             
             <div class="metric-row">
@@ -870,8 +871,8 @@ function renderCard(res) {
             <div class="section-title">Readability & Grade Level</div>
 
             <div class="metric-row">
-                <div class="metric-label">Flesch Reading Ease: <span class="${checkThreshold(res.fleschEase, 40.0, 'below')}">${res.fleschEase} / 100</span></div>
-                <div class="metric-explanation">Higher scores mean easier reading. Plain English ranges between 60–70; technical or academic text typically falls below 40.</div>
+                <div class="metric-label">Flesch Reading Ease: <span class="${checkThreshold(res.fleschEase, 25.0, 'below')}">${res.fleschEase} / 100</span></div>
+                <div class="metric-explanation">Technical and graduate student prose naturally exhibits lower readability scores due to domain-specific terminology; warning threshold calibrated to 25.0.</div>
             </div>
 
             <div class="metric-row">
@@ -887,7 +888,7 @@ function renderCard(res) {
                     Nominalization Ratio: <span class="${checkThreshold(res.nomRatio, 5.0, 'above')}">${res.nomRatio}%</span> | 
                     Passive Voice Ratio: <span class="${checkThreshold(res.passiveRatio, 25.0, 'above')}">${res.passiveRatio}%</span>
                 </div>
-                <div class="metric-explanation">Nominalizations ("zombie nouns") over 5.0% or passive voice over 25.0% contribute to overly rigid, bureaucratic, or synthetic prose styles.</div>
+                <div class="metric-explanation">Nominalizations over 5.0% or passive voice over 25.0% highlight rigid, bureaucratic, or overly synthetic prose styling.</div>
             </div>
 
             <div class="metric-row">
@@ -916,17 +917,17 @@ function renderBatchMatrix(batchData) {
     const { results, skipped } = batchData;
 
     const categories = {
-        'Highly Likely Human': 0,
-        'Likely Human (Review)': 0,
-        'Suspected AI Hybrid': 0,
-        'Highly Likely AI / Bot': 0
+        'Highly Likely Human Prototyping': 0,
+        'Standard Technical Register (Review)': 0,
+        'Suspected Structural Drift / Hybrid': 0,
+        'Significant Stylistic Collapse': 0
     };
 
     results.forEach(r => {
-        if (r.verdict.includes('Highly Likely Human')) categories['Highly Likely Human']++;
-        else if (r.verdict.includes('Likely Human')) categories['Likely Human (Review)']++;
-        else if (r.verdict.includes('Suspected AI Hybrid')) categories['Suspected AI Hybrid']++;
-        else categories['Highly Likely AI / Bot']++;
+        if (r.verdict.includes('Highly Likely Human')) categories['Highly Likely Human Prototyping']++;
+        else if (r.verdict.includes('Standard Technical')) categories['Standard Technical Register (Review)']++;
+        else if (r.verdict.includes('Suspected Structural')) categories['Suspected Structural Drift / Hybrid']++;
+        else categories['Significant Stylistic Collapse']++;
     });
 
     let skippedNotice = '';
@@ -942,7 +943,7 @@ function renderBatchMatrix(batchData) {
     const html = `
         <div class="batch-summary-container">
             <div class="chart-card">
-                <h3>Moodle Submissions Analysis Overview (${results.length} Processed)</h3>
+                <h3>Moodle Submissions Analysis Overview (${results.length} Processed)[</h3>
                 <div style="max-height: 260px; position: relative;">
                     <canvas id="histogramChart"></canvas>
                 </div>
@@ -956,7 +957,7 @@ function renderBatchMatrix(batchData) {
                             <tr>
                                 <th>Student Name</th>
                                 <th>File Name</th>
-                                <th>Authenticity Score</th>
+                                <th>Stylometric Score</th>
                                 <th>Verdict Classification</th>
                                 <th>MATTR</th>
                                 <th>Zipf R²</th>
@@ -995,14 +996,14 @@ function renderBatchMatrix(batchData) {
     activeChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Highly Likely Human', 'Likely Human (Review)', 'Suspected AI Hybrid', 'Highly Likely AI / Bot'],
+            labels: ['Highly Likely Human Prototyping', 'Standard Technical (Review)', 'Suspected Structural Drift', 'Significant Stylistic Collapse'],
             datasets: [{
                 label: 'Number of Submissions',
                 data: [
-                    categories['Highly Likely Human'],
-                    categories['Likely Human (Review)'],
-                    categories['Suspected AI Hybrid'],
-                    categories['Highly Likely AI / Bot']
+                    categories['Highly Likely Human Prototyping'],
+                    categories['Standard Technical Register (Review)'],
+                    categories['Suspected Structural Drift / Hybrid'],
+                    categories['Significant Stylistic Collapse']
                 ],
                 backgroundColor: [
                     '#28a745',
