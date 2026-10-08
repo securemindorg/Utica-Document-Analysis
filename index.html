@@ -93,7 +93,6 @@
             height: 18px;
         }
         
-        /* Privacy and Methodology Notice Header */
         .notice-header {
             background-color: var(--utica-light-blue);
             border-left: 4px solid var(--utica-blue);
@@ -145,7 +144,20 @@
             background: var(--utica-light-blue);
             border-radius: 4px;
             margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
+        .clear-file-btn {
+            background-color: #6c757d;
+            font-size: 12px;
+            padding: 6px 12px;
+            margin-top: 0;
+            width: auto;
+        }
+        .clear-file-btn:hover { background-color: #5a6268; }
         .or-divider {
             text-align: center;
             margin: 15px 0;
@@ -167,7 +179,6 @@
         }
         button:hover { background-color: var(--utica-orange-hover); }
         
-        /* Analysis Card & Section Styles */
         .results-card {
             margin-top: 30px;
             border: 1px solid #d0d7de;
@@ -223,7 +234,6 @@
             line-height: 1.4;
         }
         
-        /* Verdict Status Styling */
         .status-badge {
             padding: 4px 10px;
             border-radius: 12px;
@@ -237,9 +247,8 @@
         .status-review { background-color: var(--utica-orange); color: #fff; }
         .status-hybrid { background-color: #d97706; color: #fff; }
         .status-bot { background-color: #dc3545; color: #fff; }
-        .error-msg { color: #dc3545; font-weight: bold; margin-top: 10px; }
+        .error-msg { color: #dc3545; font-weight: bold; margin-top: 10px; background: #f8d7da; padding: 10px; border-radius: 4px; display: none; }
 
-        /* Batch / Matrix Styles */
         .batch-summary-container {
             margin-top: 30px;
             display: flex;
@@ -315,20 +324,17 @@
         </a>
     </div>
 
-    <!-- Privacy and Methodology Notice -->
     <div class="notice-header">
         <h3>Important Privacy & Usage Information</h3>
-        <ul>
-            <li><strong>Tuned Thresholds (October 7th 2026): </strong> I'm currently in the process of finalizing a research study using hundreds of historic papers, as such I've updated the thresholds for detection based on the results of that paper. </li>
+        <ul
+            <li><strong>Tuned Thresholds (October 7th 2026): </strong> I'm currently in the process of finalizing a research study using hundreds of historic papers, as such I've updated the thresholds for detection based on the results of that paper. </li>            
             <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is sent to an external server or stored anywhere.</li>
-            <li><strong>Deterministic Analytics:</strong> This tool relies exclusively on deterministic statistical algorithms, mathematical formulas (e.g., Shannon Entropy, MATTR, Zipf's Law), and explicit pattern matching. No artificial intelligence or machine learning models are used to evaluate your text.</li>
-            <li><strong>Formative Interpretation:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review. Scores should be interpreted in context rather than taken at absolute face value.</li>
-            <li><strong>Thesis/Dissertation Analysis:</strong> Do not take results at face value for full Thesis or Dissertation documents. Due to the technical nature and number of iterations, these students have much more advanced styles of writing and may get improperly evaluated or flagged.</li>
-            <li><strong>PowerPoint Presentations:</strong> Uploading or extracting text from PowerPoint files (.pptx) will not produce accurate results due to bulleted structures, minimal prose length, and low sentence density. Please submit standard document formats (.docx, .pdf, .txt).</li>
+            <li><strong>Deterministic Analytics:</strong> Relies exclusively on deterministic statistical algorithms, mathematical formulas (Shannon Entropy, MATTR, Zipf's Law), and explicit pattern matching.</li>
+            <li><strong>Formative Interpretation:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review.</li>
         </ul>
     </div>
 
-    <p>Paste text below or upload individual documents (<strong>.txt, .pdf, .docx</strong>) or a Moodle assignment archive (<strong>.zip</strong>) to evaluate stylometric features and authenticity.</p>
+    <p>Paste text below or upload individual documents (<strong>.txt, .pdf, .docx</strong>) or a Moodle assignment archive (<strong>.zip</strong>).</p>
     
     <div class="input-section">
         <label for="textInput">Option 1: Paste Text</label>
@@ -336,9 +342,10 @@
         
         <div class="or-divider">— OR —</div>
         
-        <label for="fileInput">Option 2: Upload Document or <div class="last-updated-badge">Moodle ZIP</div> (.txt, .pdf, .docx, .zip)</label>
+        <label for="fileInput">Option 2: Upload Document or Moodle ZIP (.txt, .pdf, .docx, .zip)</label>
         <div class="file-upload-box">
             <input type="file" id="fileInput" accept=".txt, .pdf, .docx, .zip">
+            <button type="button" class="clear-file-btn" onclick="clearSelectedFile()">Clear Selected File</button>
         </div>
         
         <button onclick="processInput()">Run Comprehensive Analysis</button>
@@ -349,10 +356,16 @@
 </div>
 
 <script>
-// Configure PDF.js worker URL
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+// Configure PDF.js worker URL safely
+if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
 
 let activeChart = null;
+
+function clearSelectedFile() {
+    document.getElementById('fileInput').value = '';
+}
 
 const AI_SIGNATURES = new Set([
     'delve', 'testament', 'pivotal', 'foster', 'synergy', 'bespoke', 
@@ -406,7 +419,6 @@ function calculateShannonEntropy(text) {
     return entropy;
 }
 
-// 1. Moving-Average Type-Token Ratio (MATTR)
 function calculateMATTR(words, windowSize = 50) {
     if (words.length < windowSize) {
         return words.length ? (new Set(words).size / words.length) : 0;
@@ -422,7 +434,6 @@ function calculateMATTR(words, windowSize = 50) {
     return sumTTR / count;
 }
 
-// 2. Zipf's Law Goodness of Fit (R^2 Correlation)
 function calculateZipfFit(words) {
     if (words.length < 30) return 0.95; 
     const freqMap = {};
@@ -448,7 +459,6 @@ function calculateZipfFit(words) {
     return Math.min(1.0, Math.max(0, r * r));
 }
 
-// 3. Vocabulary Burstiness & Clustering Analysis
 function calculateVocabularyBurstiness(rawText) {
     const paragraphs = rawText.split(/\n\s*\n/).map(p => p.trim()).filter(p => p.length > 0);
     if (paragraphs.length < 3) return { dispersionScore: 1.0, isUniform: false };
@@ -491,7 +501,6 @@ function calculateVocabularyBurstiness(rawText) {
     };
 }
 
-// 4. Passive Voice Ratio
 function calculatePassiveVoice(sentences) {
     if (sentences.length === 0) return { count: 0, ratio: 0 };
     const passiveRegex = /\b(am|is|are|was|were|be|been|being)\b\s+([\w]+ed|conducted|shown|given|made|found|taken|seen|built|chosen|driven|written|known|done)\b/i;
@@ -503,7 +512,6 @@ function calculatePassiveVoice(sentences) {
     return { count, ratio: parseFloat(ratio.toFixed(1)) };
 }
 
-// 5. Paragraph Length Symmetry
 function calculateParagraphSymmetry(rawText) {
     const paragraphs = rawText.split(/\n\s*\n/).map(p => p.trim()).filter(p => p.length > 0);
     if (paragraphs.length < 3) return { count: paragraphs.length, stdDev: 0, cv: 1.0, isSymmetrical: false };
@@ -527,7 +535,6 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
     let penalty = 0;
     const flags = [];
     
-    // 1. Invisible Unicode & Clipboard Artifacts
     const zwMatches = rawText.match(/[\u200B-\u200D\uFEFF]/g);
     if (zwMatches) {
         penalty += 20;
@@ -540,7 +547,6 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
         flags.push(`Web Clipboard Non-Breaking Spaces (${nbspMatches.length} detected)`);
     }
 
-    // 2. Synthetic Multi-Word Collocation / Filler Trigrams
     const lowerText = rawText.toLowerCase();
     const foundTrigrams = SYNTHETIC_TRIGRAMS.filter(phrase => lowerText.includes(phrase));
     if (foundTrigrams.length > 0) {
@@ -548,7 +554,6 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
         flags.push(`Synthetic Multi-Word Phrases: ["${foundTrigrams.slice(0, 2).join('", "')}"]`);
     }
 
-    // 3. Academic Citation Hallucinations
     const arxivRegex = /(arxiv:\s*\d{4}\.\d{4,5}|arxiv\.org\/abs\/\d{4}\.\d{4,5}|doi\.org\/10\.\d{4})/gi;
     const arxivFinds = rawText.match(arxivRegex);
     if (arxivFinds) {
@@ -556,24 +561,21 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
         flags.push(`Synthetic Citation Pattern (${arxivFinds.length} found)`);
     }
     
-    // 4. Rigid Structural Headers
     const headerRegex = /^(Concern|Introduction|The Concern|References):/gm;
     const headerMatches = rawText.match(headerRegex);
     if (headerMatches) {
-        const uniqueHeaders = ...new Set(headerMatches.map(h => h.replace(':', '')))];
+        const uniqueHeaders = [...new Set(headerMatches.map(h => h.replace(':', '')))];
         penalty += 10;
         flags.push(`LLM Section Headers: [${uniqueHeaders.join(', ')}]`);
     }
 
-    // 5. Single Vocabulary Tells
     const foundBuzzwords = cleanWords.filter(w => AI_SIGNATURES.has(w));
-    const uniqueBuzzwords = ...new Set(foundBuzzwords)];
+    const uniqueBuzzwords = [...new Set(foundBuzzwords)];
     if (uniqueBuzzwords.length >= 2) {
         penalty += Math.min(20, uniqueBuzzwords.length * 5);
         flags.push(`AI Vocabulary Overuse: [${uniqueBuzzwords.join(', ')}]`);
     }
 
-    // 6. Repeated Sentence Openers
     if (sentences.length >= 3) {
         let maxRepetitiveStarts = 1;
         let currentCount = 1;
@@ -596,14 +598,12 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
         }
     }
 
-    // 7. Paragraph Length Uniformity Penalty
     const paraSym = calculateParagraphSymmetry(rawText);
     if (paraSym.isSymmetrical) {
         penalty += 15;
         flags.push(`Unnatural Paragraph Symmetry (CV = ${paraSym.cv})`);
     }
 
-    // 8. Low Vocabulary Burstiness Penalty
     const burstiness = calculateVocabularyBurstiness(rawText);
     if (burstiness.isUniform) {
         penalty += 15;
@@ -614,7 +614,7 @@ function deepArtifactCheck(rawText, cleanWords, sentences) {
 }
 
 function analyzeDocument(text, fileName = "Pasted Text") {
-    const sentences = text.split(/.!?]+/).map(s => s.trim()).filter(Boolean);
+    const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
     const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
     
     const totalWords = words.length;
@@ -624,7 +624,6 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         throw new Error("Text is too short for a reliable analysis. Please provide at least 30 words and 2 sentences.");
     }
     
-    // Core Stylometrics & New Features
     const entropy = calculateShannonEntropy(text);
     const lexDiv = (new Set(words)).size / totalWords;
     const mattr = calculateMATTR(words, 50);
@@ -635,7 +634,6 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const meanLen = lengths.reduce((a, b) => a + b, 0) / totalSentences;
     const variance = lengths.reduce((a, b) => a + Math.pow(b - meanLen, 2), 0) / totalSentences;
     
-    // Weighted Score (Calibrated against empirical sentence variance collapse threshold of 50.0)
     const vScore = Math.min(25, (variance / 50.0) * 25);
     const mScore = Math.min(25, (mattr / 0.75) * 25);
     const zScore = zipfFit >= 0.85 ? 15 : 5;
@@ -660,12 +658,10 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         statusClass = "status-bot";
     }
 
-    // Readability Metrics (Calibrated FRE warning down to 25.0 for technical student cohorts)
     const totalSyllables = words.reduce((acc, w) => acc + countSyllables(w), 0);
     const fleschEase = Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords))));
     const gradeLevel = Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59);
 
-    // Style & Tone Metrics
     const nominalizations = words.filter(w => (w.endsWith('tion') || w.endsWith('ment') || w.endsWith('ance') || w.endsWith('ence')) && w.length > 5);
     const nomRatio = (nominalizations.length / totalWords) * 100;
     const hedgeCount = words.filter(w => HEDGING_WORDS.has(w)).length;
@@ -710,9 +706,11 @@ async function extractTextFromBuffer(arrayBuffer, ext) {
         const decoder = new TextDecoder('utf-8');
         return decoder.decode(arrayBuffer);
     } else if (ext === 'docx') {
+        if (!window.mammoth) throw new Error("Mammoth library failed to load.");
         const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
         return result.value;
     } else if (ext === 'pdf') {
+        if (!window.pdfjsLib) throw new Error("PDF.js library failed to load.");
         const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
         let extractedText = "";
         for (let i = 1; i <= pdf.numPages; i++) {
@@ -739,6 +737,7 @@ function parseMoodleStudentName(relativePath) {
 }
 
 async function processZipArchive(zipFile) {
+    if (!window.JSZip) throw new Error("JSZip library failed to load.");
     const zip = await JSZip.loadAsync(zipFile);
     const results = [];
     const skipped = [];
@@ -778,12 +777,17 @@ async function processZipArchive(zipFile) {
 async function processInput() {
     const errorDiv = document.getElementById('errorMessage');
     errorDiv.innerText = "";
+    errorDiv.style.display = "none";
     
     const pastedText = document.getElementById('textInput').value.trim();
     const fileInput = document.getElementById('fileInput');
     
     try {
-        if (fileInput.files.length > 0) {
+        // Priority logic: If user typed text, analyze text first. Otherwise check file upload.
+        if (pastedText.length > 0) {
+            const res = analyzeDocument(pastedText, "Pasted Text");
+            renderCard(res);
+        } else if (fileInput.files.length > 0) {
             const file = fileInput.files[0];
             const ext = file.name.split('.').pop().toLowerCase();
             
@@ -797,15 +801,13 @@ async function processInput() {
             const textToAnalyze = await extractTextFromBuffer(arrayBuffer, ext);
             const res = analyzeDocument(textToAnalyze, file.name);
             renderCard(res);
-            
-        } else if (pastedText.length > 0) {
-            const res = analyzeDocument(pastedText, "Pasted Text");
-            renderCard(res);
         } else {
-            throw new Error("Please paste text or select a file to analyze.");
+            throw new Error("Please paste text into the box or select a file to analyze.");
         }
     } catch (err) {
+        console.error(err);
         errorDiv.innerText = err.message;
+        errorDiv.style.display = "block";
     }
 }
 
@@ -833,12 +835,11 @@ function renderCard(res) {
                 <span class="status-badge ${res.statusClass}">${res.verdict}</span>
             </div>
 
-            <!-- STYLOMETRICS BASELINE SECTION -->
             <div class="section-title">Stylometric Baseline & Structural Drift</div>
             
             <div class="metric-row">
                 <div class="metric-label">Stylometric Alignment Score: <span class="${checkThreshold(res.score, 55, 'below')}">${res.score}%</span></div>
-                <div class="metric-explanation">Evaluates sentence length variance (collapse threshold $\le 50.0\text{ words}^2$), lexical richness (MATTR), Zipfian fit, and structural rhythm against baseline thresholds. Expected: &gt;55%</div>
+                <div class="metric-explanation">Evaluates sentence length variance (collapse threshold &le; 50.0 words²), lexical richness (MATTR), Zipfian fit, and structural rhythm against baseline thresholds. Expected: &gt;55%</div>
             </div>
             
             <div class="metric-row">
@@ -855,7 +856,6 @@ function renderCard(res) {
                 <div class="metric-explanation">Entropy measures character distribution predictability (&gt;4.0). MATTR provides a length-invariant measure of vocabulary breadth (&gt;0.65 expected).</div>
             </div>
 
-            <!-- ADVANCED DISTRIBUTION & LEXICAL FIT -->
             <div class="section-title">Distribution & Structural Symmetry</div>
 
             <div class="metric-row">
@@ -867,7 +867,6 @@ function renderCard(res) {
                 <div class="metric-explanation">Natural prose fits Zipf's law curve closely (&gt;0.85). Human writing exhibits clustered vocabulary burstiness (&gt;0.35) and dynamic paragraph length variance (CV &gt;0.22).</div>
             </div>
 
-            <!-- READABILITY SECTION -->
             <div class="section-title">Readability & Grade Level</div>
 
             <div class="metric-row">
@@ -880,7 +879,6 @@ function renderCard(res) {
                 <div class="metric-explanation">Translates text complexity directly into a U.S. educational grade level based on sentence length and syllable count per word.</div>
             </div>
 
-            <!-- PROSE STYLE SECTION -->
             <div class="section-title">Prose Structure & Syntax Analysis</div>
 
             <div class="metric-row">
@@ -896,17 +894,16 @@ function renderCard(res) {
                 <div class="metric-explanation">Percentage of sentences using multi-clause structures or conjunctions (&gt;30% expected for dynamic academic prose).</div>
             </div>
 
-            <!-- TONE & PUNCTUATION SECTION -->
             <div class="section-title">Tone Profile & Punctuation Habits</div>
 
             <div class="metric-row">
                 <div class="metric-label">Hedging vs. Assertiveness Words</div>
-                <div class="metric-explanation">Detected <strong>${res.hedgeCount}</strong> hedging terms (e.g., <em>suggests, perhaps, might</em>) vs. <strong>${res.assertCount}</strong> assertive terms (e.g., <em>definitely, clearly, proven</em>). Useful for evaluating confidence and academic nuance.</div>
+                <div class="metric-explanation">Detected <strong>${res.hedgeCount}</strong> hedging terms (e.g., <em>suggests, perhaps, might</em>) vs. <strong>${res.assertCount}</strong> assertive terms (e.g., <em>definitely, clearly, proven</em>).</div>
             </div>
 
             <div class="metric-row">
                 <div class="metric-label">Punctuation Fingerprint</div>
-                <div class="metric-explanation">Em-Dashes (—/--): <strong>${res.emDashes}</strong> | Semicolons (;): <strong>${res.semicolons}</strong> | Exclamations (!): <strong>${res.exclamations}</strong> | Questions (?): <strong>${res.questions}</strong>. Tracks individual authorship style habits and formatting choices.</div>
+                <div class="metric-explanation">Em-Dashes (—/--): <strong>${res.emDashes}</strong> | Semicolons (;): <strong>${res.semicolons}</strong> | Exclamations (!): <strong>${res.exclamations}</strong> | Questions (?): <strong>${res.questions}</strong>.</div>
             </div>
         </div>
     `;
@@ -943,7 +940,7 @@ function renderBatchMatrix(batchData) {
     const html = `
         <div class="batch-summary-container">
             <div class="chart-card">
-                <h3>Moodle Submissions Analysis Overview (${results.length} Processed)[</h3>
+                <h3>Moodle Submissions Analysis Overview (${results.length} Processed)</h3>
                 <div style="max-height: 260px; position: relative;">
                     <canvas id="histogramChart"></canvas>
                 </div>
