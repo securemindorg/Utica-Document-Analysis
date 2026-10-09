@@ -1,0 +1,45 @@
+================================================================================
+SUBGROUP & DEMOGRAPHIC FAIRNESS ANALYSIS (ESL VS. NATIVE ENGLISH SPEAKERS)
+Execution Timestamp: 2026-10-08 22:14:42
+================================================================================
+
+[1/4] Processing University ESL Papers from ./non-native...
+-> Loaded 145 ESL papers from university dataset.
+
+[2/4] Filtering Contemporary NES Papers from moodle_extracted_dataset.csv...
+-> Successfully isolated 215 true NES contemporary papers (excluded 140 ESL papers).
+
+[3/4] Processing MICUSP Baseline Subgroups...
+-> Loaded 365 MICUSP papers across language subgroups.
+
+[4/4] Executing Mann-Whitney U Tests & FDR Corrections...
+
+=== A. HISTORICAL PRE-LLM ERA (MICUSP: ESL vs. NES) ===
+| Feature         | ESL Mean (±SD)   | NES Mean (±SD)   |   U_Statistic |   p_value |   FDR_q_value |
+|:----------------|:-----------------|:-----------------|--------------:|----------:|--------------:|
+| Sentence_Var    | 205.78 (±113.66) | 250.38 (±160.69) |       11063.5 |    0.0189 |        0.0505 |
+| Flesch_Ease     | 38.78 (±8.68)    | 38.87 (±8.30)    |       13202   |    0.9693 |        0.9693 |
+| Zipf_R2         | 0.95 (±0.01)     | 0.95 (±0.03)     |       12436.5 |    0.4153 |        0.5538 |
+| Entropy         | 4.67 (±0.14)     | 4.66 (±0.13)     |       14210.5 |    0.2445 |        0.3912 |
+| Nominal_Ratio_% | 3.35 (±1.01)     | 3.14 (±1.09)     |       14834   |    0.0628 |        0.1256 |
+| MATTR           | 0.69 (±0.03)     | 0.70 (±0.05)     |       10364   |    0.0018 |        0.0077 |
+| Grade_Level     | 12.60 (±1.52)    | 12.65 (±1.61)    |       13001.5 |    0.8539 |        0.9693 |
+| Passive_%       | 18.12 (±9.05)    | 15.13 (±8.10)    |       15948.5 |    0.0019 |        0.0077 |
+
+=== B. CONTEMPORARY ERA (University: ESL vs. NES) ===
+| Feature         | ESL Mean (±SD)   | NES Mean (±SD)    |   U_Statistic |   p_value |   FDR_q_value |
+|:----------------|:-----------------|:------------------|--------------:|----------:|--------------:|
+| Sentence_Var    | 110.70 (±130.38) | 378.18 (±1333.33) |       12827   |    0.0044 |        0.007  |
+| Flesch_Ease     | 17.80 (±12.67)   | 23.42 (±12.96)    |       11227.5 |    0      |        0      |
+| Zipf_R2         | 0.92 (±0.02)     | 0.93 (±0.04)      |       13067   |    0.0093 |        0.0124 |
+| Entropy         | 4.56 (±0.14)     | 4.48 (±0.17)      |       20360.5 |    0      |        0      |
+| Nominal_Ratio_% | 5.10 (±1.69)     | 4.75 (±1.54)      |       17657.5 |    0.0325 |        0.0372 |
+| MATTR           | 0.75 (±0.04)     | 0.72 (±0.04)      |       21630.5 |    0      |        0      |
+| Grade_Level     | 14.58 (±2.14)    | 14.64 (±3.43)     |       16849.5 |    0.1926 |        0.1926 |
+| Passive_%       | 10.32 (±7.44)    | 15.88 (±9.28)     |       10063.5 |    0      |        0      |
+
+Generating subgroup visualization charts...
+-> Saved: esl_feature_distributions.png
+-> Saved: esl_predicted_probability_kde.png
+
+Execution finished. Output report logged to: esl_subgroup_analysis_report_20261008_221442.txt
