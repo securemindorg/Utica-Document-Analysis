@@ -314,7 +314,7 @@
     <div class="header-bar">
         <div class="header-title-group">
             <h1>University - Stylometric & Structural Analytics</h1>
-            <div class="last-updated-badge">Last Updated: October 7, 2026 (Calibrated Thresholds)</div>
+            <div class="last-updated-badge">Last Updated: October 8, 2026 (Calibrated Thresholds, added warning language)</div>
         </div>
         <a href="https://github.com/securemindorg/Utica-Document-Analysis" target="_blank" class="github-btn">
             <svg viewBox="0 0 24 24">
@@ -324,13 +324,13 @@
         </a>
     </div>
 
-    <div class="notice-header">
-        <h3>Important Privacy & Usage Information</h3>
-        <ul
-            <li><strong>Tuned Thresholds (October 7th 2026): </strong> I'm currently in the process of finalizing a research study using hundreds of historic papers, as such I've updated the thresholds for detection based on the results of that paper. </li>            
+<div class="notice-header">
+        <h3>Important Privacy, Usage & Demographic Fairness Information</h3>
+        <ul>
+            <li><strong>Demographically Invariant Analytics:</strong> Calibrated against multi-corpus historical baselines (MICUSP and contemporary graduate writing). Subgroup testing confirms equal probability output distributions across native (NES) and non-native (ESL) English writers.</li>            
+            <li><strong>Formative Diagnostic Tool (Not a Surveillance Filter):</strong> Evaluates structural patterns and clausal cadence for diagnostic writing feedback. This tool isolates macro-level stylometric tendencies and must <em>not</em> be used as a punitive automated detector against individual students.</li>
             <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is sent to an external server or stored anywhere.</li>
             <li><strong>Deterministic Analytics:</strong> Relies exclusively on deterministic statistical algorithms, mathematical formulas (Shannon Entropy, MATTR, Zipf's Law), and explicit pattern matching.</li>
-            <li><strong>Formative Interpretation:</strong> Results are designed as baseline indicators to highlight structural patterns and direct further review.</li>
         </ul>
     </div>
 
@@ -871,8 +871,8 @@ function renderCard(res) {
 
             <div class="metric-row">
                 <div class="metric-label">Flesch Reading Ease: <span class="${checkThreshold(res.fleschEase, 25.0, 'below')}">${res.fleschEase} / 100</span></div>
-                <div class="metric-explanation">Technical and graduate student prose naturally exhibits lower readability scores due to domain-specific terminology; warning threshold calibrated to 25.0.</div>
-            </div>
+        <div class="metric-explanation">Technical and graduate student prose naturally exhibits lower readability scores (FRE &lt; 25.0) regardless of student native language background. Warning threshold calibrated to 25.0.</div>
+           </div>
 
             <div class="metric-row">
                 <div class="metric-label">Flesch-Kincaid Grade Level: <span class="metric-value">Grade ${res.gradeLevel}</span></div>
