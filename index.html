@@ -303,7 +303,7 @@
     <div class="header-bar">
         <div class="header-title-group">
             <h1>Formative Technical Document Analytics</h1>
-            <div class="last-updated-badge">Last Updated: October 2026 (Calibrated Baseline Ranges & Scoring)</div>
+            <div class="last-updated-badge">Last Updated: October 2026 (Exploratory Synthetic Comparison Layer)</div>
         </div>
         <a href="https://github.com/securemindorg/Utica-Document-Analysis" target="_blank" class="github-btn">
             <svg viewBox="0 0 24 24">
@@ -316,10 +316,9 @@
     <div class="notice-header">
         <h3>Important Methodological Notice & Pedagogical Scope</h3>
         <ul>
-            <li><strong>Formative Feedback Only (Not an AI Detector):</strong> Measures physical stylometric features (readability compression, sentence variance) for descriptive writing analytics. It does not detect or audit individual AI authorship.</li>
-            <li><strong>Corpus-Level Context:</strong> Total scores reflect structural alignment with contemporary technical writing baselines rather than individual academic integrity violations.</li>
+            <li><strong>Formative Feedback Only:</strong> Measures physical stylometric features for descriptive writing analytics. It does not provide definitive individual AI judgments.</li>
+            <li><strong>Synthetic Comparison Note:</strong> Synthetic text is not stylistically monolithic; vendor architectures show wide divergence. Metrics below matching specific compression patterns only *potentially* indicate AI-generated text based on exploratory reference data.</li>
             <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is stored or transmitted.</li>
-            <li><strong>Deterministic Analytics:</strong> Relies exclusively on deterministic statistical algorithms and physical linguistic formulas.</li>
         </ul>
     </div>
 
@@ -460,6 +459,7 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     
     const complexSentences = sentences.filter(s => s.includes(',') || s.includes(';') || s.includes(' which ') || s.includes(' although ')).length;
     const complexRatio = (complexSentences / totalSentences) * 100;
+    const emDashes = (text.match(/—|--/g) || []).length;
 
     // Scoring calculation reflecting baseline structural feature norms
     const vScore = Math.min(25, (variance / 60.0) * 25);
@@ -483,6 +483,7 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         gradeLevel: gradeLevel.toFixed(1),
         nomRatio: nomRatio.toFixed(1),
         complexRatio: complexRatio.toFixed(1),
+        emDashes,
         totalWords,
         totalSentences,
         totalScore,
@@ -612,6 +613,9 @@ function renderCard(res) {
         activeChart = null;
     }
 
+    const isSyntheticPattern = parseFloat(res.fleschEase) < 15.0 || (parseFloat(res.sentVar) >= 80 && parseFloat(res.sentVar) <= 150);
+    const syntheticClass = isSyntheticPattern ? `metric-value below-threshold` : `metric-value`;
+
     const html = `
         <div class="results-card">
             <div class="card-header">
@@ -622,37 +626,56 @@ function renderCard(res) {
             <div class="section-title">Composite Baseline Score</div>
             <div class="metric-row">
                 <div class="metric-label">Total Stylometric Alignment Score: <span class="${checkThreshold(res.totalScore, 55, 'below')}">${res.totalScore} / 100</span></div>
-                <div class="metric-explanation">Aggregates physical features (sentence variance, MATTR, Zipf fit, and readability) against contemporary baseline standards. Values below 55 indicate atypical structural divergence.</div>
+                <div class="metric-explanation">Aggregates physical features against contemporary baseline standards. Values below 55 indicate atypical structural divergence.</div>
             </div>
 
             <div class="section-title">Physical Stylometric Features</div>
             
             <div class="metric-row">
                 <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="${checkThreshold(res.sentVar, 50, 'below')}">${res.sentVar} words²</span></div>
-                <div class="metric-explanation">Quantifies clausal cadence and structural variance ($\sigma^2$). Normal threshold expected &gt; 50.0 words².</div>
+                <div class="metric-explanation">Quantifies clausal cadence and structural variance. Normal threshold expected > 50.0 words².</div>
             </div>
 
             <div class="metric-row">
                 <div class="metric-label">Flesch Reading Ease (FRE): <span class="${checkThreshold(res.fleschEase, 15, 'below')}">${res.fleschEase} / 100</span></div>
-                <div class="metric-explanation">Evaluates text readability. Technical graduate writing naturally reflects denser syntax (FRE &lt; 35.0). Flagged if extreme (&lt; 15).</div>
+                <div class="metric-explanation">Evaluates text readability. Technical graduate writing naturally reflects denser syntax (FRE < 35.0). Flagged if extreme (< 15).</div>
             </div>
 
             <div class="metric-row">
                 <div class="metric-label">
-                    Zipfian Linearity ($R^2$): <span class="${checkThreshold(res.zipfFit, 0.85, 'below')}">${res.zipfFit}</span> | 
-                    Moving-Average TTR (MATTR₁₀₀): <span class="${checkThreshold(res.mattr, 0.65, 'below')}">${res.mattr}</span>
+                    Zipfian Linearity (R²): <span class="${checkThreshold(res.zipfFit, 0.85, 'below')}">${res.zipfFit}</span> | 
+                    Moving-Average TTR (MATTR100): <span class="${checkThreshold(res.mattr, 0.65, 'below')}">${res.mattr}</span>
                 </div>
-                <div class="metric-explanation">Measures word frequency rank scaling ($R^2$ &gt; 0.85 expected) and lexical diversity over a sliding window ($W=100$, expected &gt; 0.65).</div>
+                <div class="metric-explanation">Measures word frequency rank scaling (R² > 0.85 expected) and lexical diversity over a sliding window (W=100, expected > 0.65).</div>
+            </div>
+
+            <div class="section-title" style="background-color: #fff3cd; color: #856404; border-top: 1px solid #ffeeba;">Exploratory Synthetic Compression Indicators</div>
+            
+            <div class="metric-row" style="background-color: #fffdf5;">
+                <div class="metric-label">
+                    Synthetic Compression Signature Match: <span class="${syntheticClass}">${isSyntheticPattern ? "Matched Pattern (Potential AI Signature)" : "Standard Distribution"}</span>
+                </div>
+                <div class="metric-explanation">
+                    <strong>Note:</strong> Synthetic text is not stylistically monolithic. Specific models like Google Gemini 3.5 or ChatGPT 6 exhibit extreme readability compression (FRE < 15) or characteristic moderate variance loops (~90-140 words²). <em>Highlighting this metric only potentially indicates AI-generated text and does not constitute definitive proof.</em>
+                </div>
+            </div>
+
+            <div class="metric-row" style="background-color: #fffdf5;">
+                <div class="metric-label">
+                    Em-Dash Count (—/--): <span class="metric-value">${res.emDashes}</span> | 
+                    Readability Compression (FRE): <span class="${syntheticClass}">${res.fleschEase} / 100</span>
+                </div>
+                <div class="metric-explanation">Tracks punctuation formatting habits and extreme readability compression associated with model-generated technical summaries.</div>
             </div>
 
             <div class="section-title">Syntactic and Lexical Density</div>
 
             <div class="metric-row">
                 <div class="metric-label">
-                    Shannon Character Entropy ($H$): <span class="${checkThreshold(res.entropy, 4.0, 'below')}">${res.entropy} bits</span> | 
+                    Shannon Character Entropy (H): <span class="${checkThreshold(res.entropy, 4.0, 'below')}">${res.entropy} bits</span> | 
                     Grade Level (FKGL): <span class="metric-value">Grade ${res.gradeLevel}</span>
                 </div>
-                <div class="metric-explanation">Character entropy captures information density per symbol (expected &gt; 4.0).</div>
+                <div class="metric-explanation">Character entropy captures information density per symbol (expected > 4.0).</div>
             </div>
 
             <div class="metric-row">
@@ -661,11 +684,6 @@ function renderCard(res) {
                     Passive Voice Ratio: <span class="${checkThreshold(res.passiveRatio, 35, 'above')}">${res.passiveRatio}%</span>
                 </div>
                 <div class="metric-explanation">Measures abstract noun derivations and passive verb constructions characteristic of formal academic registers.</div>
-            </div>
-
-            <div class="metric-row">
-                <div class="metric-label">Sentence Clause Complexity: <span class="${checkThreshold(res.complexRatio, 20, 'below')}">${res.complexRatio}%</span></div>
-                <div class="metric-explanation">Proportion of sentences incorporating multi-clause structures or subordinate conjunctions (expected &gt; 20%).</div>
             </div>
         </div>
     `;
@@ -704,10 +722,10 @@ function renderBatchMatrix(batchData) {
                                 <th>File Name</th>
                                 <th>Total Score</th>
                                 <th>Status / Verdict</th>
-                                <th>Sentence Var ($\sigma^2$)</th>
+                                <th>Sentence Var (σ²)</th>
                                 <th>Flesch Ease</th>
-                                <th>Zipf $R^2$</th>
-                                <th>MATTR₁₀₀</th>
+                                <th>Em-Dashes</th>
+                                <th>Zipf R²</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -719,8 +737,8 @@ function renderBatchMatrix(batchData) {
                                     <td><span class="status-badge ${r.statusClass}">${r.verdict}</span></td>
                                     <td>${r.sentVar}</td>
                                     <td>${r.fleschEase}</td>
+                                    <td>${r.emDashes}</td>
                                     <td>${r.zipfFit}</td>
-                                    <td>${r.mattr}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -738,7 +756,6 @@ function renderBatchMatrix(batchData) {
         activeChart.destroy();
     }
 
-    // Compute histogram bins for total scores (0-20, 21-40, 41-60, 61-80, 81-100)
     const bins = { '0–20': 0, '21–40': 0, '41–60': 0, '61–80': 0, '81–100': 0 };
     results.forEach(r => {
         const s = r.totalScore;
