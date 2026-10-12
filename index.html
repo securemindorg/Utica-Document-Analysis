@@ -325,10 +325,10 @@
     <div class="notice-header">
         <h3>Important Methodological Notice & Pedagogical Scope</h3>
         <ul>
-            <li><strong>Formative Feedback Only (Not an AI Detector):</strong> This tool measures physical stylometric features (such as readability compression and sentence variance) to provide descriptive writing analytics. It does <em>not</em> detect or audit individual AI authorship[cite: 1, 12].</li>
-            <li><strong>Corpus-Level Context:</strong> Metrics reflect macro-level differences across scholarly eras, disciplines, and technical writing registers rather than individual integrity violations[cite: 1, 12].</li>
+            <li><strong>Formative Feedback Only (Not an AI Detector):</strong> This tool measures physical stylometric features (such as readability compression and sentence variance) to provide descriptive writing analytics. It does <em>not</em> detect or audit individual AI authorship.</li>
+            <li><strong>Corpus-Level Context:</strong> Metrics reflect macro-level differences across scholarly eras, disciplines, and technical writing registers rather than individual integrity violations.</li>
             <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is stored or transmitted.</li>
-            <li><strong>Deterministic Analytics:</strong> Relies exclusively on deterministic statistical algorithms and physical linguistic formulas (Shannon Entropy, MATTR, Zipf's Law)[cite: 3].</li>
+            <li><strong>Deterministic Analytics:</strong> Relies exclusively on deterministic statistical algorithms and physical linguistic formulas (Shannon Entropy, MATTR, Zipf's Law).</li>
         </ul>
     </div>
 
@@ -620,12 +620,12 @@ function renderCard(res) {
             
             <div class="metric-row">
                 <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="metric-value">${res.sentVar} words²</span></div>
-                <div class="metric-explanation">Quantifies clausal cadence and structural variance ($\sigma^2$). Historical academic prose typically displays higher variance, while contemporary technical reports exhibit structural compression[cite: 3].</div>
+                <div class="metric-explanation">Quantifies clausal cadence and structural variance ($\sigma^2$). Historical academic prose typically displays higher variance, while contemporary technical reports exhibit structural compression.</div>
             </div>
 
             <div class="metric-row">
                 <div class="metric-label">Flesch Reading Ease (FRE): <span class="metric-value">${res.fleschEase} / 100</span></div>
-                <div class="metric-explanation">Evaluates text readability[cite: 3]. Higher educational and technical registers naturally reflect denser syntax and formal structures (often FRE &lt; 25.0)[cite: 3].</div>
+                <div class="metric-explanation">Evaluates text readability. Higher educational and technical registers naturally reflect denser syntax and formal structures (often FRE &lt; 25.0).</div>
             </div>
 
             <div class="metric-row">
@@ -633,7 +633,7 @@ function renderCard(res) {
                     Zipfian Linearity ($R^2$): <span class="metric-value">${res.zipfFit}</span> | 
                     Moving-Average TTR (MATTR₁₀₀): <span class="metric-value">${res.mattr}</span>
                 </div>
-                <div class="metric-explanation">Measures word frequency rank scaling ($R^2$) and size-independent lexical diversity over a continuous sliding window ($W=100$)[cite: 3].</div>
+                <div class="metric-explanation">Measures word frequency rank scaling ($R^2$) and size-independent lexical diversity over a continuous sliding window ($W=100$).</div>
             </div>
 
             <div class="section-title">Syntactic and Lexical Density</div>
@@ -643,7 +643,7 @@ function renderCard(res) {
                     Shannon Character Entropy ($H$): <span class="metric-value">${res.entropy} bits</span> | 
                     Grade Level (FKGL): <span class="metric-value">Grade ${res.gradeLevel}</span>
                 </div>
-                <div class="metric-explanation">Character entropy captures information density per symbol[cite: 3]. FKGL translates sentence length and syllable density into a U.S. grade level index[cite: 3].</div>
+                <div class="metric-explanation">Character entropy captures information density per symbol. FKGL translates sentence length and syllable density into a U.S. grade level index.</div>
             </div>
 
             <div class="metric-row">
@@ -651,7 +651,7 @@ function renderCard(res) {
                     Nominalization Ratio: <span class="metric-value">${res.nomRatio}%</span> | 
                     Passive Voice Ratio: <span class="metric-value">${res.passiveRatio}%</span>
                 </div>
-                <div class="metric-explanation">Measures the proportion of abstract noun derivations and passive verb constructions characteristic of formal academic registers[cite: 3].</div>
+                <div class="metric-explanation">Measures the proportion of abstract noun derivations and passive verb constructions characteristic of formal academic registers.</div>
             </div>
 
             <div class="metric-row">
