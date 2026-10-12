@@ -1,0 +1,36 @@
+================================================================================
+SYNTHETIC AI CORPUS VALIDATION & PER-MODEL STYLOMETRIC ANALYSIS
+Execution Timestamp: 2026-10-09 19:17:38
+================================================================================
+
+[1/3] Processing AI-Generated Papers Directory...
+-> Successfully processed 26 synthetic papers across model families: ['ChatGPT 6', 'Claude Sonnet 5.5 Medium', 'Google Gemini 3.5']
+-> Loaded contemporary human baseline corpus (355 papers) for comparison.
+
+[2/3] Generating Summary Reports (As a Whole & Per Model)...
+
+=== SYNTHETIC AI CORPUS (OVERALL SUMMARY) ===
+| Metric          | AI Corpus (Overall Mean ± SD)   |     Min |      Max |
+|:----------------|:--------------------------------|--------:|---------:|
+| Sentence_Var    | 124.661 ± 53.083                | 47.21   | 222.37   |
+| Flesch_Ease     | 22.881 ± 17.747                 |  0      |  52.2    |
+| Zipf_R2         | 0.915 ± 0.026                   |  0.8539 |   0.9491 |
+| Entropy         | 4.523 ± 0.159                   |  4.254  |   4.883  |
+| Nominal_Ratio_% | 5.027 ± 1.507                   |  2      |   8.7    |
+| MATTR           | 0.789 ± 0.023                   |  0.753  |   0.835  |
+| Grade_Level     | 14.185 ± 2.908                  | 10.1    |  19.5    |
+| Passive_%       | 11.404 ± 5.966                  |  3      |  27.3    |
+
+=== PER-MODEL FAMILY STYLOMETRIC BREAKDOWN ===
+| Model_Family             |   ('Sentence_Var', 'mean') |   ('Sentence_Var', 'std') |   ('Flesch_Ease', 'mean') |   ('Flesch_Ease', 'std') |   ('Zipf_R2', 'mean') |   ('Zipf_R2', 'std') |   ('Entropy', 'mean') |   ('Entropy', 'std') |   ('Nominal_Ratio_%', 'mean') |   ('Nominal_Ratio_%', 'std') |   ('MATTR', 'mean') |   ('MATTR', 'std') |   ('Grade_Level', 'mean') |   ('Grade_Level', 'std') |   ('Passive_%', 'mean') |   ('Passive_%', 'std') |
+|:-------------------------|---------------------------:|--------------------------:|--------------------------:|-------------------------:|----------------------:|---------------------:|----------------------:|---------------------:|------------------------------:|-----------------------------:|--------------------:|-------------------:|--------------------------:|-------------------------:|------------------------:|-----------------------:|
+| ChatGPT 6                |                     79.886 |                    22.556 |                    23.425 |                    5.923 |                 0.927 |                0.013 |                 4.636 |                0.158 |                         5.85  |                        0.393 |               0.79  |              0.019 |                    13.425 |                    1.637 |                  12.862 |                  3.967 |
+| Claude Sonnet 5.5 Medium |                    142.462 |                    60.086 |                    42.6   |                    6.374 |                 0.934 |                0.01  |                 4.581 |                0.085 |                         3.6   |                        1.253 |               0.773 |              0.013 |                    11.489 |                    0.923 |                  11.844 |                  5.863 |
+| Google Gemini 3.5        |                    146.659 |                    42.946 |                     2.678 |                    4.003 |                 0.885 |                0.016 |                 4.366 |                0.077 |                         5.722 |                        1.37  |               0.805 |              0.026 |                    17.556 |                    1.3   |                   9.667 |                  7.573 |
+
+[3/3] Generating Graphics...
+
+Generating comparative visualization charts...
+-> Saved chart: ai_vs_human_stylometric_comparison.png
+
+Execution finished. Output report logged to: ai_validation_analysis_report_20261009_191738.txt
