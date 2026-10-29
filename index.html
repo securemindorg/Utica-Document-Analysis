@@ -471,6 +471,9 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const trailingParticipleMatches = (text.match(trailingParticipleRegex) || []).length;
     const totalAiSignsCount = tropeMatches + negParallelMatches + trailingParticipleMatches;
 
+    // Adjusted Synthetic Pattern: Requires extreme low readability or a much tighter variance loop combined with low FRE to prevent false positives on academic papers
+    const isSyntheticPattern = parseFloat(fleschEase) < 12.0 || (parseFloat(variance) >= 110 && parseFloat(variance) <= 140 && fleschEase < 30);
+
     // Scoring calculation reflecting baseline structural feature norms
     const vScore = Math.min(25, (variance / 60.0) * 25);
     const mScore = Math.min(25, (mattr / 0.72) * 25);
@@ -481,13 +484,13 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     let verdict = totalScore >= 55 ? "Typical Technical Register" : "Atypical Register / Review Recommended";
     let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
 
-    // Secondary Qualitative Classification Logic
+    // Tuned Secondary Qualitative Classification Logic (Less sensitive to single accidental trope matches)
     let secondaryClassification = "Potentially Human writing";
     let secondaryBadgeClass = "status-normal";
-    if (totalScore < 45 || totalAiSignsCount >= 4 || (fleschEase < 15 && totalAiSignsCount >= 2)) {
+    if (totalScore < 40 || totalAiSignsCount >= 5 || (fleschEase < 12 && totalAiSignsCount >= 3)) {
         secondaryClassification = "Potentially AI";
         secondaryBadgeClass = "status-review";
-    } else if ((totalScore >= 45 && totalScore < 70) || (totalAiSignsCount >= 1 && totalAiSignsCount < 4)) {
+    } else if ((totalScore >= 40 && totalScore < 60) || (totalAiSignsCount >= 2 && totalAiSignsCount < 5)) {
         secondaryClassification = "Potentially AI/Human Hybrid";
         secondaryBadgeClass = "status-review";
     }
@@ -637,7 +640,7 @@ function renderCard(res) {
         activeChart = null;
     }
 
-    const isSyntheticPattern = parseFloat(res.fleschEase) < 15.0 || (parseFloat(res.sentVar) >= 80 && parseFloat(res.sentVar) <= 150);
+    const isSyntheticPattern = parseFloat(res.fleschEase) < 12.0 || (parseFloat(res.sentVar) >= 110 && parseFloat(res.sentVar) <= 140 && parseFloat(res.fleschEase) < 30);
     const syntheticClass = isSyntheticPattern ? `metric-value below-threshold` : `metric-value`;
 
     const html = `
@@ -677,10 +680,10 @@ function renderCard(res) {
             
             <div class="metric-row" style="background-color: #fffdf5;">
                 <div class="metric-label">
-                    Synthetic Compression Signature Match: <span class="${syntheticClass}">${isSyntheticPattern ? "Matched Pattern (Potential AI Signature)" : "Standard Distribution"}</span>
+                    Synthetic Compression Signature Match: <span class="${syntheticClass}">${isSyntheticPattern ? "Matched Pattern (Potential AI Signature)" : "Standard Technical Distribution"}</span>
                 </div>
                 <div class="metric-explanation">
-                    <strong>Note:</strong> Synthetic text is not stylistically monolithic. Specific models like Google Gemini 3.5 or ChatGPT 6 exhibit extreme readability compression (FRE < 15) or characteristic moderate variance loops (~90-140 words²). <em>Highlighting this metric only potentially indicates AI-generated text and does not constitute definitive proof.</em>
+                    <strong>Note:</strong> Rigorous technical and academic papers naturally exhibit high sentence variance due to alternating between brief assertions and complex methodological explanations. This threshold is tuned to avoid flagging standard academic cadence. <em>Highlighting this metric only potentially indicates AI-generated text and does not constitute definitive proof.</em>
                 </div>
             </div>
 
