@@ -461,6 +461,16 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const complexRatio = (complexSentences / totalSentences) * 100;
     const emDashes = (text.match(/—|--/g) || []).length;
 
+    // Wikipedia: Signs of AI writing pattern checks
+    const aiTropesRegex = /\b(testament|watershed|vital role|delve|beacon|paradigm shift|myriad|tapestry|plethora|crucial role|serves as)\b/gi;
+    const negativeParallelismRegex = /\bnot\s+(just|only)\b.*?\b(but\s+also|but)\b/gi;
+    const trailingParticipleRegex = /,\s+(highlighting|emphasizing|ensuring|fostering|showcasing|underscoring|bridging|serving|paving)\b/gi;
+    
+    const tropeMatches = (text.match(aiTropesRegex) || []).length;
+    const negParallelMatches = (text.match(negativeParallelismRegex) || []).length;
+    const trailingParticipleMatches = (text.match(trailingParticipleRegex) || []).length;
+    const totalAiSignsCount = tropeMatches + negParallelMatches + trailingParticipleMatches;
+
     // Scoring calculation reflecting baseline structural feature norms
     const vScore = Math.min(25, (variance / 60.0) * 25);
     const mScore = Math.min(25, (mattr / 0.72) * 25);
@@ -470,6 +480,17 @@ function analyzeDocument(text, fileName = "Pasted Text") {
 
     let verdict = totalScore >= 55 ? "Typical Technical Register" : "Atypical Register / Review Recommended";
     let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
+
+    // Secondary Qualitative Classification Logic
+    let secondaryClassification = "Potentially Human writing";
+    let secondaryBadgeClass = "status-normal";
+    if (totalScore < 45 || totalAiSignsCount >= 4 || (fleschEase < 15 && totalAiSignsCount >= 2)) {
+        secondaryClassification = "Potentially AI";
+        secondaryBadgeClass = "status-review";
+    } else if ((totalScore >= 45 && totalScore < 70) || (totalAiSignsCount >= 1 && totalAiSignsCount < 4)) {
+        secondaryClassification = "Potentially AI/Human Hybrid";
+        secondaryBadgeClass = "status-review";
+    }
 
     return {
         fileName,
@@ -488,7 +509,10 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         totalSentences,
         totalScore,
         verdict,
-        statusClass
+        statusClass,
+        totalAiSignsCount,
+        secondaryClassification,
+        secondaryBadgeClass
     };
 }
 
@@ -666,6 +690,24 @@ function renderCard(res) {
                     Readability Compression (FRE): <span class="${syntheticClass}">${res.fleschEase} / 100</span>
                 </div>
                 <div class="metric-explanation">Tracks punctuation formatting habits and extreme readability compression associated with model-generated technical summaries.</div>
+            </div>
+
+            <div class="metric-row" style="background-color: #fffdf5;">
+                <div class="metric-label">
+                    Wikipedia AI Writing Signs Analysis: <span class="metric-value">${res.totalAiSignsCount} potential trope matches detected</span>
+                </div>
+                <div class="metric-explanation">
+                    Scans text for stylistic tropes and phrasing patterns cataloged in reference community guides (e.g., <em>Wikipedia: Signs of AI writing</em>), including inflated symbolism/buzzwords (*testament, vital role, delve*), negative parallelisms (*"not just X, but Y"*), and superficial trailing participial modifiers (*"highlighting, ensuring"*). <strong>Note: These are only potential signs and stylistic tropes; they do not constitute definitive proof of AI authorship.</strong>
+                </div>
+            </div>
+
+            <div class="metric-row" style="background-color: #fffdf5;">
+                <div class="metric-label">
+                    Secondary Qualitative Classification: <span class="status-badge ${res.secondaryBadgeClass}">${res.secondaryClassification}</span>
+                </div>
+                <div class="metric-explanation">
+                    Evaluates combined structural and stylistic indicators to provide a qualitative tier: <strong>Potentially AI</strong>, <strong>Potentially AI/Human Hybrid</strong>, or <strong>Potentially Human writing</strong>.
+                </div>
             </div>
 
             <div class="section-title">Syntactic and Lexical Density</div>
