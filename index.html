@@ -30,7 +30,7 @@
             color: var(--text-dark);
         }
         .container {
-            max-width: 1050px;
+            max-width: 1200px;
             margin: 0 auto;
             background: #ffffff;
             padding: 30px;
@@ -237,7 +237,7 @@
             padding: 4px 10px;
             border-radius: 12px;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             display: inline-block;
             text-align: center;
@@ -274,7 +274,7 @@
         .matrix-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 13.5px;
+            font-size: 13px;
             text-align: left;
         }
         .matrix-table th {
@@ -288,6 +288,7 @@
             padding: 10px;
             border-bottom: 1px solid #eeeeee;
             vertical-align: middle;
+            white-space: nowrap;
         }
         .matrix-table tr:nth-child(even) {
             background-color: #f9fbfd;
@@ -316,13 +317,13 @@
     <div class="notice-header">
         <h3>Important Methodological Notice & Pedagogical Scope</h3>
         <ul>
-            <li><strong>Formative Feedback Only:</strong> Measures physical stylometric features for descriptive writing analytics. It does not provide definitive individual AI judgments.</li>
-            <li><strong>Synthetic Comparison Note:</strong> Synthetic text is not stylistically monolithic; vendor architectures show wide divergence. Metrics below matching specific compression patterns only *potentially* indicate AI-generated text based on exploratory reference data.</li>
-            <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser. No data is stored or transmitted.</li>
+            <li><strong>Formative Feedback Only:</strong> Measures physical stylometric features for descriptive writing analytics. It does not provide definitive individual AI judgments[cite: 3].</li>
+            <li><strong>Synthetic Comparison Note:</strong> Synthetic text is not stylistically monolithic; vendor architectures show wide divergence. Metrics below matching specific compression patterns only *potentially* indicate AI-generated text based on exploratory reference data[cite: 3].</li>
+            <li><strong>Client-Side Processing & Privacy:</strong> All uploaded documents and pasted text are processed entirely within your web browser[cite: 3]. No data is stored or transmitted[cite: 3].</li>
         </ul>
     </div>
 
-    <p>Paste text below or upload individual documents (<strong>.txt, .pdf, .docx</strong>) or a batch archive (<strong>.zip</strong>).</p>
+    <p>Paste text below or upload individual documents (<strong>.txt, .pdf, .docx</strong>) or a batch archive (<strong>.zip</strong>)[cite: 3].</p>
     
     <div class="input-section">
         <label for="textInput">Option 1: Paste Text</label>
@@ -330,7 +331,7 @@
         
         <div class="or-divider">— OR —</div>
         
-        <label for="fileInput">Option 2: Upload Document or ZIP (.txt, .pdf, .docx, .zip)</label>
+        <label for="fileInput">Option 2: Upload Document or ZIP (.txt, .pdf, .docx, .zip)[cite: 3]</label>
         <div class="file-upload-box">
             <input type="file" id="fileInput" accept=".txt, .pdf, .docx, .zip">
             <button type="button" class="clear-file-btn" onclick="clearSelectedFile()">Clear Selected File</button>
@@ -471,7 +472,7 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     const trailingParticipleMatches = (text.match(trailingParticipleRegex) || []).length;
     const totalAiSignsCount = tropeMatches + negParallelMatches + trailingParticipleMatches;
 
-    // Adjusted Synthetic Pattern: Requires extreme low readability or a much tighter variance loop combined with low FRE to prevent false positives on academic papers
+    // Adjusted Synthetic Pattern: Requires extreme low readability or a much tighter variance loop combined with low FRE
     const isSyntheticPattern = parseFloat(fleschEase) < 12.0 || (parseFloat(variance) >= 110 && parseFloat(variance) <= 140 && fleschEase < 30);
 
     // Scoring calculation reflecting baseline structural feature norms
@@ -484,7 +485,7 @@ function analyzeDocument(text, fileName = "Pasted Text") {
     let verdict = totalScore >= 55 ? "Typical Technical Register" : "Atypical Register / Review Recommended";
     let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
 
-    // Tuned Secondary Qualitative Classification Logic (Less sensitive to single accidental trope matches)
+    // Secondary Qualitative Classification Logic
     let secondaryClassification = "Potentially Human writing";
     let secondaryBadgeClass = "status-normal";
     if (totalScore < 40 || totalAiSignsCount >= 5 || (fleschEase < 12 && totalAiSignsCount >= 3)) {
@@ -515,7 +516,8 @@ function analyzeDocument(text, fileName = "Pasted Text") {
         statusClass,
         totalAiSignsCount,
         secondaryClassification,
-        secondaryBadgeClass
+        secondaryBadgeClass,
+        isSyntheticPattern
     };
 }
 
@@ -640,8 +642,7 @@ function renderCard(res) {
         activeChart = null;
     }
 
-    const isSyntheticPattern = parseFloat(res.fleschEase) < 12.0 || (parseFloat(res.sentVar) >= 110 && parseFloat(res.sentVar) <= 140 && parseFloat(res.fleschEase) < 30);
-    const syntheticClass = isSyntheticPattern ? `metric-value below-threshold` : `metric-value`;
+    const syntheticClass = res.isSyntheticPattern ? `metric-value below-threshold` : `metric-value`;
 
     const html = `
         <div class="results-card">
@@ -680,7 +681,7 @@ function renderCard(res) {
             
             <div class="metric-row" style="background-color: #fffdf5;">
                 <div class="metric-label">
-                    Synthetic Compression Signature Match: <span class="${syntheticClass}">${isSyntheticPattern ? "Matched Pattern (Potential AI Signature)" : "Standard Technical Distribution"}</span>
+                    Synthetic Compression Signature Match: <span class="${syntheticClass}">${res.isSyntheticPattern ? "Matched Pattern (Potential AI Signature)" : "Standard Technical Distribution"}</span>
                 </div>
                 <div class="metric-explanation">
                     <strong>Note:</strong> Rigorous technical and academic papers naturally exhibit high sentence variance due to alternating between brief assertions and complex methodological explanations. This threshold is tuned to avoid flagging standard academic cadence. <em>Highlighting this metric only potentially indicates AI-generated text and does not constitute definitive proof.</em>
@@ -758,7 +759,7 @@ function renderBatchMatrix(batchData) {
             </div>
 
             <div>
-                <h3 style="color: var(--utica-blue); margin-bottom: 10px;">Submission Score Matrix</h3>
+                <h3 style="color: var(--utica-blue); margin-bottom: 10px;">Submission Score Matrix & Compression Indicators</h3>
                 <div class="matrix-table-wrapper">
                     <table class="matrix-table">
                         <thead>
@@ -767,6 +768,9 @@ function renderBatchMatrix(batchData) {
                                 <th>File Name</th>
                                 <th>Total Score</th>
                                 <th>Status / Verdict</th>
+                                <th>Secondary Classification</th>
+                                <th>Synthetic Match?</th>
+                                <th>AI Tropes</th>
                                 <th>Sentence Var (σ²)</th>
                                 <th>Flesch Ease</th>
                                 <th>Em-Dashes</th>
@@ -780,6 +784,9 @@ function renderBatchMatrix(batchData) {
                                     <td>${r.fileName}</td>
                                     <td><strong>${r.totalScore} / 100</strong></td>
                                     <td><span class="status-badge ${r.statusClass}">${r.verdict}</span></td>
+                                    <td><span class="status-badge ${r.secondaryBadgeClass}">${r.secondaryClassification}</span></td>
+                                    <td>${r.isSyntheticPattern ? '<span style="color: #E85523; font-weight: bold;">Matched</span>' : 'Standard'}</td>
+                                    <td>${r.totalAiSignsCount}</td>
                                     <td>${r.sentVar}</td>
                                     <td>${r.fleschEase}</td>
                                     <td>${r.emDashes}</td>
