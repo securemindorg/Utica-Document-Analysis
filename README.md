@@ -78,8 +78,8 @@ To resolve this, the paper establishes a **non-circular empirical classification
 
 A graduate-level understanding requires mastering the mathematical formulation and linguistic meaning of the primary feature space:
 
-* **Sentence Length Variance (`Sentence_Var`):**
-  $$Sentence\_Var = \frac{1}{N_s - 1}\sum_{i=1}^{N_s}(w_i - \bar{w})^2$$
+- **Sentence Length Variance (`Sentence_Var`):**
+  $$Sentence\_{Var} = \frac{1}{N_s - 1}\sum_{i=1}^{N_s}(w_i - \bar{w})^2$$
   * **What it means:** Quantifies clausal cadence and structural "burstiness" ($\sigma_{words}^2$ in words²). Human academic prose typically alternates brief declarative assertions with complex compound explanations, yielding high variance. Contemporary digital drafting environments and generative models tend toward rhythmically flattened, uniform sentence lengths.
 * **Flesch Reading Ease ($\text{FRE}$):**
   $$\text{FRE} = 206.835 - 1.015\left(\frac{\text{words}}{\text{sentences}}\right) - 84.6\left(\frac{\text{syllables}}{\text{words}}\right)$$
