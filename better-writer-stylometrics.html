@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formative Stylometric Document Analytics & Diagnostic Suite</title>
+    <!-- External Libraries for parsing PDF, DOCX and rendering charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --utica-blue: #002D62;
+            --utica-blue-hover: #001f44;
+            --utica-orange: #E85523;
+            --utica-orange-hover: #d14310;
+            --utica-light-blue: #eef4fb;
+            --bg-gray: #f4f6f9;
+            --text-dark: #222222;
+            --metric-normal: #002D62;
+            --metric-warning: #E85523;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 45, 98, 0.08);
+            border-top: 6px solid var(--utica-orange);
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--utica-light-blue);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        h1 { margin: 0; color: var(--utica-blue); font-size: 26px; }
+        .last-updated-badge {
+            display: inline-block;
+            border: 2px dotted var(--utica-orange);
+            background-color: #fff8f5;
+            color: var(--utica-blue);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .notice-header {
+            background-color: var(--utica-light-blue);
+            border-left: 4px solid var(--utica-blue);
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+        .notice-header h3 { margin: 0 0 8px 0; color: var(--utica-blue); font-size: 15px; text-transform: uppercase; }
+        .notice-header ul { margin: 0; padding-left: 20px; color: #333; font-size: 13.5px; line-height: 1.5; }
+        
+        .input-section { margin-bottom: 25px; }
+        label { font-weight: bold; display: block; margin-bottom: 8px; color: var(--utica-blue); }
+        textarea {
+            width: 100%;
+            height: 110px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        textarea:focus { outline: none; border-color: var(--utica-blue); }
+        
+        .settings-panel {
+            background: #fdfdfd;
+            border: 1px solid #d0d7de;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        @media(max-width: 768px) { .settings-grid { grid-template-columns: 1fr; } }
+        .settings-panel input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .file-upload-box {
+            border: 2px dashed #b0c4de;
+            padding: 12px;
+            text-align: center;
+            background: var(--utica-light-blue);
+            border-radius: 4px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .clear-file-btn { background-color: #6c757d; font-size: 12px; padding: 6px 12px; width: auto; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        .clear-file-btn:hover { background-color: #5a6268; }
+        .or-divider { text-align: center; margin: 12px 0; font-weight: bold; color: #777; }
+        
+        button.run-btn {
+            background-color: var(--utica-orange);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+        button.run-btn:hover { background-color: var(--utica-orange-hover); }
+        .error-msg { color: #dc3545; font-weight: bold; margin-top: 10px; background: #f8d7da; padding: 10px; border-radius: 4px; display: none; }
+
+        .results-card {
+            margin-top: 30px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            background: #fff;
+            overflow: hidden;
+        }
+        .card-header {
+            background: var(--utica-blue);
+            color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .card-header h2 { margin: 0; font-size: 18px; color: #fff; }
+        
+        .toolbar-actions { display: flex; gap: 10px; }
+        .action-btn {
+            background-color: var(--utica-orange);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .action-btn:hover { background-color: var(--utica-orange-hover); }
+
+        .legend-bar {
+            background: var(--utica-light-blue);
+            padding: 10px 20px;
+            border-bottom: 1px solid #d0d7de;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-weight: bold; }
+        .legend-box { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+        .box-ai { background-color: #f8d7da; border: 1px solid #f5c6cb; }
+        .box-hybrid { background-color: #fff3cd; border: 1px solid #ffeeba; }
+        .box-human { background-color: #e2f0d9; border: 1px solid #c8e6c9; }
+
+        .tab-bar {
+            display: flex;
+            background: #eef4fb;
+            border-bottom: 1px solid #d0d7de;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            font-weight: bold;
+            color: var(--utica-blue);
+            cursor: pointer;
+            font-size: 13.5px;
+            width: auto;
+            margin-top: 0;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-btn.active {
+            background: #ffffff;
+            border-bottom: 3px solid var(--utica-orange);
+        }
+        .tab-content { display: none; padding: 20px; }
+        .tab-content.active { display: block; }
+
+        .inspector-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        @media(max-width: 900px) { .inspector-layout { grid-template-columns: 1fr; } }
+
+        .document-view {
+            padding: 15px;
+            line-height: 2.0;
+            font-size: 15px;
+            background: #fafbfc;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .inspector-card {
+            background: #fff8f5;
+            border: 1px solid #e85523;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 13.5px;
+        }
+        .inspector-card h3 { margin-top: 0; color: var(--utica-blue); font-size: 15px; border-bottom: 1px solid #ffd6cc; padding-bottom: 6px; }
+
+        .hl-ai {
+            background-color: #f8d7da;
+            border-bottom: 2px solid #dc3545;
+            padding: 2px 4px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .hl-hybrid {
+            background-color: #fff3cd;
+            border-bottom: 2px solid #ffc107;
+            padding: 2px 4px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .hl-human { padding: 2px 2px; }
+
+        .comparator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media(max-width: 900px) { .comparator-grid { grid-template-columns: 1fr; } }
+        .comparator-box {
+            background: #fafbfc;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            padding: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            line-height: 1.8;
+            font-size: 14.5px;
+        }
+        .comparator-box h3 { margin-top: 0; color: var(--utica-blue); font-size: 15px; border-bottom: 2px solid var(--utica-light-blue); padding-bottom: 6px; }
+
+        .chart-container {
+            position: relative;
+            height: 320px;
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+        }
+
+        /* Holistic Metrics styling from original tool */
+        .section-title {
+            background: var(--utica-light-blue);
+            padding: 8px 15px;
+            font-weight: bold;
+            font-size: 13px;
+            color: var(--utica-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #d0d7de;
+            border-top: 1px solid #d0d7de;
+            margin-top: 15px;
+        }
+        .section-title:first-child { margin-top: 0; border-top: none; }
+        .metric-row { padding: 12px 15px; border-bottom: 1px solid #f0f0f0; }
+        .metric-row:last-child { border-bottom: none; }
+        .metric-label { font-weight: bold; font-size: 14px; color: var(--utica-blue); margin-bottom: 3px; }
+        .metric-value { font-weight: bold; color: var(--metric-normal); }
+        .metric-value.below-threshold { color: var(--metric-warning); background-color: #fff3cd; padding: 2px 6px; border-radius: 4px; border: 1px solid #ffeeba; }
+        .metric-explanation { font-size: 13px; color: #555; margin-top: 3px; line-height: 1.4; }
+        .status-badge { padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 11px; text-transform: uppercase; display: inline-block; }
+        .status-normal { background-color: #28a745; color: #fff; }
+        .status-review { background-color: var(--utica-orange); color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-bar">
+        <div class="header-title-group">
+            <h1>Better Writer - Formative Stylometric Suite & Diagnostic Analyzer</h1>
+            <div class="last-updated-badge">Full Feature Set + Holistic Score Breakdown Tab</div>
+        </div>
+    </div>
+    
+    <div class="notice-header">
+        <h3>Comprehensive Suite Guidelines</h3>
+        <ul>
+            <li><strong>Score Breakdown:</strong> Review complete holistic document metrics (FRE, Zipfian R², MATTR, Entropy, Sentence Variance) alongside sentence-level highlighting.</li>
+            <li><strong>100% FERPA / Privacy Compliant:</strong> Client-side parsing ensures data never leaves your local browser memory.</li>
+        </ul>
+    </div>
+
+    <div class="input-section">
+        <label for="textInput">Option 1: Paste Text</label>
+        <textarea id="textInput" placeholder="Paste technical report, essay section, or paragraph here..."></textarea>
+        
+        <div class="or-divider">— OR —</div>
+        
+        <label for="fileInput">Option 2: Upload Document (.txt, .pdf, .docx)</label>
+        <div class="file-upload-box">
+            <input type="file" id="fileInput" accept=".txt, .pdf, .docx">
+            <button type="button" class="clear-file-btn" onclick="clearFile()">Clear Selected File</button>
+        </div>
+
+        <div class="settings-panel">
+            <label style="font-size: 14px; margin-bottom: 6px;">Custom Sensitivity & Whitelisting Settings</label>
+            <div class="settings-grid">
+                <div>
+                    <label style="font-size: 12px; font-weight: normal; color: #555;">Add Custom Blacklist Tropes (comma-separated):</label>
+                    <input type="text" id="customTropesInput" placeholder="e.g., synergy, leverage, game-changer">
+                </div>
+                <div>
+                    <label style="font-size: 12px; font-weight: normal; color: #555;">Whitelist / Ignore Words (comma-separated):</label>
+                    <input type="text" id="whitelistInput" placeholder="e.g., specific jargon, methodology terms">
+                </div>
+            </div>
+        </div>
+        
+        <button class="run-btn" onclick="runFullSuiteAnalysis()">Run Complete Suite Analysis & Highlight</button>
+        <div id="errorMessage" class="error-msg"></div>
+    </div>
+
+    <div id="resultsContainer"></div>
+</div>
+
+<script>
+if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+let activeChart = null;
+let currentAnalysisData = null;
+
+function clearFile() {
+    document.getElementById('fileInput').value = '';
+}
+
+async function extractTextFromFile(file) {
+    const ext = file.name.split('.').pop().toLowerCase();
+    const arrayBuffer = await file.arrayBuffer();
+
+    if (ext === 'txt') {
+        const decoder = new TextDecoder('utf-8');
+        return decoder.decode(arrayBuffer);
+    } else if (ext === 'docx') {
+        if (!window.mammoth) throw new Error("Mammoth library failed to load.");
+        const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+        return result.value;
+    } else if (ext === 'pdf') {
+        if (!window.pdfjsLib) throw new Error("PDF.js library failed to load.");
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        let extractedText = "";
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+            const pageText = content.items.map(item => item.str).join(" ");
+            extractedText += pageText + "\n";
+        }
+        return extractedText;
+    }
+    throw new Error(`Unsupported file type: .${ext}`);
+}
+
+// Math metric calculation helpers from original tool
+function countSyllables(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (word.length <= 3) return 1;
+    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+    word = word.replace(/^y/, '');
+    const matches = word.match(/[aeiouy]{1,2}/g);
+    return matches ? matches.length : 1;
+}
+
+function calculateShannonEntropy(text) {
+    if (!text) return 0.0;
+    const totalChars = text.length;
+    const counts = {};
+    for (let char of text) { counts[char] = (counts[char] || 0) + 1; }
+    let entropy = 0.0;
+    for (let char in counts) {
+        const p = counts[char] / totalChars;
+        entropy -= p * Math.log2(p);
+    }
+    return entropy;
+}
+
+function calculateMATTR(words, windowSize = 100) {
+    if (words.length < windowSize) {
+        return words.length ? (new Set(words).size / words.length) : 0;
+    }
+    let sumTTR = 0, count = 0;
+    for (let i = 0; i <= words.length - windowSize; i++) {
+        const window = words.slice(i, i + windowSize);
+        sumTTR += (new Set(window).size / windowSize);
+        count++;
+    }
+    return sumTTR / count;
+}
+
+function calculateZipfFit(words) {
+    if (words.length < 30) return 0.95;
+    const freqMap = {};
+    words.forEach(w => freqMap[w] = (freqMap[w] || 0) + 1);
+    const freqs = Object.values(freqMap).sort((a, b) => b - a);
+    if (freqs.length < 5) return 0.95;
+
+    const n = Math.min(freqs.length, 50);
+    let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+    for (let i = 0; i < n; i++) {
+        const x = Math.log(i + 1);
+        const y = Math.log(freqs[i]);
+        sumX += x; sumY += y; sumXY += x * y; sumX2 += x * x; sumY2 += y * y;
+    }
+    const num = (n * sumXY) - (sumX * sumY);
+    const den = Math.sqrt(((n * sumX2) - (sumX * sumX)) * ((n * sumY2) - (sumY * sumY)));
+    if (den === 0) return 0.95;
+    const r = num / den;
+    return Math.min(1.0, Math.max(0, r * r));
+}
+
+async function runFullSuiteAnalysis() {
+    const errorDiv = document.getElementById('errorMessage');
+    errorDiv.innerText = "";
+    errorDiv.style.display = "none";
+
+    const pastedText = document.getElementById('textInput').value.trim();
+    const fileInput = document.getElementById('fileInput');
+
+    try {
+        let textToAnalyze = "";
+        let fileName = "Pasted Text";
+
+        if (pastedText.length > 0) {
+            textToAnalyze = pastedText;
+        } else if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            fileName = file.name;
+            textToAnalyze = await extractTextFromFile(file);
+        } else {
+            throw new Error("Please paste text or select a file to analyze.");
+        }
+
+        if (textToAnalyze.length < 30) {
+            throw new Error("Text is too short for analysis. Please provide at least 30 characters.");
+        }
+
+        const customTropesRaw = document.getElementById('customTropesInput').value;
+        const whitelistRaw = document.getElementById('whitelistInput').value;
+        
+        const customTropes = customTropesRaw ? customTropesRaw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean) : [];
+        const whitelistedWords = whitelistRaw ? whitelistRaw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean) : [];
+
+        currentAnalysisData = performAnalysis(textToAnalyze, fileName, customTropes, whitelistedWords);
+        renderFullDashboard(currentAnalysisData);
+
+    } catch (err) {
+        console.error(err);
+        errorDiv.innerText = err.message;
+        errorDiv.style.display = "block";
+    }
+}
+
+function performAnalysis(text, fileName, customTropes, whitelistedWords) {
+    const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+    const rawSegments = text.match(/([^.!?\n]+[.!?\n]+)/g) || [text];
+    const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
+    
+    const totalWords = words.length;
+    const totalSentences = sentences.length;
+
+    // Holistic metrics
+    const entropy = calculateShannonEntropy(text);
+    const mattr = calculateMATTR(words, 100);
+    const zipfFit = calculateZipfFit(words);
+    
+    const lengths = sentences.map(s => s.split(/\s+/).filter(Boolean).length);
+    const meanLen = totalSentences ? lengths.reduce((a, b) => a + b, 0) / totalSentences : 0;
+    const variance = totalSentences ? lengths.reduce((a, b) => a + Math.pow(b - meanLen, 2), 0) / totalSentences : 0;
+
+    const totalSyllables = words.reduce((acc, w) => acc + countSyllables(w), 0);
+    const fleschEase = totalSentences && totalWords ? Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords)))) : 0;
+    const gradeLevel = totalSentences && totalWords ? Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59) : 0;
+
+    const vScore = Math.min(25, (variance / 60.0) * 25);
+    const mScore = Math.min(25, (mattr / 0.72) * 25);
+    const zScore = zipfFit >= 0.85 ? 25 : 15;
+    const eScore = fleschEase <= 35 ? 25 : 15;
+    const totalScore = parseFloat(Math.max(0, Math.min(100, vScore + mScore + zScore + eScore)).toFixed(1));
+
+    let verdict = totalScore >= 55 ? "Typical Technical Register" : "Atypical Register / Review Recommended";
+    let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
+
+    // Sentence level triggers
+    const baseTropes = ["testament", "watershed", "vital role", "delve", "beacon", "paradigm shift", "myriad", "tapestry", "plethora", "crucial role", "serves as", "comprehensive overview"];
+    const allTropes = [...baseTropes, ...customTropes];
+    const tropeRegex = new RegExp(`\\b(${allTropes.join('|')})\\b`, 'gi');
+    const negParallelRegex = /\bnot\s+(just|only)\b.*?\b(but\s+also|but)\b/gi;
+    const trailingParticipleRegex = /,\s+(highlighting|emphasizing|ensuring|fostering|showcasing|underscoring|bridging|serving|paving)\b/gi;
+
+    let segmentData = [];
+    let totalSentenceLengths = [];
+
+    rawSegments.forEach((segment, idx) => {
+        let wCount = segment.split(/\s+/).filter(Boolean).length;
+        totalSentenceLengths.push(wCount);
+
+        let triggers = [];
+        if (tropeRegex.test(segment)) triggers.push("AI Stylistic Trope / Buzzword");
+        if (negParallelRegex.test(segment)) triggers.push("Negative Parallelism structure");
+        if (trailingParticipleRegex.test(segment)) triggers.push("Trailing Participial Modifier");
+        
+        tropeRegex.lastIndex = 0;
+        negParallelRegex.lastIndex = 0;
+        trailingParticipleRegex.lastIndex = 0;
+
+        if (whitelistedWords.length > 0) {
+            triggers = triggers.filter(tr => !whitelistedWords.some(w => segment.toLowerCase().includes(w)));
+        }
+
+        let riskLevel = "human";
+        if (triggers.length >= 2) riskLevel = "ai";
+        else if (triggers.length === 1) riskLevel = "hybrid";
+
+        segmentData.push({ id: idx + 1, text: segment, wordCount: wCount, triggers, riskLevel });
+    });
+
+    let revisedText = text;
+    const replacements = {
+        "\\bdelve into\\b": "examine",
+        "\\bdelving into\\b": "examining",
+        "\\bserves as a testament to\\b": "demonstrates",
+        "\\ba vital role\\b": "an important role",
+        "\\bparadigm shift\\b": "significant shift",
+        "\\bmyriad of\\b": "many"
+    };
+    for (const [pat, rep] of Object.entries(replacements)) {
+        revisedText = revisedText.replace(new RegExp(pat, 'gi'), rep);
+    }
+    revisedText = revisedText.replace(/,\s+(highlighting|emphasizing|ensuring|fostering|showcasing)\b[^.!?]*/gi, ".");
+
+    return {
+        fileName,
+        segmentData,
+        sentenceLengths: totalSentenceLengths,
+        revisedText,
+        metrics: {
+            totalScore,
+            verdict,
+            statusClass,
+            sentVar: variance.toFixed(1),
+            fleschEase: fleschEase.toFixed(1),
+            zipfFit: zipfFit.toFixed(2),
+            mattr: mattr.toFixed(2),
+            entropy: entropy.toFixed(2),
+            gradeLevel: gradeLevel.toFixed(1)
+        }
+    };
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    
+    document.getElementById('btn-' + tabId).classList.add('active');
+    document.getElementById('tab-' + tabId).classList.add('active');
+
+    if (tabId === 'burstiness' && activeChart === null) {
+        renderBurstinessChart(currentAnalysisData.sentenceLengths);
+    }
+}
+
+function checkThreshold(val, threshold, condition = 'below') {
+    const num = parseFloat(val);
+    const isFlagged = condition === 'below' ? num < threshold : num > threshold;
+    return isFlagged ? "metric-value below-threshold" : "metric-value";
+}
+
+function renderFullDashboard(data) {
+    const aiCount = data.segmentData.filter(s => s.riskLevel === 'ai').length;
+    const hybridCount = data.segmentData.filter(s => s.riskLevel === 'hybrid').length;
+    const humanCount = data.segmentData.filter(s => s.riskLevel === 'human').length;
+    const m = data.metrics;
+
+    let highlightedHTML = '';
+    data.segmentData.forEach(s => {
+        let cssClass = s.riskLevel === 'ai' ? 'hl-ai' : s.riskLevel === 'hybrid' ? 'hl-hybrid' : 'hl-human';
+        highlightedHTML += `<span class="${cssClass}" onclick="inspectSegment(${s.id})" title="Click to inspect">${escapeHtml(s.text)}</span> `;
+    });
+
+    const html = `
+        <div class="results-card">
+            <div class="card-header">
+                <h2>Analysis Dashboard: ${escapeHtml(data.fileName)}</h2>
+                <div class="toolbar-actions">
+                    <button class="action-btn" onclick="exportCSVReport()">Export Report (CSV)</button>
+                </div>
+            </div>
+
+            <div class="legend-bar">
+                <div class="legend-item"><span class="legend-box box-ai"></span> High-Risk AI (${aiCount})</div>
+                <div class="legend-item"><span class="legend-box box-hybrid"></span> Hybrid Indicator (${hybridCount})</div>
+                <div class="legend-item"><span class="legend-box box-human"></span> Standard Register (${humanCount})</div>
+            </div>
+
+            <div class="tab-bar">
+                <button class="tab-btn active" id="btn-highlighter" onclick="switchTab('highlighter')">1. Sentence Highlighter & Inspector</button>
+                <button class="tab-btn" id="btn-scores" onclick="switchTab('scores')">2. Score Breakdowns & Metrics</button>
+                <button class="tab-btn" id="btn-comparator" onclick="switchTab('comparator')">3. Original vs. Rewritten Comparator</button>
+                <button class="tab-btn" id="btn-burstiness" onclick="switchTab('burstiness')">4. Sentence Burstiness Chart</button>
+            </div>
+
+            <!-- Tab 1: Highlighter & Inspector -->
+            <div class="tab-content active" id="tab-highlighter">
+                <div class="inspector-layout">
+                    <div class="document-view">${highlightedHTML}</div>
+                    <div class="inspector-card" id="inspectorCard">
+                        <h3>Sentence Inspector</h3>
+                        <p style="color: #666; font-style: italic;">Click any highlighted sentence in the document to view detailed micro-metrics and triggers here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Score Breakdowns & Metrics (Original Tool Metrics) -->
+            <div class="tab-content" id="tab-scores">
+                <div class="section-title">Composite Baseline Score</div>
+                <div class="metric-row">
+                    <div class="metric-label">Total Stylometric Alignment Score: <span class="${checkThreshold(m.totalScore, 55, 'below')}">${m.totalScore} / 100</span> <span class="status-badge ${m.statusClass}">${m.verdict}</span></div>
+                    <div class="metric-explanation">Aggregates physical features against contemporary baseline standards. Values below 55 indicate atypical structural divergence.</div>
+                </div>
+
+                <div class="section-title">Physical Stylometric Features</div>
+                <div class="metric-row">
+                    <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="${checkThreshold(m.sentVar, 50, 'below')}">${m.sentVar} words²</span></div>
+                    <div class="metric-explanation">Quantifies clausal cadence and structural variance. Normal threshold expected > 50.0 words².</div>
+                </div>
+
+                <div class="metric-row">
+                    <div class="metric-label">Flesch Reading Ease (FRE): <span class="${checkThreshold(m.fleschEase, 15, 'below')}">${m.fleschEase} / 100</span></div>
+                    <div class="metric-explanation">Evaluates text readability. Technical writing naturally reflects denser syntax (FRE < 35.0). Flagged if extreme (< 15).</div>
+                </div>
+
+                <div class="metric-row">
+                    <div class="metric-label">Zipfian Linearity (R²): <span class="${checkThreshold(m.zipfFit, 0.85, 'below')}">${m.zipfFit}</span> | Moving-Average TTR (MATTR100): <span class="${checkThreshold(m.mattr, 0.65, 'below')}">${m.mattr}</span></div>
+                    <div class="metric-explanation">Measures word frequency rank scaling (R² > 0.85 expected) and lexical diversity over a sliding window (W=100, expected > 0.65).</div>
+                </div>
+
+                <div class="section-title">Syntactic and Lexical Density</div>
+                <div class="metric-row">
+                    <div class="metric-label">Shannon Character Entropy (H): <span class="${checkThreshold(m.entropy, 4.0, 'below')}">${m.entropy} bits</span> | Grade Level (FKGL): <span class="metric-value">Grade ${m.gradeLevel}</span></div>
+                    <div class="metric-explanation">Character entropy captures information density per symbol (expected > 4.0).</div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Comparator -->
+            <div class="tab-content" id="tab-comparator">
+                <p style="margin-top:0; font-size: 13.5px; color: #555;">Side-by-side comparison displaying the original submission alongside a rule-based stylistic cleaning pass.</p>
+                <div class="comparator-grid">
+                    <div class="comparator-box">
+                        <h3>Original Submission</h3>
+                        <div>${escapeHtml(data.segmentData.map(s => s.text).join(' '))}</div>
+                    </div>
+                    <div class="comparator-box" style="background: #f0f7ff;">
+                        <h3>Rule-Based Stylistic Revision</h3>
+                        <div>${escapeHtml(data.revisedText)}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Burstiness Chart -->
+            <div class="tab-content" id="tab-burstiness">
+                <p style="margin-top:0; font-size: 13.5px; color: #555;">Visualizing sentence length variations (burstiness) across the document.</p>
+                <div class="chart-container">
+                    <canvas id="burstinessChart"></canvas>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('resultsContainer').innerHTML = html;
+    window._segmentMap = data.segmentData;
+}
+
+function inspectSegment(id) {
+    const seg = window._segmentMap.find(s => s.id === id);
+    if (!seg) return;
+
+    const card = document.getElementById('inspectorCard');
+    card.innerHTML = `
+        <h3>Sentence #${seg.id} Inspector</h3>
+        <p><strong>Status:</strong> <span style="text-transform: uppercase; font-weight: bold; color: ${seg.riskLevel === 'ai' ? '#dc3545' : seg.riskLevel === 'hybrid' ? '#e0a800' : '#28a745'}">${seg.riskLevel}</span></p>
+        <p><strong>Word Count:</strong> ${seg.wordCount} words</p>
+        <p><strong>Triggers Detected:</strong> ${seg.triggers.length ? seg.triggers.join(', ') : 'None (Standard Cadence)'}</p>
+        <hr style="border: 0; border-top: 1px solid #ffd6cc; margin: 10px 0;">
+        <p style="margin-bottom: 0;"><strong>Full Text:</strong><br><em style="color: #333;">"${escapeHtml(seg.text)}"</em></p>
+    `;
+}
+
+function renderBurstinessChart(lengths) {
+    const ctx = document.getElementById('burstinessChart').getContext('2d');
+    if (activeChart) { activeChart.destroy(); }
+
+    activeChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: lengths.map((_, i) => `S${i + 1}`),
+            datasets: [{
+                label: 'Sentence Word Count',
+                data: lengths,
+                backgroundColor: '#002D62',
+                borderColor: '#001f44',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: { title: { display: true, text: 'Sentence Sequence' } },
+                y: { beginAtZero: true, title: { display: true, text: 'Word Count' } }
+            }
+        }
+    });
+}
+
+function exportCSVReport() {
+    if (!currentAnalysisData) return;
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Sentence ID,Risk Level,Word Count,Triggers,Text\r\n";
+
+    currentAnalysisData.segmentData.forEach(s => {
+        let row = [
+            s.id,
+            s.riskLevel,
+            s.wordCount,
+            `"${s.triggers.join('; ')}"`,
+            `"${s.text.replace(/"/g, '""')}"`
+        ];
+        csvContent += row.join(",") + "\r\n";
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Stylometric_Report_${currentAnalysisData.fileName}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function escapeHtml(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+</script>
+
+</body>
+</html>
