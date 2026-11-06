@@ -8,6 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jsPDF for Professional PDF Report Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         :root {
             --utica-blue: #002D62;
@@ -19,6 +21,26 @@
             --text-dark: #222222;
             --metric-normal: #002D62;
             --metric-warning: #E85523;
+            --card-bg: #ffffff;
+            --panel-bg: #fdfdfd;
+            --doc-view-bg: #fafbfc;
+            --border-color: #d0d7de;
+        }
+
+        [data-theme="dark"] {
+            --utica-blue: #4a8cd4;
+            --utica-blue-hover: #3b74b1;
+            --utica-orange: #ff7b47;
+            --utica-orange-hover: #e86532;
+            --utica-light-blue: #1a2636;
+            --bg-gray: #121820;
+            --text-dark: #e1e6eb;
+            --metric-normal: #4a8cd4;
+            --metric-warning: #ff7b47;
+            --card-bg: #1c2530;
+            --panel-bg: #161f28;
+            --doc-view-bg: #161f28;
+            --border-color: #2c3b4e;
         }
 
         body {
@@ -27,11 +49,12 @@
             padding: 20px;
             background-color: var(--bg-gray);
             color: var(--text-dark);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            background: #ffffff;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 45, 98, 0.08);
@@ -48,10 +71,28 @@
             gap: 10px;
         }
         h1 { margin: 0; color: var(--utica-blue); font-size: 26px; }
+        
+        .header-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .theme-toggle-btn, .font-size-btn {
+            background: var(--utica-blue);
+            color: #fff;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .theme-toggle-btn:hover, .font-size-btn:hover { background: var(--utica-blue-hover); }
+
         .last-updated-badge {
             display: inline-block;
             border: 2px dotted var(--utica-orange);
-            background-color: #fff8f5;
+            background-color: var(--utica-light-blue);
             color: var(--utica-blue);
             padding: 3px 10px;
             border-radius: 4px;
@@ -66,7 +107,7 @@
             border-radius: 0 4px 4px 0;
         }
         .notice-header h3 { margin: 0 0 8px 0; color: var(--utica-blue); font-size: 15px; text-transform: uppercase; }
-        .notice-header ul { margin: 0; padding-left: 20px; color: #333; font-size: 13.5px; line-height: 1.5; }
+        .notice-header ul { margin: 0; padding-left: 20px; color: var(--text-dark); font-size: 13.5px; line-height: 1.5; }
         
         .input-section { margin-bottom: 25px; }
         label { font-weight: bold; display: block; margin-bottom: 8px; color: var(--utica-blue); }
@@ -75,7 +116,9 @@
             height: 110px;
             padding: 10px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid var(--border-color);
+            background: var(--doc-view-bg);
+            color: var(--text-dark);
             border-radius: 4px;
             font-size: 14px;
             font-family: inherit;
@@ -83,29 +126,31 @@
         textarea:focus { outline: none; border-color: var(--utica-blue); }
         
         .settings-panel {
-            background: #fdfdfd;
-            border: 1px solid #d0d7de;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
             padding: 15px;
             border-radius: 6px;
             margin-top: 15px;
         }
         .settings-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 15px;
         }
-        @media(max-width: 768px) { .settings-grid { grid-template-columns: 1fr; } }
-        .settings-panel input[type="text"] {
+        @media(max-width: 900px) { .settings-grid { grid-template-columns: 1fr; } }
+        .settings-panel input[type="text"], .settings-panel select {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid var(--border-color);
+            background: var(--doc-view-bg);
+            color: var(--text-dark);
             border-radius: 4px;
             font-size: 13px;
         }
 
         .file-upload-box {
-            border: 2px dashed #b0c4de;
+            border: 2px dashed var(--border-color);
             padding: 12px;
             text-align: center;
             background: var(--utica-light-blue);
@@ -117,6 +162,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+        .file-upload-box input[type="file"] { color: var(--text-dark); }
         .clear-file-btn { background-color: #6c757d; font-size: 12px; padding: 6px 12px; width: auto; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
         .clear-file-btn:hover { background-color: #5a6268; }
         .or-divider { text-align: center; margin: 12px 0; font-weight: bold; color: #777; }
@@ -139,9 +185,9 @@
 
         .results-card {
             margin-top: 30px;
-            border: 1px solid #d0d7de;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
-            background: #fff;
+            background: var(--card-bg);
             overflow: hidden;
         }
         .card-header {
@@ -156,7 +202,7 @@
         }
         .card-header h2 { margin: 0; font-size: 18px; color: #fff; }
         
-        .toolbar-actions { display: flex; gap: 10px; }
+        .toolbar-actions { display: flex; gap: 10px; flex-wrap: wrap; }
         .action-btn {
             background-color: var(--utica-orange);
             color: white;
@@ -172,14 +218,14 @@
         .legend-bar {
             background: var(--utica-light-blue);
             padding: 10px 20px;
-            border-bottom: 1px solid #d0d7de;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             gap: 20px;
             align-items: center;
             font-size: 13px;
             flex-wrap: wrap;
         }
-        .legend-item { display: flex; align-items: center; gap: 6px; font-weight: bold; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-weight: bold; color: var(--text-dark); }
         .legend-box { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
         .box-ai { background-color: #f8d7da; border: 1px solid #f5c6cb; }
         .box-hybrid { background-color: #fff3cd; border: 1px solid #ffeeba; }
@@ -187,24 +233,24 @@
 
         .tab-bar {
             display: flex;
-            background: #eef4fb;
-            border-bottom: 1px solid #d0d7de;
+            background: var(--utica-light-blue);
+            border-bottom: 1px solid var(--border-color);
             flex-wrap: wrap;
         }
         .tab-btn {
-            padding: 12px 16px;
+            padding: 12px 14px;
             background: none;
             border: none;
             font-weight: bold;
             color: var(--utica-blue);
             cursor: pointer;
-            font-size: 13.5px;
+            font-size: 13px;
             width: auto;
             margin-top: 0;
             border-bottom: 3px solid transparent;
         }
         .tab-btn.active {
-            background: #ffffff;
+            background: var(--card-bg);
             border-bottom: 3px solid var(--utica-orange);
         }
         .tab-content { display: none; padding: 20px; }
@@ -220,37 +266,56 @@
         .document-view {
             padding: 15px;
             line-height: 2.0;
-            font-size: 15px;
-            background: #fafbfc;
-            border: 1px solid #d0d7de;
+            font-size: var(--doc-font-size, 15px);
+            background: var(--doc-view-bg);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             max-height: 500px;
             overflow-y: auto;
         }
         .inspector-card {
-            background: #fff8f5;
-            border: 1px solid #e85523;
+            background: var(--panel-bg);
+            border: 1px solid var(--utica-orange);
             border-radius: 6px;
             padding: 15px;
             font-size: 13.5px;
         }
-        .inspector-card h3 { margin-top: 0; color: var(--utica-blue); font-size: 15px; border-bottom: 1px solid #ffd6cc; padding-bottom: 6px; }
+        .inspector-card h3 { margin-top: 0; color: var(--utica-blue); font-size: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
 
         .hl-ai {
-            background-color: #f8d7da;
+            background-color: rgba(220, 53, 69, 0.25);
             border-bottom: 2px solid #dc3545;
             padding: 2px 4px;
             border-radius: 3px;
             cursor: pointer;
         }
         .hl-hybrid {
-            background-color: #fff3cd;
+            background-color: rgba(255, 193, 7, 0.25);
             border-bottom: 2px solid #ffc107;
             padding: 2px 4px;
             border-radius: 3px;
             cursor: pointer;
         }
         .hl-human { padding: 2px 2px; }
+
+        .rewrite-options {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .rewrite-chip {
+            background: var(--utica-light-blue);
+            border: 1px solid var(--utica-blue);
+            color: var(--utica-blue);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: bold;
+        }
+        .rewrite-chip:hover { background: var(--utica-blue); color: #fff; }
 
         .comparator-grid {
             display: grid;
@@ -259,8 +324,8 @@
         }
         @media(max-width: 900px) { .comparator-grid { grid-template-columns: 1fr; } }
         .comparator-box {
-            background: #fafbfc;
-            border: 1px solid #d0d7de;
+            background: var(--doc-view-bg);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 15px;
             max-height: 500px;
@@ -273,13 +338,12 @@
         .chart-container {
             position: relative;
             height: 320px;
-            background: #fff;
+            background: var(--card-bg);
             padding: 15px;
-            border: 1px solid #d0d7de;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
         }
 
-        /* Holistic Metrics styling from original tool */
         .section-title {
             background: var(--utica-light-blue);
             padding: 8px 15px;
@@ -288,43 +352,67 @@
             color: var(--utica-blue);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            border-bottom: 1px solid #d0d7de;
-            border-top: 1px solid #d0d7de;
+            border-bottom: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
             margin-top: 15px;
         }
         .section-title:first-child { margin-top: 0; border-top: none; }
-        .metric-row { padding: 12px 15px; border-bottom: 1px solid #f0f0f0; }
+        .metric-row { padding: 12px 15px; border-bottom: 1px solid var(--border-color); }
         .metric-row:last-child { border-bottom: none; }
         .metric-label { font-weight: bold; font-size: 14px; color: var(--utica-blue); margin-bottom: 3px; }
         .metric-value { font-weight: bold; color: var(--metric-normal); }
-        .metric-value.below-threshold { color: var(--metric-warning); background-color: #fff3cd; padding: 2px 6px; border-radius: 4px; border: 1px solid #ffeeba; }
-        .metric-explanation { font-size: 13px; color: #555; margin-top: 3px; line-height: 1.4; }
+        .metric-value.below-threshold { color: var(--metric-warning); background-color: rgba(232, 85, 35, 0.15); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--utica-orange); }
+        .metric-explanation { font-size: 13px; color: var(--text-dark); opacity: 0.8; margin-top: 3px; line-height: 1.4; }
         .status-badge { padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 11px; text-transform: uppercase; display: inline-block; }
         .status-normal { background-color: #28a745; color: #fff; }
         .status-review { background-color: var(--utica-orange); color: #fff; }
+
+        table.jargon-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 13.5px;
+        }
+        table.jargon-table th, table.jargon-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        table.jargon-table th {
+            background: var(--utica-light-blue);
+            color: var(--utica-blue);
+        }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
 <div class="container">
     <div class="header-bar">
         <div class="header-title-group">
-            <h1>Better Writer - Formative Stylometric Suite & Diagnostic Analyzer</h1>
-            <div class="last-updated-badge">Full Feature Set + Holistic Score Breakdown Tab</div>
+            <h1>Better Writer - Stylometric Suite & Diagnostic Analyzer</h1>
+            <div class="last-updated-badge">Nov 5 - NSF/Gov Proposal Profile added, Active Rewrite & PDF Export added</div>
+        </div>
+        <div class="header-controls">
+            <button class="font-size-btn" onclick="adjustFontSize(1)">A+</button>
+            <button class="font-size-btn" onclick="adjustFontSize(-1)">A-</button>
+            <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 Theme</button>
         </div>
     </div>
     
     <div class="notice-header">
-        <h3>Comprehensive Suite Guidelines</h3>
+        <h3>Integrated Features Active</h3>
         <ul>
-            <li><strong>Score Breakdown:</strong> Review complete holistic document metrics (FRE, Zipfian R², MATTR, Entropy, Sentence Variance) alongside sentence-level highlighting.</li>
-            <li><strong>100% FERPA / Privacy Compliant:</strong> Client-side parsing ensures data never leaves your local browser memory.</li>
+	    <li>Score Breakdown: Review complete holistic document metrics (FRE, Zipfian R², MATTR, Entropy, Sentence Variance) alongside sentence-level highlighting.</li>
+            <li>100% FERPA / Privacy Compliant: Client-side parsing ensures data never leaves your local browser memory.</li>
+            <li>Interactive Sentence Rewrite Assistant & Contextual Genre Profiles (including <em>NSF / Gov Proposal</em>).</li>
+            <li>Multi-Document Author Baseline Profiling & Jargon/Crutch Word Frequency Analytics.</li>
+            <li>Professional PDF/CSV Report Generation & Accessibility Controls (Dark Mode & Font Scaling).</li>
         </ul>
     </div>
 
     <div class="input-section">
-        <label for="textInput">Option 1: Paste Text</label>
-        <textarea id="textInput" placeholder="Paste technical report, essay section, or paragraph here..."></textarea>
+        <label for="textInput">Option 1: Paste Text for Current Document Analysis</label>
+        <textarea id="textInput" placeholder="Paste technical report, NSF grant section, or proposal paragraph here..."></textarea>
         
         <div class="or-divider">— OR —</div>
         
@@ -335,15 +423,25 @@
         </div>
 
         <div class="settings-panel">
-            <label style="font-size: 14px; margin-bottom: 6px;">Custom Sensitivity & Whitelisting Settings</label>
+            <label style="font-size: 14px; margin-bottom: 6px;">Configuration, Genre & Baseline Profiles</label>
             <div class="settings-grid">
                 <div>
-                    <label style="font-size: 12px; font-weight: normal; color: #555;">Add Custom Blacklist Tropes (comma-separated):</label>
-                    <input type="text" id="customTropesInput" placeholder="e.g., synergy, leverage, game-changer">
+                    <label style="font-size: 12px; font-weight: normal; opacity: 0.8;">Target Writing Genre / Profile:</label>
+                    <select id="genreProfileSelect">
+                        <option value="nsf">NSF / Gov Proposal (Federal Grant Standard)</option>
+                        <option value="journal">Peer-Reviewed Journal (Strict Academic)</option>
+                        <option value="executive">Executive Summary / Business Report</option>
+                        <option value="tech">Tech Blog / Whitepaper</option>
+                        <option value="undergrad" selected>Undergraduate Essay / Thesis</option>
+                    </select>
                 </div>
                 <div>
-                    <label style="font-size: 12px; font-weight: normal; color: #555;">Whitelist / Ignore Words (comma-separated):</label>
-                    <input type="text" id="whitelistInput" placeholder="e.g., specific jargon, methodology terms">
+                    <label style="font-size: 12px; font-weight: normal; opacity: 0.8;">Author Baseline Corpus (Optional):</label>
+                    <input type="file" id="baselineFileInput" accept=".txt, .pdf, .docx" style="font-size: 12px; padding: 4px;">
+                </div>
+                <div>
+                    <label style="font-size: 12px; font-weight: normal; opacity: 0.8;">Custom Blacklist Tropes & Whitelist:</label>
+                    <input type="text" id="customTropesInput" placeholder="e.g., synergy, leverage">
                 </div>
             </div>
         </div>
@@ -362,6 +460,21 @@ if (window.pdfjsLib) {
 
 let activeChart = null;
 let currentAnalysisData = null;
+let currentFontSize = 15;
+
+function toggleTheme() {
+    const body = document.body;
+    if (body.getAttribute('data-theme') === 'light') {
+        body.setAttribute('data-theme', 'dark');
+    } else {
+        body.setAttribute('data-theme', 'light');
+    }
+}
+
+function adjustFontSize(delta) {
+    currentFontSize = Math.max(12, Math.min(22, currentFontSize + delta));
+    document.documentElement.style.setProperty('--doc-font-size', currentFontSize + 'px');
+}
 
 function clearFile() {
     document.getElementById('fileInput').value = '';
@@ -393,7 +506,6 @@ async function extractTextFromFile(file) {
     throw new Error(`Unsupported file type: .${ext}`);
 }
 
-// Math metric calculation helpers from original tool
 function countSyllables(word) {
     word = word.toLowerCase().replace(/[^a-z]/g, '');
     if (word.length <= 3) return 1;
@@ -457,6 +569,7 @@ async function runFullSuiteAnalysis() {
 
     const pastedText = document.getElementById('textInput').value.trim();
     const fileInput = document.getElementById('fileInput');
+    const baselineFileInput = document.getElementById('baselineFileInput');
 
     try {
         let textToAnalyze = "";
@@ -476,13 +589,16 @@ async function runFullSuiteAnalysis() {
             throw new Error("Text is too short for analysis. Please provide at least 30 characters.");
         }
 
-        const customTropesRaw = document.getElementById('customTropesInput').value;
-        const whitelistRaw = document.getElementById('whitelistInput').value;
-        
-        const customTropes = customTropesRaw ? customTropesRaw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean) : [];
-        const whitelistedWords = whitelistRaw ? whitelistRaw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean) : [];
+        let baselineText = "";
+        if (baselineFileInput.files.length > 0) {
+            baselineText = await extractTextFromFile(baselineFileInput.files[0]);
+        }
 
-        currentAnalysisData = performAnalysis(textToAnalyze, fileName, customTropes, whitelistedWords);
+        const genreProfile = document.getElementById('genreProfileSelect').value;
+        const customTropesRaw = document.getElementById('customTropesInput').value;
+        const customTropes = customTropesRaw ? customTropesRaw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean) : [];
+
+        currentAnalysisData = performAnalysis(textToAnalyze, fileName, customTropes, genreProfile, baselineText);
         renderFullDashboard(currentAnalysisData);
 
     } catch (err) {
@@ -492,7 +608,7 @@ async function runFullSuiteAnalysis() {
     }
 }
 
-function performAnalysis(text, fileName, customTropes, whitelistedWords) {
+function performAnalysis(text, fileName, customTropes, genreProfile, baselineText) {
     const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
     const rawSegments = text.match(/([^.!?\n]+[.!?\n]+)/g) || [text];
     const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
@@ -513,17 +629,34 @@ function performAnalysis(text, fileName, customTropes, whitelistedWords) {
     const fleschEase = totalSentences && totalWords ? Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords)))) : 0;
     const gradeLevel = totalSentences && totalWords ? Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59) : 0;
 
-    const vScore = Math.min(25, (variance / 60.0) * 25);
+    // Genre specific weighting adjustments (including NSF / Gov Proposal)
+    let varThreshold = 50.0;
+    if (genreProfile === 'nsf') varThreshold = 30.0;
+    if (genreProfile === 'executive') varThreshold = 35.0;
+    if (genreProfile === 'tech') varThreshold = 40.0;
+
+    const vScore = Math.min(25, (variance / varThreshold) * 25);
     const mScore = Math.min(25, (mattr / 0.72) * 25);
     const zScore = zipfFit >= 0.85 ? 25 : 15;
-    const eScore = fleschEase <= 35 ? 25 : 15;
+    const eScore = fleschEase <= 50 ? 25 : 15;
     const totalScore = parseFloat(Math.max(0, Math.min(100, vScore + mScore + zScore + eScore)).toFixed(1));
 
-    let verdict = totalScore >= 55 ? "Typical Technical Register" : "Atypical Register / Review Recommended";
+    let verdict = totalScore >= 55 ? "Typical Register Match" : "Atypical Register / Review Recommended";
     let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
 
-    // Sentence level triggers
-    const baseTropes = ["testament", "watershed", "vital role", "delve", "beacon", "paradigm shift", "myriad", "tapestry", "plethora", "crucial role", "serves as", "comprehensive overview"];
+    // Baseline Author Profile comparison if provided
+    let baselineMatchScore = null;
+    if (baselineText.length > 0) {
+        const baseWords = baselineText.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
+        const baseMattr = calculateMATTR(baseWords, 100);
+        const baseEntropy = calculateShannonEntropy(baselineText);
+        const diffMattr = Math.abs(mattr - baseMattr);
+        const diffEntropy = Math.abs(entropy - baseEntropy);
+        baselineMatchScore = Math.max(0, Math.min(100, (1 - (diffMattr * 1.5 + diffEntropy * 0.1)) * 100)).toFixed(1);
+    }
+
+    // Sentence level triggers & frequency counting (Adding NSF-specific grant jargon/buzzwords)
+    const baseTropes = ["testament", "watershed", "vital role", "delve", "beacon", "paradigm shift", "myriad", "tapestry", "plethora", "crucial role", "serves as", "comprehensive overview", "furthermore", "consequently", "moreover", "broader impacts", "transformative research", "synergistic activities", "cutting-edge", "state-of-the-art"];
     const allTropes = [...baseTropes, ...customTropes];
     const tropeRegex = new RegExp(`\\b(${allTropes.join('|')})\\b`, 'gi');
     const negParallelRegex = /\bnot\s+(just|only)\b.*?\b(but\s+also|but)\b/gi;
@@ -531,23 +664,31 @@ function performAnalysis(text, fileName, customTropes, whitelistedWords) {
 
     let segmentData = [];
     let totalSentenceLengths = [];
+    let jargonFrequencyMap = {};
 
     rawSegments.forEach((segment, idx) => {
         let wCount = segment.split(/\s+/).filter(Boolean).length;
         totalSentenceLengths.push(wCount);
 
         let triggers = [];
-        if (tropeRegex.test(segment)) triggers.push("AI Stylistic Trope / Buzzword");
-        if (negParallelRegex.test(segment)) triggers.push("Negative Parallelism structure");
-        if (trailingParticipleRegex.test(segment)) triggers.push("Trailing Participial Modifier");
-        
+        let match;
+        while ((match = tropeRegex.exec(segment)) !== null) {
+            let foundTrope = match[0].toLowerCase();
+            triggers.push(`Trope/Jargon: "${foundTrope}"`);
+            jargonFrequencyMap[foundTrope] = (jargonFrequencyMap[foundTrope] || 0) + 1;
+        }
         tropeRegex.lastIndex = 0;
+
+        if (negParallelRegex.test(segment)) {
+            triggers.push("Negative Parallelism structure");
+            jargonFrequencyMap["negative parallelism"] = (jargonFrequencyMap["negative parallelism"] || 0) + 1;
+        }
+        if (trailingParticipleRegex.test(segment)) {
+            triggers.push("Trailing Participial Modifier");
+            jargonFrequencyMap["trailing participle"] = (jargonFrequencyMap["trailing participle"] || 0) + 1;
+        }
         negParallelRegex.lastIndex = 0;
         trailingParticipleRegex.lastIndex = 0;
-
-        if (whitelistedWords.length > 0) {
-            triggers = triggers.filter(tr => !whitelistedWords.some(w => segment.toLowerCase().includes(w)));
-        }
 
         let riskLevel = "human";
         if (triggers.length >= 2) riskLevel = "ai";
@@ -575,6 +716,9 @@ function performAnalysis(text, fileName, customTropes, whitelistedWords) {
         segmentData,
         sentenceLengths: totalSentenceLengths,
         revisedText,
+        jargonFrequencyMap,
+        baselineMatchScore,
+        genreProfile,
         metrics: {
             totalScore,
             verdict,
@@ -584,7 +728,8 @@ function performAnalysis(text, fileName, customTropes, whitelistedWords) {
             zipfFit: zipfFit.toFixed(2),
             mattr: mattr.toFixed(2),
             entropy: entropy.toFixed(2),
-            gradeLevel: gradeLevel.toFixed(1)
+            gradeLevel: gradeLevel.toFixed(1),
+            varThreshold
         }
     };
 }
@@ -616,15 +761,35 @@ function renderFullDashboard(data) {
     let highlightedHTML = '';
     data.segmentData.forEach(s => {
         let cssClass = s.riskLevel === 'ai' ? 'hl-ai' : s.riskLevel === 'hybrid' ? 'hl-hybrid' : 'hl-human';
-        highlightedHTML += `<span class="${cssClass}" onclick="inspectSegment(${s.id})" title="Click to inspect">${escapeHtml(s.text)}</span> `;
+        highlightedHTML += `<span class="${cssClass}" onclick="inspectSegment(${s.id})" title="Click to inspect & rewrite">${escapeHtml(s.text)}</span> `;
     });
+
+    let jargonRows = '';
+    const sortedJargon = Object.entries(data.jargonFrequencyMap).sort((a,b) => b[1] - a[1]);
+    if (sortedJargon.length === 0) {
+        jargonRows = `<tr><td colspan="3" style="text-align: center; color: #777;">No frequent crutch words or tropes detected. Excellent!</td></tr>`;
+    } else {
+        sortedJargon.forEach(([term, count], i) => {
+            let percentage = ((count / data.segmentData.length) * 100).toFixed(1);
+            jargonRows += `<tr><td>${i+1}</td><td><strong>${escapeHtml(term)}</strong></td><td>${count} (${percentage}% of sentences)</td></tr>`;
+        });
+    }
+
+    const baselineHtml = data.baselineMatchScore !== null ? `
+        <div class="section-title">Author Baseline Profiling Match</div>
+        <div class="metric-row">
+            <div class="metric-label">Corpus Stylometric Consistency Match: <span class="metric-value">${data.baselineMatchScore}%</span></div>
+            <div class="metric-explanation">Compared against your uploaded author baseline sample using MATTR lexical diversity and Shannon entropy delta.</div>
+        </div>
+    ` : '';
 
     const html = `
         <div class="results-card">
             <div class="card-header">
-                <h2>Analysis Dashboard: ${escapeHtml(data.fileName)}</h2>
+                <h2>Analysis Dashboard: ${escapeHtml(data.fileName)} (${data.genreProfile.toUpperCase()})</h2>
                 <div class="toolbar-actions">
-                    <button class="action-btn" onclick="exportCSVReport()">Export Report (CSV)</button>
+                    <button class="action-btn" onclick="exportPDFReport()">Export PDF Report</button>
+                    <button class="action-btn" onclick="exportCSVReport()">Export CSV Report</button>
                 </div>
             </div>
 
@@ -635,45 +800,47 @@ function renderFullDashboard(data) {
             </div>
 
             <div class="tab-bar">
-                <button class="tab-btn active" id="btn-highlighter" onclick="switchTab('highlighter')">1. Sentence Highlighter & Inspector</button>
+                <button class="tab-btn active" id="btn-highlighter" onclick="switchTab('highlighter')">1. Highlighter & Active Rewrite</button>
                 <button class="tab-btn" id="btn-scores" onclick="switchTab('scores')">2. Score Breakdowns & Metrics</button>
-                <button class="tab-btn" id="btn-comparator" onclick="switchTab('comparator')">3. Original vs. Rewritten Comparator</button>
-                <button class="tab-btn" id="btn-burstiness" onclick="switchTab('burstiness')">4. Sentence Burstiness Chart</button>
+                <button class="tab-btn" id="btn-jargon" onclick="switchTab('jargon')">3. Jargon & Crutch Frequency</button>
+                <button class="tab-btn" id="btn-comparator" onclick="switchTab('comparator')">4. Original vs. Rewritten</button>
+                <button class="tab-btn" id="btn-burstiness" onclick="switchTab('burstiness')">5. Burstiness Chart</button>
             </div>
 
-            <!-- Tab 1: Highlighter & Inspector -->
+            <!-- Tab 1: Highlighter & Active Rewrite Assistant -->
             <div class="tab-content active" id="tab-highlighter">
                 <div class="inspector-layout">
-                    <div class="document-view">${highlightedHTML}</div>
+                    <div class="document-view" id="documentViewBox">${highlightedHTML}</div>
                     <div class="inspector-card" id="inspectorCard">
-                        <h3>Sentence Inspector</h3>
-                        <p style="color: #666; font-style: italic;">Click any highlighted sentence in the document to view detailed micro-metrics and triggers here.</p>
+                        <h3>Sentence Inspector & Rewrite Assistant</h3>
+                        <p style="opacity: 0.8; font-style: italic;">Click any highlighted sentence in the document view to inspect triggers and apply instant active style rewrites here.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab 2: Score Breakdowns & Metrics (Original Tool Metrics) -->
+            <!-- Tab 2: Score Breakdowns & Metrics -->
             <div class="tab-content" id="tab-scores">
+                ${baselineHtml}
                 <div class="section-title">Composite Baseline Score</div>
                 <div class="metric-row">
                     <div class="metric-label">Total Stylometric Alignment Score: <span class="${checkThreshold(m.totalScore, 55, 'below')}">${m.totalScore} / 100</span> <span class="status-badge ${m.statusClass}">${m.verdict}</span></div>
-                    <div class="metric-explanation">Aggregates physical features against contemporary baseline standards. Values below 55 indicate atypical structural divergence.</div>
+                    <div class="metric-explanation">Aggregates physical features against contemporary baseline standards for ${data.genreProfile}.</div>
                 </div>
 
                 <div class="section-title">Physical Stylometric Features</div>
                 <div class="metric-row">
-                    <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="${checkThreshold(m.sentVar, 50, 'below')}">${m.sentVar} words²</span></div>
-                    <div class="metric-explanation">Quantifies clausal cadence and structural variance. Normal threshold expected > 50.0 words².</div>
+                    <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="${checkThreshold(m.sentVar, m.varThreshold, 'below')}">${m.sentVar} words²</span></div>
+                    <div class="metric-explanation">Quantifies clausal cadence and structural variance (Expected > ${m.varThreshold} words² for ${data.genreProfile}).</div>
                 </div>
 
                 <div class="metric-row">
                     <div class="metric-label">Flesch Reading Ease (FRE): <span class="${checkThreshold(m.fleschEase, 15, 'below')}">${m.fleschEase} / 100</span></div>
-                    <div class="metric-explanation">Evaluates text readability. Technical writing naturally reflects denser syntax (FRE < 35.0). Flagged if extreme (< 15).</div>
+                    <div class="metric-explanation">Evaluates text readability. Technical and academic writing naturally reflects denser syntax.</div>
                 </div>
 
                 <div class="metric-row">
                     <div class="metric-label">Zipfian Linearity (R²): <span class="${checkThreshold(m.zipfFit, 0.85, 'below')}">${m.zipfFit}</span> | Moving-Average TTR (MATTR100): <span class="${checkThreshold(m.mattr, 0.65, 'below')}">${m.mattr}</span></div>
-                    <div class="metric-explanation">Measures word frequency rank scaling (R² > 0.85 expected) and lexical diversity over a sliding window (W=100, expected > 0.65).</div>
+                    <div class="metric-explanation">Measures word frequency rank scaling (R² > 0.85 expected) and lexical diversity over a sliding window (W=100).</div>
                 </div>
 
                 <div class="section-title">Syntactic and Lexical Density</div>
@@ -683,24 +850,41 @@ function renderFullDashboard(data) {
                 </div>
             </div>
 
-            <!-- Tab 3: Comparator -->
+            <!-- Tab 3: Jargon & Crutch Word Frequency Table -->
+            <div class="tab-content" id="tab-jargon">
+                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Macroscopic overview of detected crutch words, stylistic tropes, and repetitive transitional phrases across your document.</p>
+                <table class="jargon-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Detected Crutch Word / Trope</th>
+                            <th>Frequency & Density</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${jargonRows}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tab 4: Comparator -->
             <div class="tab-content" id="tab-comparator">
-                <p style="margin-top:0; font-size: 13.5px; color: #555;">Side-by-side comparison displaying the original submission alongside a rule-based stylistic cleaning pass.</p>
+                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Side-by-side comparison displaying the original submission alongside a rule-based stylistic cleaning pass.</p>
                 <div class="comparator-grid">
                     <div class="comparator-box">
                         <h3>Original Submission</h3>
                         <div>${escapeHtml(data.segmentData.map(s => s.text).join(' '))}</div>
                     </div>
-                    <div class="comparator-box" style="background: #f0f7ff;">
+                    <div class="comparator-box" style="background: var(--utica-light-blue);">
                         <h3>Rule-Based Stylistic Revision</h3>
                         <div>${escapeHtml(data.revisedText)}</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab 4: Burstiness Chart -->
+            <!-- Tab 5: Burstiness Chart -->
             <div class="tab-content" id="tab-burstiness">
-                <p style="margin-top:0; font-size: 13.5px; color: #555;">Visualizing sentence length variations (burstiness) across the document.</p>
+                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Visualizing sentence length variations (burstiness) across the document.</p>
                 <div class="chart-container">
                     <canvas id="burstinessChart"></canvas>
                 </div>
@@ -717,19 +901,66 @@ function inspectSegment(id) {
     if (!seg) return;
 
     const card = document.getElementById('inspectorCard');
+    
+    let rewriteHTML = '';
+    if (seg.triggers.length > 0) {
+        rewriteHTML = `<div class="rewrite-options">
+            <strong>Active Rewrite Suggestions:</strong>
+            <button class="rewrite-chip" onclick="applyRewrite(${seg.id}, 'active')">Convert to Active Voice & Remove Tropes</button>
+            <button class="rewrite-chip" onclick="applyRewrite(${seg.id}, 'condense')">Condense & Tighten Clausal Cadence</button>
+        </div>`;
+    } else {
+        rewriteHTML = `<p style="color: #28a745; font-weight: bold; margin-top: 10px;">✓ Sentence structure aligns with standard register.</p>`;
+    }
+
     card.innerHTML = `
         <h3>Sentence #${seg.id} Inspector</h3>
         <p><strong>Status:</strong> <span style="text-transform: uppercase; font-weight: bold; color: ${seg.riskLevel === 'ai' ? '#dc3545' : seg.riskLevel === 'hybrid' ? '#e0a800' : '#28a745'}">${seg.riskLevel}</span></p>
         <p><strong>Word Count:</strong> ${seg.wordCount} words</p>
         <p><strong>Triggers Detected:</strong> ${seg.triggers.length ? seg.triggers.join(', ') : 'None (Standard Cadence)'}</p>
-        <hr style="border: 0; border-top: 1px solid #ffd6cc; margin: 10px 0;">
-        <p style="margin-bottom: 0;"><strong>Full Text:</strong><br><em style="color: #333;">"${escapeHtml(seg.text)}"</em></p>
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 10px 0;">
+        <p style="margin-bottom: 5px;"><strong>Full Text:</strong><br><em style="opacity: 0.9;">"${escapeHtml(seg.text)}"</em></p>
+        ${rewriteHTML}
     `;
+}
+
+function applyRewrite(id, mode) {
+    const seg = window._segmentMap.find(s => s.id === id);
+    if (!seg) return;
+
+    let newText = seg.text;
+    if (mode === 'active') {
+        newText = newText.replace(/delve into/gi, 'examine')
+                         .replace(/serves as a testament to/gi, 'demonstrates')
+                         .replace(/a vital role/gi, 'an important role')
+                         .replace(/paradigm shift/gi, 'significant change')
+                         .replace(/,\s+(highlighting|emphasizing|ensuring)\b[^.!?]*/gi, '');
+    } else if (mode === 'condense') {
+        let words = newText.split(/\s+/);
+        if (words.length > 12) {
+            newText = words.slice(0, Math.floor(words.length * 0.75)).join(' ') + '.';
+        }
+    }
+
+    seg.text = newText;
+    seg.wordCount = newText.split(/\s+/).filter(Boolean).length;
+    seg.triggers = [];
+    seg.riskLevel = 'human';
+
+    let highlightedHTML = '';
+    window._segmentMap.forEach(s => {
+        let cssClass = s.riskLevel === 'ai' ? 'hl-ai' : s.riskLevel === 'hybrid' ? 'hl-hybrid' : 'hl-human';
+        highlightedHTML += `<span class="${cssClass}" onclick="inspectSegment(${s.id})" title="Click to inspect & rewrite">${escapeHtml(s.text)}</span> `;
+    });
+    document.getElementById('documentViewBox').innerHTML = highlightedHTML;
+    inspectSegment(id);
 }
 
 function renderBurstinessChart(lengths) {
     const ctx = document.getElementById('burstinessChart').getContext('2d');
     if (activeChart) { activeChart.destroy(); }
+
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
 
     activeChart = new Chart(ctx, {
         type: 'bar',
@@ -738,8 +969,8 @@ function renderBurstinessChart(lengths) {
             datasets: [{
                 label: 'Sentence Word Count',
                 data: lengths,
-                backgroundColor: '#002D62',
-                borderColor: '#001f44',
+                backgroundColor: isDark ? '#4a8cd4' : '#002D62',
+                borderColor: isDark ? '#3b74b1' : '#001f44',
                 borderWidth: 1
             }]
         },
@@ -747,8 +978,18 @@ function renderBurstinessChart(lengths) {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                x: { title: { display: true, text: 'Sentence Sequence' } },
-                y: { beginAtZero: true, title: { display: true, text: 'Word Count' } }
+                x: { 
+                    title: { display: true, text: 'Sentence Sequence', color: isDark ? '#e1e6eb' : '#222' },
+                    ticks: { color: isDark ? '#e1e6eb' : '#222' }
+                },
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Word Count', color: isDark ? '#e1e6eb' : '#222' },
+                    ticks: { color: isDark ? '#e1e6eb' : '#222' }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: isDark ? '#e1e6eb' : '#222' } }
             }
         }
     });
@@ -778,6 +1019,55 @@ function exportCSVReport() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+function exportPDFReport() {
+    if (!currentAnalysisData) return;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    const m = currentAnalysisData.metrics;
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(0, 45, 98);
+    doc.text("Better Writer - Stylometric Diagnostic Report", 14, 20);
+
+    doc.setFontSize(11);
+    doc.setTextColor(80, 80, 80);
+    doc.text(`Document Name: ${currentAnalysisData.fileName}`, 14, 28);
+    doc.text(`Genre Profile: ${currentAnalysisData.genreProfile.toUpperCase()}`, 14, 34);
+
+    doc.setFontSize(14);
+    doc.setTextColor(0, 45, 98);
+    doc.text("Core Diagnostic Metrics", 14, 46);
+
+    doc.setFontSize(11);
+    doc.setTextColor(34, 34, 34);
+    let y = 54;
+    doc.text(`Composite Alignment Score: ${m.totalScore} / 100 (${m.verdict})`, 14, y); y += 6;
+    doc.text(`Sentence Length Variance: ${m.sentVar} words²`, 14, y); y += 6;
+    doc.text(`Flesch Reading Ease (FRE): ${m.fleschEase} / 100`, 14, y); y += 6;
+    doc.text(`Zipfian Linearity (R²): ${m.zipfFit}`, 14, y); y += 6;
+    doc.text(`MATTR (Lexical Diversity): ${m.mattr}`, 14, y); y += 6;
+    doc.text(`Shannon Character Entropy: ${m.entropy} bits`, 14, y); y += 6;
+    doc.text(`Flesch-Kincaid Grade Level: Grade ${m.gradeLevel}`, 14, y); y += 12;
+
+    doc.setFontSize(14);
+    doc.setTextColor(0, 45, 98);
+    doc.text("Sentence Flag Summary", 14, y); y += 8;
+
+    doc.setFontSize(10);
+    currentAnalysisData.segmentData.forEach((s) => {
+        if (y > 270) {
+            doc.addPage();
+            y = 20;
+        }
+        let triggerText = s.triggers.length > 0 ? `[FLAGGED: ${s.triggers.join(', ')}]` : "[Standard]";
+        doc.text(`S${s.id} (${s.riskLevel.toUpperCase()}): ${triggerText}`, 14, y);
+        y += 6;
+    });
+
+    doc.save(`Stylometric_Diagnostic_Report_${currentAnalysisData.fileName}.pdf`);
 }
 
 function escapeHtml(str) {
