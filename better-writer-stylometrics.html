@@ -398,7 +398,7 @@
     <div class="header-bar">
         <div class="header-title-group">
             <h1>Better Writer - Stylometric Suite & Diagnostic Analyzer</h1>
-            <div class="last-updated-badge">Updated Nov 8 2026 - Offline Privacy Edition - Clause Rewrites, Local Persistence & Per-Metric Baseline Comparison</div>
+            <div class="last-updated-badge">Nov 8th, 2026 Update - Offline Privacy Edition - Highlighted Annotated PDF Export Added</div>
         </div>
         <div class="header-controls">
             <button class="font-size-btn" onclick="adjustFontSize(1)">A+</button>
@@ -411,9 +411,8 @@
         <h3>Integrated Features & Local Privacy Guarantee</h3>
         <ul>
             <li><strong>100% Privacy Compliant:</strong> Client-side processing ensures data never leaves your browser (no LLMs or external calls).</li>
-            <li><strong>Advanced Clause-Level Rewrite Engine:</strong> Respects punctuation and conjunctions instead of naive truncation.</li>
+            <li><strong>Annotated PDF Export:</strong> Exports a PDF mirroring the input document structure with AI/Hybrid highlights and edit tags.</li>
             <li><strong>Local Persistence & Profiles:</strong> Automatically saves documents, edit histories, and named author profiles to localStorage.</li>
-            <li><strong>Per-Metric Baseline & Section Team Voice Coherence:</strong> Deep divergence breakdown and heading-aware multi-author partitioning.</li>
         </ul>
     </div>
 
@@ -492,7 +491,6 @@ let activeChart = null;
 let currentAnalysisData = null;
 let currentFontSize = 15;
 
-// Load saved profiles on startup
 window.addEventListener('DOMContentLoaded', () => {
     refreshSavedProfilesDropdown();
 });
@@ -662,7 +660,6 @@ async function runFullSuiteAnalysis() {
             mattrThreshold: parseFloat(document.getElementById('threshMattr').value)
         };
 
-        // Simulate brief async yield for progress bar feel
         await new Promise(r => setTimeout(r, 200));
 
         currentAnalysisData = performAnalysis(textToAnalyze, fileName, customTropes, genreProfile, baselineText, thresholds);
@@ -685,7 +682,6 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
     const totalWords = words.length;
     const totalSentences = sentences.length;
 
-    // Holistic metrics
     const entropy = calculateShannonEntropy(text);
     const mattr = calculateMATTR(words, 100);
     const zipfFit = calculateZipfFit(words);
@@ -707,23 +703,20 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
     let verdict = totalScore >= 55 ? "Typical Register Match" : "Atypical Register / Review Recommended";
     let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
 
-    // Heading & Paragraph-level Partitioning for Team Coherence
     const sections = text.split(/(?:\r?\n){2,}|(?=^#{1,3}\s)/m).filter(Boolean);
     let sectionProfiles = sections.map((sec, idx) => {
         const sWords = sec.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
         const sSentences = sec.split(/[.!?]+/).filter(Boolean);
         const sMattr = calculateMATTR(sWords, 50);
-        const sMeanLen = sSentences.length ? sWords.length / sSentences.length : 0;
         let titleMatch = sec.match(/^(#{1,3}\s.*|[A-Z][a-zA-Z\s]{3,30}:)/);
         let sectionName = titleMatch ? titleMatch[0].replace(/#+/g, '').trim() : `Section ${idx + 1}`;
-        return { id: idx + 1, name: sectionName, mattr: sMattr, meanLen: sMeanLen, snippet: sec.substring(0, 100) + '...' };
+        return { id: idx + 1, name: sectionName, mattr: sMattr, meanLen: sSentences.length ? sWords.length / sSentences.length : 0, snippet: sec.substring(0, 100) + '...' };
     });
 
     let mattrValues = sectionProfiles.map(p => p.mattr);
     let mattrVariance = mattrValues.length > 1 ? mathVariance(mattrValues) : 0;
     let coherenceScore = Math.max(0, Math.min(100, 100 - (mattrVariance * 400)));
 
-    // Per-Metric Baseline Comparison if provided
     let baselineMetrics = null;
     let baselineDivergences = [];
     if (baselineText.length > 0) {
@@ -747,7 +740,6 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
         if (Math.abs(gradeLevel - baselineMetrics.gradeLevel) > 1.5) baselineDivergences.push("Grade Level Complexity");
     }
 
-    // Heuristic Sentence-level Perplexity/Burstiness & Trope Detection
     const baseTropes = ["testament", "watershed", "vital role", "delve", "beacon", "paradigm shift", "myriad", "tapestry", "plethora", "crucial role", "serves as", "comprehensive overview", "furthermore", "consequently", "moreover", "broader impacts", "transformative research", "synergistic activities", "cutting-edge", "state-of-the-art"];
     const allTropes = [...baseTropes, ...customTropes];
     const tropeRegex = new RegExp(`\\b(${allTropes.join('|')})\\b`, 'gi');
@@ -782,7 +774,6 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
         negParallelRegex.lastIndex = 0;
         trailingParticipleRegex.lastIndex = 0;
 
-        // Per-sentence burstiness heuristic: sentences with very low variance from mean length across uniform blocks flag AI-like cadence
         let lenZScore = meanLen > 0 ? Math.abs(wCount - meanLen) / Math.sqrt(variance || 1) : 0;
         if (lenZScore < 0.2 && wCount >= 12 && wCount <= 22) {
             triggers.push("Uniform Burstiness (Low Perplexity Cadence)");
@@ -792,7 +783,7 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
         if (triggers.length >= 2 || (triggers.length === 1 && triggers[0].includes("Uniform"))) riskLevel = "ai";
         else if (triggers.length === 1) riskLevel = "hybrid";
 
-        segmentData.push({ id: idx + 1, originalText: segment, text: segment, wordCount: wCount, triggers, riskLevel, history: [] });
+        segmentData.push({ id: idx + 1, originalText: segment, text: segment, wordCount: wCount, triggers, riskLevel, history: [], isModified: false });
     });
 
     let revisedText = text;
@@ -877,7 +868,6 @@ function renderFullDashboard(data) {
         });
     }
 
-    // Baseline Divergence HTML
     let baselineHtml = '';
     if (data.baselineMetrics) {
         let divergenceBadge = data.baselineDivergences.length === 0 ? 
@@ -900,7 +890,6 @@ function renderFullDashboard(data) {
         `;
     }
 
-    // Section Team Coherence HTML
     let coherenceStatus = data.coherenceScore >= 75 ? "Unified Single Author Voice" : "High Multi-Author Divergence Detected";
     let coherenceBadgeClass = data.coherenceScore >= 75 ? "status-normal" : "status-review";
 
@@ -920,7 +909,7 @@ function renderFullDashboard(data) {
                 <div class="toolbar-actions">
                     <button class="action-btn" onclick="copyReportSummary()">Copy Report Summary</button>
                     <button class="action-btn" onclick="undoAllRewrites()">Undo All Rewrites</button>
-                    <button class="action-btn" onclick="exportPDFReport()">Export PDF Report</button>
+                    <button class="action-btn" onclick="exportPDFReport()">Export PDF Report (Highlighted)</button>
                     <button class="action-btn" onclick="exportCSVReport()">Export CSV Report</button>
                 </div>
             </div>
@@ -940,7 +929,6 @@ function renderFullDashboard(data) {
                 <button class="tab-btn" id="btn-team" onclick="switchTab('team')">6. Section Voice Coherence</button>
             </div>
 
-            <!-- Tab 1: Highlighter & Active Rewrite Assistant -->
             <div class="tab-content active" id="tab-highlighter">
                 <div class="inspector-layout">
                     <div class="document-view" id="documentViewBox">${highlightedHTML}</div>
@@ -951,7 +939,6 @@ function renderFullDashboard(data) {
                 </div>
             </div>
 
-            <!-- Tab 2: Score Breakdowns & Metrics -->
             <div class="tab-content" id="tab-scores">
                 ${baselineHtml}
                 <div class="section-title">Composite Baseline Score</div>
@@ -983,7 +970,6 @@ function renderFullDashboard(data) {
                 </div>
             </div>
 
-            <!-- Tab 3: Jargon & Crutch Word Frequency Table -->
             <div class="tab-content" id="tab-jargon">
                 <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Macroscopic overview of detected crutch words, stylistic tropes, and repetitive transitional phrases across your document.</p>
                 <table class="jargon-table">
@@ -1000,7 +986,6 @@ function renderFullDashboard(data) {
                 </table>
             </div>
 
-            <!-- Tab 4: Comparator -->
             <div class="tab-content" id="tab-comparator">
                 <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Side-by-side comparison displaying the original submission alongside active clause-level stylistic cleaning.</p>
                 <div class="comparator-grid">
@@ -1015,7 +1000,6 @@ function renderFullDashboard(data) {
                 </div>
             </div>
 
-            <!-- Tab 5: Burstiness Chart -->
             <div class="tab-content" id="tab-burstiness">
                 <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Visualizing sentence length variations (burstiness) across the document.</p>
                 <div class="chart-container">
@@ -1023,7 +1007,6 @@ function renderFullDashboard(data) {
                 </div>
             </div>
 
-            <!-- Tab 6: Section Voice Coherence -->
             <div class="tab-content" id="tab-team">
                 <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Detects stylistic friction and voice divergence across document headings and sections caused by multiple co-authors.</p>
                 <div class="section-title">Section Voice Coherence Index</div>
@@ -1080,14 +1063,12 @@ function inspectSegment(id) {
     `;
 }
 
-// Advanced Clause-Level Rewrite Engine respecting conjunctions and punctuation
 function applyClauseRewrite(id, mode) {
     const seg = window._segmentMap.find(s => s.id === id);
     if (!seg) return;
 
-    // Save history for undo
     if (!seg.history) seg.history = [];
-    seg.history.push({ text: seg.text, riskLevel: seg.riskLevel, triggers: [...seg.triggers] });
+    seg.history.push({ text: seg.text, riskLevel: seg.riskLevel, triggers: [...seg.triggers], isModified: seg.isModified });
 
     let newText = seg.text;
     if (mode === 'active') {
@@ -1097,10 +1078,8 @@ function applyClauseRewrite(id, mode) {
                          .replace(/paradigm shift/gi, 'significant change')
                          .replace(/,\s+(highlighting|emphasizing|ensuring)\b[^.!?]*/gi, '');
     } else if (mode === 'trim_clauses') {
-        // Proper clause splitting by conjunctions/punctuation without brutal truncation
         let parts = newText.split(/(?:,|\b(?:and|because|while|although|whereas|since|whereby)\b)/i);
         if (parts.length > 1) {
-            // Keep first two clauses maintaining grammar and meaning
             newText = parts[0].trim() + (parts[1] ? `, ${parts[1].trim()}` : '') + '.';
         } else {
             let words = newText.split(/\s+/);
@@ -1114,6 +1093,7 @@ function applyClauseRewrite(id, mode) {
     seg.wordCount = newText.split(/\s+/).filter(Boolean).length;
     seg.triggers = [];
     seg.riskLevel = 'human';
+    seg.isModified = true;
 
     refreshDocumentView();
     inspectSegment(id);
@@ -1127,6 +1107,7 @@ function undoSegment(id) {
     seg.text = prevState.text;
     seg.riskLevel = prevState.riskLevel;
     seg.triggers = prevState.triggers;
+    seg.isModified = prevState.isModified;
     seg.wordCount = seg.text.split(/\s+/).filter(Boolean).length;
 
     refreshDocumentView();
@@ -1141,6 +1122,7 @@ function undoAllRewrites() {
             s.text = originalState.text;
             s.riskLevel = originalState.riskLevel;
             s.triggers = originalState.triggers;
+            s.isModified = false;
             s.wordCount = s.text.split(/\s+/).filter(Boolean).length;
             s.history = [];
         }
@@ -1158,7 +1140,6 @@ function refreshDocumentView() {
     if (docView) docView.innerHTML = highlightedHTML;
 }
 
-// LocalStorage Persistence for Named Author Profiles & Reports
 function saveCurrentProfile() {
     if (!currentAnalysisData) {
         alert("Please run an analysis before saving a profile.");
@@ -1281,12 +1262,14 @@ function exportCSVReport() {
     document.body.removeChild(link);
 }
 
+// Enhanced PDF Export Function with Annotated Sentence Highlights & Edit Tracking
 function exportPDFReport() {
     if (!currentAnalysisData) return;
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const m = currentAnalysisData.metrics;
 
+    // Page 1: Summary & Metrics
     doc.setFont("helvetica", "bold");
     doc.setFontSize(18);
     doc.setTextColor(0, 45, 98);
@@ -1310,11 +1293,12 @@ function exportPDFReport() {
     doc.text(`Zipfian Linearity (R²): ${m.zipfFit}`, 14, y); y += 6;
     doc.text(`MATTR (Lexical Diversity): ${m.mattr}`, 14, y); y += 6;
     doc.text(`Shannon Character Entropy: ${m.entropy} bits`, 14, y); y += 6;
-    doc.text(`Flesch-Kincaid Grade Level: Grade ${m.gradeLevel}`, 14, y); y += 12;
+    doc.text(`Flesch-Kincaid Grade Level: Grade ${m.gradeLevel}`, 14, y); y += 14;
 
+    // Annotated Document Highlighted Section
     doc.setFontSize(14);
     doc.setTextColor(0, 45, 98);
-    doc.text("Sentence Flag Summary", 14, y); y += 8;
+    doc.text("Annotated Document & Rewrite Highlights", 14, y); y += 8;
 
     doc.setFontSize(10);
     currentAnalysisData.segmentData.forEach((s) => {
@@ -1322,12 +1306,28 @@ function exportPDFReport() {
             doc.addPage();
             y = 20;
         }
-        let triggerText = s.triggers.length > 0 ? `[FLAGGED: ${s.triggers.join(', ')}]` : "[Standard]";
-        doc.text(`S${s.id} (${s.riskLevel.toUpperCase()}): ${triggerText}`, 14, y);
-        y += 6;
+
+        let statusLabel = `[${s.riskLevel.toUpperCase()}]`;
+        let editLabel = s.isModified ? " [REVISED]" : "";
+        let linePrefix = `S${s.id} ${statusLabel}${editLabel}: `;
+
+        // Set color according to risk level and edit status
+        if (s.isModified) {
+            doc.setTextColor(40, 167, 69); // Green for edits
+        } else if (s.riskLevel === 'ai') {
+            doc.setTextColor(220, 53, 69); // Red for AI risk
+        } else if (s.riskLevel === 'hybrid') {
+            doc.setTextColor(200, 150, 0); // Yellow/Orange for hybrid
+        } else {
+            doc.setTextColor(34, 34, 34); // Standard
+        }
+
+        let wrappedText = doc.splitTextToSize(linePrefix + s.text, 180);
+        doc.text(wrappedText, 14, y);
+        y += (wrappedText.length * 6) + 4;
     });
 
-    doc.save(`Stylometric_Diagnostic_Report_${currentAnalysisData.fileName}.pdf`);
+    doc.save(`Annotated_Stylometric_Report_${currentAnalysisData.fileName}.pdf`);
 }
 
 function escapeHtml(str) {
