@@ -138,7 +138,7 @@
             gap: 15px;
         }
         @media(max-width: 900px) { .settings-grid { grid-template-columns: 1fr; } }
-        .settings-panel input[type="text"], .settings-panel select {
+        .settings-panel input[type="text"], .settings-panel select, .settings-panel input[type="number"] {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
@@ -182,6 +182,14 @@
         }
         button.run-btn:hover { background-color: var(--utica-orange-hover); }
         .error-msg { color: #dc3545; font-weight: bold; margin-top: 10px; background: #f8d7da; padding: 10px; border-radius: 4px; display: none; }
+        
+        .loading-overlay {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: var(--utica-blue);
+        }
 
         .results-card {
             margin-top: 30px;
@@ -390,7 +398,7 @@
     <div class="header-bar">
         <div class="header-title-group">
             <h1>Better Writer - Stylometric Suite & Diagnostic Analyzer</h1>
-            <div class="last-updated-badge">Nov 5 - NSF/Gov Proposal Profile, Team Voice Coherence & PDF Export added</div>
+            <div class="last-updated-badge">Offline Privacy Edition - Clause Rewrites, Local Persistence & Per-Metric Baseline Comparison</div>
         </div>
         <div class="header-controls">
             <button class="font-size-btn" onclick="adjustFontSize(1)">A+</button>
@@ -400,19 +408,25 @@
     </div>
 
     <div class="notice-header">
-        <h3>Integrated Features Active</h3>
+        <h3>Integrated Features & Local Privacy Guarantee</h3>
         <ul>
-	    <li>Score Breakdown: Review holistic document metrics (FRE, Zipfian R², MATTR, Entropy, Sentence Variance) alongside sentence-level highlighting.</li>
-            <li>Team Voice Coherence: Automatically detects multi-author stylistic friction and cross-section voice divergence.</li>
-            <li>100% FERPA / Privacy Compliant: Client-side parsing ensures data never leaves your local browser memory.</li>
-            <li>Interactive Sentence Rewrite Assistant & Contextual Genre Profiles (including <em>NSF / Gov Proposal</em>).</li>
-            <li>Professional PDF/CSV Report Generation & Accessibility Controls (Dark Mode & Font Scaling).</li>
-			<li>Nov 6th - Now supports Team Voice Analysis for multi-author papers</li>
+            <li><strong>100% Privacy Compliant:</strong> Client-side processing ensures data never leaves your browser (no LLMs or external calls).</li>
+            <li><strong>Advanced Clause-Level Rewrite Engine:</strong> Respects punctuation and conjunctions instead of naive truncation.</li>
+            <li><strong>Local Persistence & Profiles:</strong> Automatically saves documents, edit histories, and named author profiles to localStorage.</li>
+            <li><strong>Per-Metric Baseline & Section Team Voice Coherence:</strong> Deep divergence breakdown and heading-aware multi-author partitioning.</li>
         </ul>
     </div>
 
     <div class="input-section">
-        <label for="textInput">Option 1: Paste Text for Current Document Analysis</label>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <label for="textInput" style="margin-bottom:0;">Option 1: Paste Text for Current Document Analysis</label>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <select id="savedProfilesSelect" onchange="loadSelectedProfile()" style="font-size: 12px; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color);">
+                    <option value="">-- Load Saved Profile / Doc --</option>
+                </select>
+                <button type="button" class="action-btn" style="font-size: 11px; padding: 4px 8px;" onclick="saveCurrentProfile()">Save Profile</button>
+            </div>
+        </div>
         <textarea id="textInput" placeholder="Paste technical report, NSF grant section, or proposal paragraph here..."></textarea>
 
         <div class="or-divider">— OR —</div>
@@ -424,11 +438,11 @@
         </div>
 
         <div class="settings-panel">
-            <label style="font-size: 14px; margin-bottom: 6px;">Configuration, Genre & Baseline Profiles</label>
+            <label style="font-size: 14px; margin-bottom: 6px;">Configuration, Genre & Adjustable Thresholds</label>
             <div class="settings-grid">
                 <div>
                     <label style="font-size: 12px; font-weight: normal; opacity: 0.8;">Target Writing Genre / Profile:</label>
-                    <select id="genreProfileSelect">
+                    <select id="genreProfileSelect" onchange="updateDefaultThresholds()">
                         <option value="nsf">NSF / Gov Proposal (Federal Grant Standard)</option>
                         <option value="journal">Peer-Reviewed Journal (Strict Academic)</option>
                         <option value="executive">Executive Summary / Business Report</option>
@@ -441,13 +455,28 @@
                     <input type="file" id="baselineFileInput" accept=".txt, .pdf, .docx" style="font-size: 12px; padding: 4px;">
                 </div>
                 <div>
-                    <label style="font-size: 12px; font-weight: normal; opacity: 0.8;">Custom Blacklist Tropes & Whitelist:</label>
+                    <label style="font-size: 12px; font-weight: normal; opacity: 0.8;">Custom Blacklist Tropes:</label>
                     <input type="text" id="customTropesInput" placeholder="e.g., synergy, leverage">
+                </div>
+            </div>
+            <div style="margin-top: 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                <div>
+                    <label style="font-size: 11px; font-weight: normal;">Min Sentence Variance Threshold:</label>
+                    <input type="number" id="threshVariance" value="50" step="5">
+                </div>
+                <div>
+                    <label style="font-size: 11px; font-weight: normal;">Min Zipf R² Threshold:</label>
+                    <input type="number" id="threshZipf" value="0.85" step="0.01" min="0" max="1">
+                </div>
+                <div>
+                    <label style="font-size: 11px; font-weight: normal;">Min MATTR Threshold:</label>
+                    <input type="number" id="threshMattr" value="0.65" step="0.01" min="0" max="1">
                 </div>
             </div>
         </div>
 
         <button class="run-btn" onclick="runFullSuiteAnalysis()">Run Complete Suite Analysis & Highlight</button>
+        <div id="loadingIndicator" class="loading-overlay">Parsing document and computing stylometrics locally...</div>
         <div id="errorMessage" class="error-msg"></div>
     </div>
 
@@ -463,13 +492,14 @@ let activeChart = null;
 let currentAnalysisData = null;
 let currentFontSize = 15;
 
+// Load saved profiles on startup
+window.addEventListener('DOMContentLoaded', () => {
+    refreshSavedProfilesDropdown();
+});
+
 function toggleTheme() {
     const body = document.body;
-    if (body.getAttribute('data-theme') === 'light') {
-        body.setAttribute('data-theme', 'dark');
-    } else {
-        body.setAttribute('data-theme', 'light');
-    }
+    body.setAttribute('data-theme', body.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
 }
 
 function adjustFontSize(delta) {
@@ -479,6 +509,25 @@ function adjustFontSize(delta) {
 
 function clearFile() {
     document.getElementById('fileInput').value = '';
+}
+
+function updateDefaultThresholds() {
+    const genre = document.getElementById('genreProfileSelect').value;
+    const vInput = document.getElementById('threshVariance');
+    const zInput = document.getElementById('threshZipf');
+    const mInput = document.getElementById('threshMattr');
+
+    if (genre === 'nsf') {
+        vInput.value = 30; zInput.value = 0.85; mInput.value = 0.68;
+    } else if (genre === 'journal') {
+        vInput.value = 45; zInput.value = 0.88; mInput.value = 0.70;
+    } else if (genre === 'executive') {
+        vInput.value = 35; zInput.value = 0.80; mInput.value = 0.60;
+    } else if (genre === 'tech') {
+        vInput.value = 40; zInput.value = 0.82; mInput.value = 0.65;
+    } else {
+        vInput.value = 50; zInput.value = 0.85; mInput.value = 0.65;
+    }
 }
 
 async function extractTextFromFile(file) {
@@ -571,8 +620,10 @@ function mathVariance(arr) {
 
 async function runFullSuiteAnalysis() {
     const errorDiv = document.getElementById('errorMessage');
+    const loadingDiv = document.getElementById('loadingIndicator');
     errorDiv.innerText = "";
     errorDiv.style.display = "none";
+    loadingDiv.style.display = "block";
 
     const pastedText = document.getElementById('textInput').value.trim();
     const fileInput = document.getElementById('fileInput');
@@ -605,17 +656,28 @@ async function runFullSuiteAnalysis() {
         const customTropesRaw = document.getElementById('customTropesInput').value;
         const customTropes = customTropesRaw ? customTropesRaw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean) : [];
 
-        currentAnalysisData = performAnalysis(textToAnalyze, fileName, customTropes, genreProfile, baselineText);
+        const thresholds = {
+            varThreshold: parseFloat(document.getElementById('threshVariance').value),
+            zipfThreshold: parseFloat(document.getElementById('threshZipf').value),
+            mattrThreshold: parseFloat(document.getElementById('threshMattr').value)
+        };
+
+        // Simulate brief async yield for progress bar feel
+        await new Promise(r => setTimeout(r, 200));
+
+        currentAnalysisData = performAnalysis(textToAnalyze, fileName, customTropes, genreProfile, baselineText, thresholds);
         renderFullDashboard(currentAnalysisData);
 
     } catch (err) {
         console.error(err);
         errorDiv.innerText = err.message;
         errorDiv.style.display = "block";
+    } finally {
+        loadingDiv.style.display = "none";
     }
 }
 
-function performAnalysis(text, fileName, customTropes, genreProfile, baselineText) {
+function performAnalysis(text, fileName, customTropes, genreProfile, baselineText, thresholds) {
     const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
     const rawSegments = text.match(/([^.!?\n]+[.!?\n]+)/g) || [text];
     const words = text.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
@@ -636,47 +698,56 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
     const fleschEase = totalSentences && totalWords ? Math.max(0, Math.min(100, 206.835 - (1.015 * (totalWords / totalSentences)) - (84.6 * (totalSyllables / totalWords)))) : 0;
     const gradeLevel = totalSentences && totalWords ? Math.max(0, (0.39 * (totalWords / totalSentences)) + (11.8 * (totalSyllables / totalWords)) - 15.59) : 0;
 
-    // Genre specific weighting adjustments (including NSF / Gov Proposal)
-    let varThreshold = 50.0;
-    if (genreProfile === 'nsf') varThreshold = 30.0;
-    if (genreProfile === 'executive') varThreshold = 35.0;
-    if (genreProfile === 'tech') varThreshold = 40.0;
-
-    const vScore = Math.min(25, (variance / varThreshold) * 25);
-    const mScore = Math.min(25, (mattr / 0.72) * 25);
-    const zScore = zipfFit >= 0.85 ? 25 : 15;
+    const vScore = Math.min(25, (variance / thresholds.varThreshold) * 25);
+    const mScore = Math.min(25, (mattr / thresholds.mattrThreshold) * 25);
+    const zScore = zipfFit >= thresholds.zipfThreshold ? 25 : 15;
     const eScore = fleschEase <= 50 ? 25 : 15;
     const totalScore = parseFloat(Math.max(0, Math.min(100, vScore + mScore + zScore + eScore)).toFixed(1));
 
     let verdict = totalScore >= 55 ? "Typical Register Match" : "Atypical Register / Review Recommended";
     let statusClass = totalScore >= 55 ? "status-normal" : "status-review";
 
-    // Team Voice Coherence & Paragraph-level Partitioning
-    const paragraphs = text.split(/\n\s*\n/).filter(Boolean);
-    let paragraphProfiles = paragraphs.map((p, idx) => {
-        const pWords = p.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
-        const pSentences = p.split(/[.!?]+/).filter(Boolean);
-        const pMattr = calculateMATTR(pWords, 50);
-        const pMeanLen = pSentences.length ? pWords.length / pSentences.length : 0;
-        return { id: idx + 1, mattr: pMattr, meanLen: pMeanLen, snippet: p.substring(0, 100) + '...' };
+    // Heading & Paragraph-level Partitioning for Team Coherence
+    const sections = text.split(/(?:\r?\n){2,}|(?=^#{1,3}\s)/m).filter(Boolean);
+    let sectionProfiles = sections.map((sec, idx) => {
+        const sWords = sec.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
+        const sSentences = sec.split(/[.!?]+/).filter(Boolean);
+        const sMattr = calculateMATTR(sWords, 50);
+        const sMeanLen = sSentences.length ? sWords.length / sSentences.length : 0;
+        let titleMatch = sec.match(/^(#{1,3}\s.*|[A-Z][a-zA-Z\s]{3,30}:)/);
+        let sectionName = titleMatch ? titleMatch[0].replace(/#+/g, '').trim() : `Section ${idx + 1}`;
+        return { id: idx + 1, name: sectionName, mattr: sMattr, meanLen: sMeanLen, snippet: sec.substring(0, 100) + '...' };
     });
 
-    let mattrValues = paragraphProfiles.map(p => p.mattr);
+    let mattrValues = sectionProfiles.map(p => p.mattr);
     let mattrVariance = mattrValues.length > 1 ? mathVariance(mattrValues) : 0;
     let coherenceScore = Math.max(0, Math.min(100, 100 - (mattrVariance * 400)));
 
-    // Baseline Author Profile comparison if provided
-    let baselineMatchScore = null;
+    // Per-Metric Baseline Comparison if provided
+    let baselineMetrics = null;
+    let baselineDivergences = [];
     if (baselineText.length > 0) {
         const baseWords = baselineText.split(/\s+/).map(w => w.replace(/[^\w]/g, '').toLowerCase()).filter(Boolean);
-        const baseMattr = calculateMATTR(baseWords, 100);
-        const baseEntropy = calculateShannonEntropy(baselineText);
-        const diffMattr = Math.abs(mattr - baseMattr);
-        const diffEntropy = Math.abs(entropy - baseEntropy);
-        baselineMatchScore = Math.max(0, Math.min(100, (1 - (diffMattr * 1.5 + diffEntropy * 0.1)) * 100)).toFixed(1);
+        const baseSentences = baselineText.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+        const baseLenArr = baseSentences.map(s => s.split(/\s+/).filter(Boolean).length);
+        const baseMeanLen = baseSentences.length ? baseLenArr.reduce((a,b)=>a+b,0)/baseSentences.length : 0;
+        const baseVar = baseSentences.length ? baseLenArr.reduce((a,b)=>a+Math.pow(b-baseMeanLen,2),0)/baseSentences.length : 0;
+        
+        baselineMetrics = {
+            mattr: calculateMATTR(baseWords, 100),
+            entropy: calculateShannonEntropy(baselineText),
+            zipfFit: calculateZipfFit(baseWords),
+            gradeLevel: baseSentences.length && baseWords.length ? Math.max(0, (0.39 * (baseWords.length / baseSentences.length)) + (11.8 * (baseWords.reduce((acc, w) => acc + countSyllables(w), 0) / baseWords.length)) - 15.59) : 0,
+            sentVar: baseVar
+        };
+
+        if (Math.abs(mattr - baselineMetrics.mattr) > 0.08) baselineDivergences.push("Lexical Diversity (MATTR)");
+        if (Math.abs(entropy - baselineMetrics.entropy) > 0.3) baselineDivergences.push("Information Entropy (H)");
+        if (Math.abs(variance - baselineMetrics.sentVar) > 15) baselineDivergences.push("Sentence Length Variance");
+        if (Math.abs(gradeLevel - baselineMetrics.gradeLevel) > 1.5) baselineDivergences.push("Grade Level Complexity");
     }
 
-    // Sentence level triggers & frequency counting
+    // Heuristic Sentence-level Perplexity/Burstiness & Trope Detection
     const baseTropes = ["testament", "watershed", "vital role", "delve", "beacon", "paradigm shift", "myriad", "tapestry", "plethora", "crucial role", "serves as", "comprehensive overview", "furthermore", "consequently", "moreover", "broader impacts", "transformative research", "synergistic activities", "cutting-edge", "state-of-the-art"];
     const allTropes = [...baseTropes, ...customTropes];
     const tropeRegex = new RegExp(`\\b(${allTropes.join('|')})\\b`, 'gi');
@@ -701,7 +772,7 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
         tropeRegex.lastIndex = 0;
 
         if (negParallelRegex.test(segment)) {
-            triggers.push("Negative Parallelism structure");
+            triggers.push("Negative Parallelism");
             jargonFrequencyMap["negative parallelism"] = (jargonFrequencyMap["negative parallelism"] || 0) + 1;
         }
         if (trailingParticipleRegex.test(segment)) {
@@ -711,11 +782,17 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
         negParallelRegex.lastIndex = 0;
         trailingParticipleRegex.lastIndex = 0;
 
+        // Per-sentence burstiness heuristic: sentences with very low variance from mean length across uniform blocks flag AI-like cadence
+        let lenZScore = meanLen > 0 ? Math.abs(wCount - meanLen) / Math.sqrt(variance || 1) : 0;
+        if (lenZScore < 0.2 && wCount >= 12 && wCount <= 22) {
+            triggers.push("Uniform Burstiness (Low Perplexity Cadence)");
+        }
+
         let riskLevel = "human";
-        if (triggers.length >= 2) riskLevel = "ai";
+        if (triggers.length >= 2 || (triggers.length === 1 && triggers[0].includes("Uniform"))) riskLevel = "ai";
         else if (triggers.length === 1) riskLevel = "hybrid";
 
-        segmentData.push({ id: idx + 1, text: segment, wordCount: wCount, triggers, riskLevel });
+        segmentData.push({ id: idx + 1, originalText: segment, text: segment, wordCount: wCount, triggers, riskLevel, history: [] });
     });
 
     let revisedText = text;
@@ -724,24 +801,26 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
         "\\bdelving into\\b": "examining",
         "\\bserves as a testament to\\b": "demonstrates",
         "\\ba vital role\\b": "an important role",
-        "\\bparadigm shift\\b": "significant shift",
+        "\\bparadigm shift\\b": "significant change",
         "\\bmyriad of\\b": "many"
     };
     for (const [pat, rep] of Object.entries(replacements)) {
         revisedText = revisedText.replace(new RegExp(pat, 'gi'), rep);
     }
-    revisedText = revisedText.replace(/,\s+(highlighting|emphasizing|ensuring|fostering|showcasing)\b[^.!?]*/gi, ".");
 
     return {
         fileName,
+        originalFullText: text,
         segmentData,
         sentenceLengths: totalSentenceLengths,
         revisedText,
         jargonFrequencyMap,
-        baselineMatchScore,
+        baselineMetrics,
+        baselineDivergences,
         genreProfile,
-        paragraphProfiles,
+        sectionProfiles,
         coherenceScore,
+        thresholds,
         metrics: {
             totalScore,
             verdict,
@@ -752,7 +831,7 @@ function performAnalysis(text, fileName, customTropes, genreProfile, baselineTex
             mattr: mattr.toFixed(2),
             entropy: entropy.toFixed(2),
             gradeLevel: gradeLevel.toFixed(1),
-            varThreshold
+            varThreshold: thresholds.varThreshold
         }
     };
 }
@@ -798,21 +877,36 @@ function renderFullDashboard(data) {
         });
     }
 
-    const baselineHtml = data.baselineMatchScore !== null ? `
-        <div class="section-title">Author Baseline Profiling Match</div>
-        <div class="metric-row">
-            <div class="metric-label">Corpus Stylometric Consistency Match: <span class="metric-value">${data.baselineMatchScore}%</span></div>
-            <div class="metric-explanation">Compared against your uploaded author baseline sample using MATTR lexical diversity and Shannon entropy delta.</div>
-        </div>
-    ` : '';
+    // Baseline Divergence HTML
+    let baselineHtml = '';
+    if (data.baselineMetrics) {
+        let divergenceBadge = data.baselineDivergences.length === 0 ? 
+            `<span class="status-badge status-normal">Strong Author Match (No Major Divergence)</span>` : 
+            `<span class="status-badge status-review">Diverging Dimensions: ${data.baselineDivergences.join(', ')}</span>`;
 
-    // Team Coherence Tab Dynamic Rendering
+        baselineHtml = `
+            <div class="section-title">Author Baseline Per-Metric Divergence Suite</div>
+            <div class="metric-row">
+                <div class="metric-label">Corpus Fingerprint Comparison: ${divergenceBadge}</div>
+                <div class="metric-explanation">
+                    <ul>
+                        <li><strong>MATTR (Lexical):</strong> Doc: ${m.mattr} vs Baseline: ${data.baselineMetrics.mattr.toFixed(2)}</li>
+                        <li><strong>Shannon Entropy (H):</strong> Doc: ${m.entropy} vs Baseline: ${data.baselineMetrics.entropy.toFixed(2)}</li>
+                        <li><strong>Sentence Variance:</strong> Doc: ${m.sentVar} vs Baseline: ${data.baselineMetrics.sentVar.toFixed(1)}</li>
+                        <li><strong>Grade Level:</strong> Doc: ${m.gradeLevel} vs Baseline: ${data.baselineMetrics.gradeLevel.toFixed(1)}</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+    }
+
+    // Section Team Coherence HTML
     let coherenceStatus = data.coherenceScore >= 75 ? "Unified Single Author Voice" : "High Multi-Author Divergence Detected";
     let coherenceBadgeClass = data.coherenceScore >= 75 ? "status-normal" : "status-review";
 
-    let paragraphRows = data.paragraphProfiles.map(p => `
+    let sectionRows = data.sectionProfiles.map(p => `
         <tr>
-            <td>Section ${p.id}</td>
+            <td><strong>${escapeHtml(p.name)}</strong></td>
             <td>${p.mattr.toFixed(2)}</td>
             <td>${p.meanLen.toFixed(1)} words</td>
             <td style="font-style:italic; opacity:0.8;">"${escapeHtml(p.snippet)}"</td>
@@ -824,24 +918,26 @@ function renderFullDashboard(data) {
             <div class="card-header">
                 <h2>Analysis Dashboard: ${escapeHtml(data.fileName)} (${data.genreProfile.toUpperCase()})</h2>
                 <div class="toolbar-actions">
+                    <button class="action-btn" onclick="copyReportSummary()">Copy Report Summary</button>
+                    <button class="action-btn" onclick="undoAllRewrites()">Undo All Rewrites</button>
                     <button class="action-btn" onclick="exportPDFReport()">Export PDF Report</button>
                     <button class="action-btn" onclick="exportCSVReport()">Export CSV Report</button>
                 </div>
             </div>
 
             <div class="legend-bar">
-                <div class="legend-item"><span class="legend-box box-ai"></span> High-Risk AI (${aiCount})</div>
+                <div class="legend-item"><span class="legend-box box-ai"></span> High-Risk AI / Low Burstiness (${aiCount})</div>
                 <div class="legend-item"><span class="legend-box box-hybrid"></span> Hybrid Indicator (${hybridCount})</div>
                 <div class="legend-item"><span class="legend-box box-human"></span> Standard Register (${humanCount})</div>
             </div>
 
             <div class="tab-bar">
-                <button class="tab-btn active" id="btn-highlighter" onclick="switchTab('highlighter')">1. Highlighter & Active Rewrite</button>
+                <button class="tab-btn active" id="btn-highlighter" onclick="switchTab('highlighter')">1. Highlighter & Clause Rewrite</button>
                 <button class="tab-btn" id="btn-scores" onclick="switchTab('scores')">2. Score Breakdowns & Metrics</button>
                 <button class="tab-btn" id="btn-jargon" onclick="switchTab('jargon')">3. Jargon & Crutch Frequency</button>
                 <button class="tab-btn" id="btn-comparator" onclick="switchTab('comparator')">4. Original vs. Rewritten</button>
                 <button class="tab-btn" id="btn-burstiness" onclick="switchTab('burstiness')">5. Burstiness Chart</button>
-                <button class="tab-btn" id="btn-team" onclick="switchTab('team')">6. Team Voice Coherence</button>
+                <button class="tab-btn" id="btn-team" onclick="switchTab('team')">6. Section Voice Coherence</button>
             </div>
 
             <!-- Tab 1: Highlighter & Active Rewrite Assistant -->
@@ -849,8 +945,8 @@ function renderFullDashboard(data) {
                 <div class="inspector-layout">
                     <div class="document-view" id="documentViewBox">${highlightedHTML}</div>
                     <div class="inspector-card" id="inspectorCard">
-                        <h3>Sentence Inspector & Rewrite Assistant</h3>
-                        <p style="opacity: 0.8; font-style: italic;">Click any highlighted sentence in the document view to inspect triggers and apply instant active style rewrites here.</p>
+                        <h3>Sentence Inspector & Clause Rewrite Assistant</h3>
+                        <p style="opacity: 0.8; font-style: italic;">Click any highlighted sentence in the document view to inspect triggers and apply clause-level rewrites preserving punctuation and conjunctions.</p>
                     </div>
                 </div>
             </div>
@@ -866,8 +962,8 @@ function renderFullDashboard(data) {
 
                 <div class="section-title">Physical Stylometric Features</div>
                 <div class="metric-row">
-                    <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="${checkThreshold(m.sentVar, m.varThreshold, 'below')}">${m.sentVar} words²</span></div>
-                    <div class="metric-explanation">Quantifies clausal cadence and structural variance (Expected > ${m.varThreshold} words² for ${data.genreProfile}).</div>
+                    <div class="metric-label">Sentence Length Variance (Sentence_Var): <span class="${checkThreshold(m.sentVar, data.thresholds.varThreshold, 'below')}">${m.sentVar} words²</span></div>
+                    <div class="metric-explanation">Quantifies clausal cadence and structural variance (Expected > ${data.thresholds.varThreshold} words² for ${data.genreProfile}).</div>
                 </div>
 
                 <div class="metric-row">
@@ -876,8 +972,8 @@ function renderFullDashboard(data) {
                 </div>
 
                 <div class="metric-row">
-                    <div class="metric-label">Zipfian Linearity (R²): <span class="${checkThreshold(m.zipfFit, 0.85, 'below')}">${m.zipfFit}</span> | Moving-Average TTR (MATTR100): <span class="${checkThreshold(m.mattr, 0.65, 'below')}">${m.mattr}</span></div>
-                    <div class="metric-explanation">Measures word frequency rank scaling (R² > 0.85 expected) and lexical diversity over a sliding window (W=100).</div>
+                    <div class="metric-label">Zipfian Linearity (R²): <span class="${checkThreshold(m.zipfFit, data.thresholds.zipfThreshold, 'below')}">${m.zipfFit}</span> | Moving-Average TTR (MATTR100): <span class="${checkThreshold(m.mattr, data.thresholds.mattrThreshold, 'below')}">${m.mattr}</span></div>
+                    <div class="metric-explanation">Measures word frequency rank scaling (R² > ${data.thresholds.zipfThreshold}) and lexical diversity over sliding window (MATTR > ${data.thresholds.mattrThreshold}).</div>
                 </div>
 
                 <div class="section-title">Syntactic and Lexical Density</div>
@@ -906,15 +1002,15 @@ function renderFullDashboard(data) {
 
             <!-- Tab 4: Comparator -->
             <div class="tab-content" id="tab-comparator">
-                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Side-by-side comparison displaying the original submission alongside a rule-based stylistic cleaning pass.</p>
+                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Side-by-side comparison displaying the original submission alongside active clause-level stylistic cleaning.</p>
                 <div class="comparator-grid">
                     <div class="comparator-box">
                         <h3>Original Submission</h3>
-                        <div>${escapeHtml(data.segmentData.map(s => s.text).join(' '))}</div>
+                        <div>${escapeHtml(data.originalFullText)}</div>
                     </div>
                     <div class="comparator-box" style="background: var(--utica-light-blue);">
-                        <h3>Rule-Based Stylistic Revision</h3>
-                        <div>${escapeHtml(data.revisedText)}</div>
+                        <h3>Active Clause-Level Revision</h3>
+                        <div>${escapeHtml(data.segmentData.map(s => s.text).join(' '))}</div>
                     </div>
                 </div>
             </div>
@@ -927,37 +1023,28 @@ function renderFullDashboard(data) {
                 </div>
             </div>
 
-            <!-- Tab 6: Team Writing & Voice Coherence -->
+            <!-- Tab 6: Section Voice Coherence -->
             <div class="tab-content" id="tab-team">
-                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Detects stylistic friction and voice divergence across document sections caused by multiple co-authors.</p>
-                <div class="section-title">Team Voice Coherence Index</div>
+                <p style="margin-top:0; font-size: 13.5px; opacity: 0.8;">Detects stylistic friction and voice divergence across document headings and sections caused by multiple co-authors.</p>
+                <div class="section-title">Section Voice Coherence Index</div>
                 <div class="metric-row">
                     <div class="metric-label">Voice Uniformity Score: <span class="metric-value">${data.coherenceScore.toFixed(1)} / 100</span> <span class="status-badge ${coherenceBadgeClass}">${coherenceStatus}</span></div>
                     <div class="metric-explanation">Evaluates lexical diversity (MATTR) and sentence length consistency across document sections to detect disparate co-author signatures.</div>
                 </div>
-                <div class="section-title" style="margin-top:20px;">Section-by-Section Author Fingerprint Breakdown</div>
+                <div class="section-title" style="margin-top:20px;">Heading & Section Fingerprint Breakdown</div>
                 <table class="jargon-table" style="margin-top:10px;">
                     <thead>
                         <tr>
-                            <th>Section</th>
+                            <th>Section / Heading</th>
                             <th>MATTR (Lexical Density)</th>
                             <th>Avg Sentence Length</th>
                             <th>Snippet Preview</th>
                         </tr>
                     </thead>
                     <tbody>
-                        ${paragraphRows}
+                        ${sectionRows}
                     </tbody>
                 </table>
-                <div class="inspector-card" style="margin-top:20px;">
-                    <h3 style="color: var(--utica-orange);">Voice Unification Recommendations</h3>
-                    <p>To establish a unified tone across sections:</p>
-                    <ul style="margin:0; padding-left:20px; font-size:13.5px; line-height:1.6;">
-                        <li>Standardize target sentence length around ${Math.round(m.sentVar ? Math.sqrt(m.sentVar)*3 : 15)} words per sentence.</li>
-                        <li>Re-align high-density academic sections with lower-density explanatory sections.</li>
-                        <li>Apply the active rewrite assistant on flagged outlying sections.</li>
-                    </ul>
-                </div>
             </div>
         </div>
     `;
@@ -972,16 +1059,15 @@ function inspectSegment(id) {
 
     const card = document.getElementById('inspectorCard');
 
-    let rewriteHTML = '';
-    if (seg.triggers.length > 0) {
-        rewriteHTML = `<div class="rewrite-options">
-            <strong>Active Rewrite Suggestions:</strong>
-            <button class="rewrite-chip" onclick="applyRewrite(${seg.id}, 'active')">Convert to Active Voice & Remove Tropes</button>
-            <button class="rewrite-chip" onclick="applyRewrite(${seg.id}, 'condense')">Condense & Tighten Clausal Cadence</button>
-        </div>`;
-    } else {
-        rewriteHTML = `<p style="color: #28a745; font-weight: bold; margin-top: 10px;">✓ Sentence structure aligns with standard register.</p>`;
-    }
+    let undoBtnHtml = seg.history && seg.history.length > 0 ? 
+        `<button class="rewrite-chip" style="background: #6c757d; border-color: #5a6268; color: #fff; margin-top: 4px;" onclick="undoSegment(${seg.id})">↺ Undo Last Edit</button>` : '';
+
+    let rewriteHTML = `<div class="rewrite-options">
+        <strong>Clause-Level Rewrite Assistant:</strong>
+        <button class="rewrite-chip" onclick="applyClauseRewrite(${seg.id}, 'active')">Convert to Active Voice & Remove Tropes</button>
+        <button class="rewrite-chip" onclick="applyClauseRewrite(${seg.id}, 'trim_clauses')">Trim Subordinate Clauses Respecting Conjunctions</button>
+        ${undoBtnHtml}
+    </div>`;
 
     card.innerHTML = `
         <h3>Sentence #${seg.id} Inspector</h3>
@@ -994,9 +1080,14 @@ function inspectSegment(id) {
     `;
 }
 
-function applyRewrite(id, mode) {
+// Advanced Clause-Level Rewrite Engine respecting conjunctions and punctuation
+function applyClauseRewrite(id, mode) {
     const seg = window._segmentMap.find(s => s.id === id);
     if (!seg) return;
+
+    // Save history for undo
+    if (!seg.history) seg.history = [];
+    seg.history.push({ text: seg.text, riskLevel: seg.riskLevel, triggers: [...seg.triggers] });
 
     let newText = seg.text;
     if (mode === 'active') {
@@ -1005,10 +1096,17 @@ function applyRewrite(id, mode) {
                          .replace(/a vital role/gi, 'an important role')
                          .replace(/paradigm shift/gi, 'significant change')
                          .replace(/,\s+(highlighting|emphasizing|ensuring)\b[^.!?]*/gi, '');
-    } else if (mode === 'condense') {
-        let words = newText.split(/\s+/);
-        if (words.length > 12) {
-            newText = words.slice(0, Math.floor(words.length * 0.75)).join(' ') + '.';
+    } else if (mode === 'trim_clauses') {
+        // Proper clause splitting by conjunctions/punctuation without brutal truncation
+        let parts = newText.split(/(?:,|\b(?:and|because|while|although|whereas|since|whereby)\b)/i);
+        if (parts.length > 1) {
+            // Keep first two clauses maintaining grammar and meaning
+            newText = parts[0].trim() + (parts[1] ? `, ${parts[1].trim()}` : '') + '.';
+        } else {
+            let words = newText.split(/\s+/);
+            if (words.length > 8) {
+                newText = words.slice(0, Math.floor(words.length * 0.8)).join(' ') + '.';
+            }
         }
     }
 
@@ -1017,13 +1115,105 @@ function applyRewrite(id, mode) {
     seg.triggers = [];
     seg.riskLevel = 'human';
 
+    refreshDocumentView();
+    inspectSegment(id);
+}
+
+function undoSegment(id) {
+    const seg = window._segmentMap.find(s => s.id === id);
+    if (!seg || !seg.history || seg.history.length === 0) return;
+
+    const prevState = seg.history.pop();
+    seg.text = prevState.text;
+    seg.riskLevel = prevState.riskLevel;
+    seg.triggers = prevState.triggers;
+    seg.wordCount = seg.text.split(/\s+/).filter(Boolean).length;
+
+    refreshDocumentView();
+    inspectSegment(id);
+}
+
+function undoAllRewrites() {
+    if (!currentAnalysisData) return;
+    currentAnalysisData.segmentData.forEach(s => {
+        if (s.history && s.history.length > 0) {
+            const originalState = s.history[0];
+            s.text = originalState.text;
+            s.riskLevel = originalState.riskLevel;
+            s.triggers = originalState.triggers;
+            s.wordCount = s.text.split(/\s+/).filter(Boolean).length;
+            s.history = [];
+        }
+    });
+    refreshDocumentView();
+}
+
+function refreshDocumentView() {
     let highlightedHTML = '';
     window._segmentMap.forEach(s => {
         let cssClass = s.riskLevel === 'ai' ? 'hl-ai' : s.riskLevel === 'hybrid' ? 'hl-hybrid' : 'hl-human';
         highlightedHTML += `<span class="${cssClass}" onclick="inspectSegment(${s.id})" title="Click to inspect & rewrite">${escapeHtml(s.text)}</span> `;
     });
-    document.getElementById('documentViewBox').innerHTML = highlightedHTML;
-    inspectSegment(id);
+    const docView = document.getElementById('documentViewBox');
+    if (docView) docView.innerHTML = highlightedHTML;
+}
+
+// LocalStorage Persistence for Named Author Profiles & Reports
+function saveCurrentProfile() {
+    if (!currentAnalysisData) {
+        alert("Please run an analysis before saving a profile.");
+        return;
+    }
+    const profileName = prompt("Enter a name for this Author Profile / Document:", currentAnalysisData.fileName);
+    if (!profileName) return;
+
+    const profileData = {
+        name: profileName,
+        date: new Date().toISOString(),
+        analysis: currentAnalysisData
+    };
+
+    let savedProfiles = JSON.parse(localStorage.getItem('betterWriterProfiles') || '{}');
+    savedProfiles[profileName] = profileData;
+    localStorage.setItem('betterWriterProfiles', JSON.stringify(savedProfiles));
+
+    refreshSavedProfilesDropdown();
+    alert(`Profile "${profileName}" saved successfully to browser local storage!`);
+}
+
+function refreshSavedProfilesDropdown() {
+    const select = document.getElementById('savedProfilesSelect');
+    if (!select) return;
+    select.innerHTML = '<option value="">-- Load Saved Profile / Doc --</option>';
+
+    let savedProfiles = JSON.parse(localStorage.getItem('betterWriterProfiles') || '{}');
+    for (const name in savedProfiles) {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.innerText = name;
+        select.appendChild(opt);
+    }
+}
+
+function loadSelectedProfile() {
+    const select = document.getElementById('savedProfilesSelect');
+    const profileName = select.value;
+    if (!profileName) return;
+
+    let savedProfiles = JSON.parse(localStorage.getItem('betterWriterProfiles') || '{}');
+    if (savedProfiles[profileName]) {
+        currentAnalysisData = savedProfiles[profileName].analysis;
+        renderFullDashboard(currentAnalysisData);
+    }
+}
+
+function copyReportSummary() {
+    if (!currentAnalysisData) return;
+    const m = currentAnalysisData.metrics;
+    const summary = `Better Writer Stylometric Summary (${currentAnalysisData.fileName})\n- Genre Profile: ${currentAnalysisData.genreProfile}\n- Composite Alignment Score: ${m.totalScore}/100 (${m.verdict})\n- Sentence Variance: ${m.sentVar}\n- Flesch Reading Ease: ${m.fleschEase}\n- Zipfian R²: ${m.zipfFit}\n- MATTR: ${m.mattr}`;
+    navigator.clipboard.writeText(summary).then(() => {
+        alert("Report summary copied to clipboard!");
+    });
 }
 
 function renderBurstinessChart(lengths) {
@@ -1037,7 +1227,7 @@ function renderBurstinessChart(lengths) {
         data: {
             labels: lengths.map((_, i) => `S${i + 1}`),
             datasets: [{
-                label: 'Sentence Word Count',
+                label: 'Sentence Word Count (Burstiness)',
                 data: lengths,
                 backgroundColor: isDark ? '#4a8cd4' : '#002D62',
                 borderColor: isDark ? '#3b74b1' : '#001f44',
