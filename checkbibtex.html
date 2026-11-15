@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Side BibTeX Citation Checker & Corrector</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- bibtex-parse-js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js@0.0.24/bibtexParse.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen p-6">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-extrabold text-slate-900">BibTeX Citation Validator & Corrector</h1>
+            <p class="text-slate-600 mt-2">Upload your <code>.bib</code> file to verify references, catch errors, and generate corrected entries.</p>
+        </header>
+
+        <!-- Upload Box -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8 text-center">
+            <input type="file" id="bibFile" accept=".bib" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"/>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div id="progressContainer" class="hidden mb-6 bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded-lg flex items-center justify-between">
+            <span id="progressText">Checking citations...</span>
+            <span id="progressCount" class="font-bold"></span>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsContainer" class="space-y-6"></div>
+    </div>
+
+    <script>
+        document.getElementById('bibFile').addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                try {
+                    const content = e.target.result;
+                    const parsedEntries = bibtexParse.toJSON(content);
+                    await validateEntries(parsedEntries);
+                } catch (err) {
+                    alert('Error parsing BibTeX file. Please ensure it is valid format.');
+                    console.error(err);
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        // Helper function to handle 429 Rate Limits with exponential backoff
+        async function fetchWithRetry(url, retries = 3, backoff = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const res = await fetch(url);
+                    if (res.status === 429) {
+                        if (i < retries - 1) {
+                            await new Promise(resolve => setTimeout(resolve, backoff * Math.pow(2, i)));
+                            continue;
+                        }
+                    }
+                    return res;
+                } catch (err) {
+                    if (i === retries - 1) throw err;
+                    await new Promise(resolve => setTimeout(resolve, backoff));
+                }
+            }
+        }
+
+        async function validateEntries(entries) {
+            const container = document.getElementById('resultsContainer');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressText = document.getElementById('progressText');
+            const progressCount = document.getElementById('progressCount');
+            
+            container.innerHTML = '';
+            progressContainer.classList.remove('hidden');
+            
+            let checkedCount = 0;
+            const totalEntries = entries.length;
+
+            for (let entry of entries) {
+                checkedCount++;
+                progressCount.textContent = `${checkedCount} / ${totalEntries}`;
+                
+                const result = await checkReference(entry);
+                renderResultCard(entry, result);
+                
+                // Polite delay: Wait 350ms between requests to respect Crossref rate policies
+                await new Promise(resolve => setTimeout(resolve, 350));
+            }
+
+            progressText.textContent = "Validation complete!";
+        }
+
+        async function checkReference(entry) {
+            const tags = entry.entryTags || {};
+            const doi = tags.DOI || tags.doi;
+            const title = tags.TITLE || tags.title;
+            const year = tags.YEAR || tags.year;
+
+            let issues = [];
+            let isValid = false;
+            let externalData = null;
+
+            const politeEmail = "&mailto=bibtex.checker.app@gmail.com";
+
+            if (doi) {
+                try {
+                    const res = await fetchWithRetry(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
+                    
+                    if (res && res.ok) {
+                        const data = await res.json();
+                        externalData = data.message;
+                        isValid = true;
+
+                        const pubYear = externalData['published-print']?.['date-parts']?.[0]?.[0] || 
+                                        externalData['published-online']?.['date-parts']?.[0]?.[0];
+                        if (year && pubYear) {
+                            if (Math.abs(pubYear - parseInt(year)) > 0) {
+                                issues.push(`Year mismatch: BibTeX has ${year}, but database records ${pubYear}.`);
+                            }
+                        }
+                    } else {
+                        issues.push(`DOI lookup failed (HTTP ${res ? res.status : 'Network Error'}): DOI might be invalid or rate-limited.`);
+                    }
+                } catch (err) {
+                    issues.push(`Network error checking DOI.`);
+                }
+            } else if (title) {
+                try {
+                    const cleanTitle = title.replace(/[{}]/g, '');
+                    const searchUrl = `https://api.crossref.org/works?query.bibliographic=${encodeURIComponent(cleanTitle)}&rows=1${politeEmail}`;
+                    const res = await fetchWithRetry(searchUrl);
+                    
+                    if (res && res.ok) {
+                        const data = await res.json();
+                        const items = data.message?.items;
+                        
+                        if (items && items.length > 0) {
+                            const match = items[0];
+                            isValid = true;
+                            externalData = match;
+                            
+                            const pubYear = match['published-print']?.['date-parts']?.[0]?.[0] || 
+                                            match['published-online']?.['date-parts']?.[0]?.[0];
+                            
+                            if (year && pubYear && parseInt(year) !== pubYear) {
+                                issues.push(`Year mismatch: BibTeX has ${year}, database has ${pubYear}.`);
+                            }
+                            issues.unshift(`Note: Verified via Crossref title search (Missing DOI in BibTeX).`);
+                        } else {
+                            issues.push(`No matching publication found via database search, and no DOI provided.`);
+                        }
+                    } else {
+                        issues.push(`Crossref search failed (HTTP ${res ? res.status : 'Network Error'}).`);
+                    }
+                } catch (err) {
+                    issues.push(`Error executing fallback title search.`);
+                }
+            } else {
+                issues.push(`Entry lacks both a DOI and a Title, making automated verification impossible.`);
+            }
+
+            const correctedBibTeX = (isValid && externalData) ? generateCorrectedBibTeX(entry, externalData) : null;
+
+            return { isValid, issues, externalData, correctedBibTeX };
+        }
+
+        function generateCorrectedBibTeX(entry, externalData) {
+            if (!externalData) return null;
+            
+            const tags = { ...(entry.entryTags || {}) };
+            
+            // Insert or update DOI
+            if (externalData.DOI) {
+                let doiKey = Object.keys(tags).find(k => k.toLowerCase() === 'doi') || 'DOI';
+                tags[doiKey] = externalData.DOI;
+            }
+            
+            // Update year if official record exists
+            const pubYear = externalData['published-print']?.['date-parts']?.[0]?.[0] || 
+                            externalData['published-online']?.['date-parts']?.[0]?.[0];
+            if (pubYear) {
+                let yearKey = Object.keys(tags).find(k => k.toLowerCase() === 'year') || 'year';
+                tags[yearKey] = pubYear.toString();
+            }
+
+            // Rebuild BibTeX string format
+            const type = entry.entryType || 'article';
+            const key = entry.citationKey || 'reference';
+            let lines = [`@${type}{${key},`];
+            
+            for (const [k, v] of Object.entries(tags)) {
+                lines.push(`  ${k} = {${v}},`);
+            }
+            lines.push(`}`);
+            return lines.join('\n');
+        }
+
+        function renderResultCard(entry, result) {
+            const container = document.getElementById('resultsContainer');
+            const tags = entry.entryTags || {};
+            const citeKey = entry.citationKey || 'Unknown Key';
+            const title = tags.TITLE || tags.title || 'No Title Provided';
+
+            let badgeColor = result.isValid && result.issues.length === 0 
+                ? 'bg-green-100 text-green-800 border-green-200' 
+                : (result.isValid ? 'bg-amber-100 text-amber-800 border-amber-200' : 'bg-red-100 text-red-800 border-red-200');
+            
+            let statusText = result.isValid && result.issues.length === 0 
+                ? 'Valid' 
+                : (result.isValid ? 'Valid with Warnings' : 'Invalid / Not Found');
+
+            let html = `
+                <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md">${entry.entryType}</span>
+                            <span class="ml-2 text-sm font-mono text-blue-600 font-medium">@${citeKey}</span>
+                            <h3 class="text-md font-bold text-slate-900 mt-1">${title.replace(/[{}]/g, '')}</h3>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-bold rounded-full border ${badgeColor}">${statusText}</span>
+                    </div>
+            `;
+
+            if (result.issues.length > 0) {
+                html += `<div class="mt-3 bg-slate-50 p-3 rounded-lg border border-slate-100 text-xs text-slate-700">
+                            <p class="font-semibold text-slate-900 mb-1">Diagnostics / Issues:</p>
+                            <ul class="list-disc list-inside space-y-1">`;
+                result.issues.forEach(issue => {
+                    html += `<li class="text-red-600">${issue}</li>`;
+                });
+                html += `</ul></div>`;
+            }
+
+            if (result.externalData && result.externalData.DOI) {
+                html += `<div class="mt-2 text-xs text-slate-500">Verified DOI: <a href="https://doi.org/${result.externalData.DOI}" target="_blank" class="text-blue-600 underline">${result.externalData.DOI}</a></div>`;
+            }
+
+            if (result.correctedBibTeX) {
+                const uniqueId = 'bib_' + Math.random().toString(36).substring(2, 9);
+                html += `
+                    <div class="mt-4 pt-3 border-t border-slate-100">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-semibold text-slate-700">Corrected BibTeX Entry (with DOI & verified metadata):</span>
+                            <button onclick="navigator.clipboard.writeText(document.getElementById('${uniqueId}').innerText); alert('Copied to clipboard!');" class="text-xs bg-blue-50 text-blue-600 hover:bg-blue-100 font-medium px-2 py-1 rounded transition">Copy BibTeX</button>
+                        </div>
+                        <pre id="${uniqueId}" class="bg-slate-900 text-slate-200 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>${escapeHtml(result.correctedBibTeX)}</code></pre>
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
+</body>
+</html>
