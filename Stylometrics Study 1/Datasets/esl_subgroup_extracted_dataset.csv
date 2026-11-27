@@ -1,0 +1,726 @@
+Word_Count,Sentence_Count,Entropy,MATTR,Zipf_R2,Sentence_Var,Flesch_Ease,Grade_Level,Nominal_Ratio_%,Passive_%,Corpus,Language_Group,Source_File,Era,Auth_Score,Verdict,Flag_Count,Flags,Doc_ID,Subject_ID,Course,Year,Semester,Assignment,PAPER ID,NATIVENESS
+548,40,4.753,0.7495,0.9156,73.29,13.2,14.8,7.5,12.5,Contemporary_University,ESL,Final Report  (Ranpreet Singh Gill).docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1683,111,4.633,0.73,0.9516,114.89,9.7,15.7,8.7,11.7,Contemporary_University,ESL,BUS_631_Final_Report_Jaswanth Reddy.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+819,47,4.713,0.6954,0.9371,37.65,24.7,14.1,5.4,19.1,Contemporary_University,ESL,Week 7 data driven assignment.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+488,28,4.553,0.7687,0.916,77.82,36.1,12.6,4.5,7.1,Contemporary_University,ESL,Final Report BUS 631 (Karamjit Kaur).docx,Post-LLM (2025-2026),,,,,,,,,,,,
+507,46,4.729,0.7345,0.9097,44.72,6.6,15.1,6.5,19.6,Contemporary_University,ESL,simran_datadriven.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+3110,185,4.654,0.7245,0.958,73.04,20.4,14.6,7.1,21.6,Contemporary_University,ESL,WEEK 7.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+416,26,4.612,0.7776,0.9081,52.69,8.0,16.1,6.0,3.8,Contemporary_University,ESL,final Report BUS (631) Vanita Khanna.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+381,21,4.593,0.74,0.9261,93.74,13.4,15.9,6.6,14.3,Contemporary_University,ESL,Final Report BUS 631 (Dilpreet Singh LNU) (2).docx,Post-LLM (2025-2026),,,,,,,,,,,,
+553,48,4.849,0.7641,0.8921,115.0,26.4,12.4,6.3,4.2,Contemporary_University,ESL,Final Report.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+720,40,4.232,0.788,0.9287,180.1,1.7,17.5,7.9,5.0,Contemporary_University,ESL,Singh_khushwinder_week7 final report.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+558,27,4.616,0.7756,0.9111,63.48,12.7,16.6,5.7,7.4,Contemporary_University,ESL,Final Report BUS 631 Nabhneet Kaur.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+498,46,4.607,0.7956,0.8954,33.84,1.5,15.7,7.6,4.3,Contemporary_University,ESL,Final Report Bus631 Shivani.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+690,49,4.88,0.7856,0.9098,62.15,8.3,15.6,8.7,22.4,Contemporary_University,ESL,Final Report ( BUS 631 A) Bhavchetan Mann.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1921,89,4.469,0.707,0.9396,237.88,22.2,15.5,4.3,6.7,Contemporary_University,ESL,Final Report of Data Driven Decision Making.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+537,37,4.578,0.7657,0.924,65.28,21.2,13.9,6.0,8.1,Contemporary_University,ESL,FINAL REPORT DATA-DRIVEN DECISION-MAKING-SHARMANPREET.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+425,22,4.539,0.7509,0.9164,79.49,15.2,15.9,7.1,9.1,Contemporary_University,ESL,Final Report BUS 631 (Anmoldeep Singh).docx,Post-LLM (2025-2026),,,,,,,,,,,,
+398,23,4.588,0.7557,0.907,84.91,11.8,15.9,9.0,8.7,Contemporary_University,ESL,Final Report BUS 631 (Komalpreet Singh) (1).docx,Post-LLM (2025-2026),,,,,,,,,,,,
+532,43,4.509,0.7654,0.8836,74.93,8.4,15.2,3.2,4.7,Contemporary_University,ESL,Homework assigment (1).pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1448,100,4.455,0.7034,0.9427,33.13,17.3,14.4,3.7,10.0,Contemporary_University,ESL,"Understanding Social Science Research Principles, Methods, and Practices week-3.docx",Post-LLM (2025-2026),,,,,,,,,,,,
+635,46,4.56,0.6988,0.9256,44.64,15.8,14.5,3.9,13.0,Contemporary_University,ESL,Week 3 631_Karamjit Kaur.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1992,156,4.237,0.716,0.9551,48.51,23.3,13.2,4.3,9.0,Contemporary_University,ESL,WEEK_3_DATA_DRIVEN[1]PDF.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1888,116,4.446,0.731,0.9383,40.25,18.1,14.8,5.4,26.7,Contemporary_University,ESL,Kaur Veerpal Homework Assignment.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+5140,256,4.358,0.6961,0.9601,93.21,29.3,14.2,3.0,28.9,Contemporary_University,ESL,Assignment on Research Principles.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+426,33,4.625,0.7045,0.9165,67.36,5.5,15.7,3.8,6.1,Contemporary_University,ESL,Homework Assignment_Lnu_DilpreetSingh.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+548,48,4.537,0.7295,0.8881,57.03,7.7,15.0,4.6,4.2,Contemporary_University,ESL,"Homework Assigment Social Science Research Methodologies, Ethics, and Data (1).pdf",Post-LLM (2025-2026),,,,,,,,,,,,
+575,33,4.456,0.754,0.9029,201.34,0.0,18.8,6.6,3.0,Contemporary_University,ESL,BUS631_Social Research_[Singh]_[Khushwinder].pdf.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+537,47,4.578,0.7148,0.9044,57.95,9.7,14.8,4.3,10.6,Contemporary_University,ESL,BUS631_Social Science Research Guide_Lnu_Nabhneet Kaur.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+595,64,4.293,0.7186,0.9067,41.8,19.4,12.9,3.4,7.8,Contemporary_University,ESL,Homework Assignment pdf (2).pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+499,42,4.487,0.7433,0.8934,65.3,5.9,15.4,4.4,11.9,Contemporary_University,ESL,Homework assigment.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1418,34,4.424,0.7209,0.9368,1000.0,0.0,27.1,6.1,11.8,Contemporary_University,ESL,Assignment Week 3 Data Driven Decision Making.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+574,52,4.674,0.7133,0.9333,24.42,10.5,14.5,4.0,1.9,Contemporary_University,ESL,BUS-631-A DATA DRVN DEC MKG-HOMEWORK ASSIGNMENT-SHARMANPREET.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+534,55,4.557,0.7074,0.9068,32.1,17.3,13.3,4.9,3.6,Contemporary_University,ESL,Homework Assignment Singh Anmoldeep.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+388,37,4.651,0.7433,0.8729,70.41,0.0,16.3,8.0,0.0,Contemporary_University,ESL,Homework Assignment - Komalpreet Singh.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+547,41,4.536,0.7711,0.9139,62.71,7.7,15.5,5.1,2.4,Contemporary_University,ESL,Structured Literature Review in Generative AI Ethics ranpreet singh gill.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+763,47,4.492,0.7637,0.925,92.14,22.8,14.1,4.5,12.8,Contemporary_University,ESL,BUS631_LitReview_Kanchamreddy_Jaswanth Reddy..docx,Post-LLM (2025-2026),,,,,,,,,,,,
+863,46,4.445,0.6026,0.9469,80.49,16.1,15.7,7.1,8.7,Contemporary_University,ESL,Structured Literature Review in Generative AI Course on Ethics.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+606,49,4.549,0.6998,0.9231,109.75,17.1,13.9,2.8,6.1,Contemporary_University,ESL,[BUS631]_LitReview_[Simranjit Kaur].pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+861,41,4.41,0.6783,0.9202,55.56,23.2,15.2,5.7,14.6,Contemporary_University,ESL,BUS631 LitReview kaur Veerpal.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+648,44,4.275,0.6396,0.9478,115.47,24.0,13.6,5.4,4.5,Contemporary_University,ESL,Paper Review data driven.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+589,51,4.398,0.7174,0.9362,80.09,13.0,14.3,5.9,0.0,Contemporary_University,ESL,BUS631_LitReview_LnuDilpreetsingh.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+610,35,4.505,0.7371,0.9283,66.7,6.9,16.6,6.4,5.7,Contemporary_University,ESL,Structured Literature Review in Generative AI Ethics.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+935,40,4.492,0.716,0.9361,1000.0,2.6,18.7,6.8,2.5,Contemporary_University,ESL,BUS631_LitReview_[Singh]_[Khushwinder].pdf (2).docx,Post-LLM (2025-2026),,,,,,,,,,,,
+636,34,4.503,0.7189,0.9407,59.74,3.2,17.5,5.8,2.9,Contemporary_University,ESL,BUS631_LitReview_[Lnu]_[Nabhneet Kaur].pdf.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+591,35,4.528,0.7657,0.9248,71.13,0.0,17.8,5.8,2.9,Contemporary_University,ESL,BUS631_LitReview_[shivani]_.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+491,40,4.616,0.7181,0.923,72.6,8.5,15.1,5.3,0.0,Contemporary_University,ESL,Structured Literature Review in Generative AI Ethics.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+2412,146,4.471,0.7056,0.9596,158.88,17.0,15.0,4.4,5.5,Contemporary_University,ESL,BUS631_LitReview_(Newme)_(Alanpou Noel).pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+493,47,4.083,0.7161,0.9026,65.99,20.5,13.0,6.7,6.4,Contemporary_University,ESL,BUS631_Lit_Review_FNU_SHARMANPREET.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+548,41,4.276,0.6968,0.9369,79.65,9.7,15.2,6.4,2.4,Contemporary_University,ESL,BUS631 LitReview Singh Anmoldeep.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+447,39,4.153,0.7139,0.9077,60.81,11.0,14.6,7.6,5.1,Contemporary_University,ESL,BUS 631 LitReview Singh Komalpreet.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+635,44,4.668,0.7398,0.9277,87.47,15.1,14.7,5.2,20.5,Contemporary_University,ESL,Executive Briefing.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1452,70,4.651,0.746,0.9387,159.08,12.7,16.6,6.9,14.3,Contemporary_University,ESL,Strategic Analytics Report final.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1122,66,4.571,0.723,0.9502,91.24,4.6,16.8,6.4,21.2,Contemporary_University,ESL,Strategic Analytics Report .pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1003,62,4.53,0.691,0.9425,44.31,19.1,14.6,4.5,24.2,Contemporary_University,ESL,Final Report.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1066,69,4.725,0.6648,0.9437,105.84,27.8,13.2,7.8,21.7,Contemporary_University,ESL,Mallika K C_Final Report_ Strategic Analytics.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1249,85,4.652,0.7568,0.9437,99.04,0.0,17.0,4.8,20.0,Contemporary_University,ESL,FINAL REPORT DDDM- FAIZAN.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1617,104,4.614,0.7518,0.9426,132.65,7.2,16.1,5.9,17.3,Contemporary_University,ESL,Strategic Analytics final Report DDDM_ Rukhsana2705.pdf (1).pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1307,76,4.547,0.7643,0.9491,110.42,0.0,17.6,7.7,18.4,Contemporary_University,ESL,Final Report By Tushar.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1334,74,4.603,0.7339,0.9494,60.73,17.8,15.3,3.1,23.0,Contemporary_University,ESL,strategic analytics report.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1549,103,4.5,0.7419,0.9465,61.61,9.9,15.6,6.8,25.2,Contemporary_University,ESL,Final Report.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1986,141,4.655,0.7624,0.9523,155.98,18.5,14.2,5.9,13.5,Contemporary_University,ESL,Strategic Analytics Report. Duong Nguyen.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1512,94,4.535,0.7665,0.9453,48.25,14.1,15.3,7.4,29.8,Contemporary_University,ESL,Ha Chi Pham_Final Report_Week 7.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1639,77,4.518,0.7076,0.9543,111.19,15.3,16.4,6.1,26.0,Contemporary_University,ESL,Week 8 Assignment_ Strategic Analytics Report.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+627,44,4.652,0.7193,0.9288,61.14,8.5,15.6,5.6,11.4,Contemporary_University,ESL,BUS631__Final_­_Executive__Briefing__Priyanka__Talapatra.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+695,72,4.611,0.7594,0.8746,70.63,6.7,14.7,4.6,2.8,Contemporary_University,ESL,Bartaula_Prakriti_BUS_631_Data_Driven_Home_Work_Assignment.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+410,43,4.536,0.7329,0.8801,40.76,12.9,13.8,4.1,0.0,Contemporary_University,ESL,Data Driven.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+593,72,4.621,0.7427,0.8771,40.74,17.1,12.9,4.4,11.1,Contemporary_University,ESL,Hamza_BUS-631-A  BZ1 Data-Driven .docx,Post-LLM (2025-2026),,,,,,,,,,,,
+441,23,4.418,0.8192,0.8646,48.32,23.9,14.7,2.5,26.1,Contemporary_University,ESL,Zouhair Chaoui Homework Assignment Paper Week 3.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1544,93,4.413,0.7174,0.9376,39.06,21.1,14.4,4.2,15.1,Contemporary_University,ESL,HOMEWORK ASSIGNMENT WEEK 3.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+572,59,4.455,0.7379,0.9203,29.16,17.6,13.2,5.9,5.1,Contemporary_University,ESL,Homework assignment .docx,Post-LLM (2025-2026),,,,,,,,,,,,
+636,58,4.629,0.7747,0.8793,71.38,11.9,14.3,4.1,12.1,Contemporary_University,ESL,Social_Science_Research_Assignment.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+832,83,4.635,0.7892,0.8939,45.52,7.5,14.7,4.3,4.8,Contemporary_University,ESL,Social Science Research_Param.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+822,77,4.621,0.8005,0.8868,49.92,10.5,14.4,3.4,5.2,Contemporary_University,ESL,Harshita_assignment3rd week.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+675,67,4.603,0.7519,0.9204,41.9,20.0,13.0,5.3,3.0,Contemporary_University,ESL,BUS631_HW Assignment_Mohammad_Walaa.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+865,62,4.613,0.7595,0.9129,68.52,15.1,14.6,3.7,8.1,Contemporary_University,ESL,BUS631_HomeworkAssignment_Nguyen_TinTrung.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+501,38,4.552,0.7493,0.8867,90.68,9.4,15.2,5.0,7.9,Contemporary_University,ESL,Homework Assignment.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+540,60,4.816,0.7808,0.8923,76.5,32.3,11.0,4.4,8.3,Contemporary_University,ESL,Team 5_Mini_Cases_Walmart_Insight_Builder.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+430,28,4.652,0.7353,0.8873,82.87,45.1,10.8,2.6,0.0,Contemporary_University,ESL,BUS631_LitReview_Ali_Mudassar.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+779,62,4.714,0.8,0.9082,85.57,6.5,15.5,6.5,0.0,Contemporary_University,ESL,BUS631_LitReview_Bartaula_Prakriti.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+801,54,4.553,0.7783,0.927,13.42,20.3,14.1,4.2,7.4,Contemporary_University,ESL,BUS631_APA_UmaMaheswari_Prajesh_Bhaskaran.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+594,39,4.587,0.7758,0.8998,105.51,28.4,13.1,4.9,5.1,Contemporary_University,ESL,Paper Review Assignment Zouhair Chaoui.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1409,104,4.57,0.7905,0.9362,55.9,54.4,9.0,3.0,9.6,Contemporary_University,ESL,BUS631_LitReview_Edouard_Maurice.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+616,52,4.657,0.7577,0.9042,53.75,11.7,14.6,6.3,5.8,Contemporary_University,ESL,BUS631_LitReview.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+573,62,4.739,0.7475,0.8961,73.44,21.2,12.6,4.4,4.8,Contemporary_University,ESL,BUS631_LitReview_[Lnu]_[Armani].pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+496,36,4.574,0.7324,0.8934,95.78,15.6,14.5,4.4,8.3,Contemporary_University,ESL,BUS631_LitReview_lnu_paramjeet.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+834,46,4.589,0.7588,0.8915,233.16,19.0,15.1,4.0,4.3,Contemporary_University,ESL,BUS631_LitReview_Mehra_Harshita.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1133,83,4.597,0.7898,0.9402,65.41,3.6,16.1,7.6,2.4,Contemporary_University,ESL,BUS631_LitReview_Mohammad_Walaa.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+353,42,4.712,0.7262,0.9002,49.38,18.3,12.8,5.9,2.4,Contemporary_University,ESL,BUS631_LitReview_[Nallamothu]_[Shashank].pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+860,77,4.728,0.7654,0.94,94.14,17.2,13.6,6.7,2.6,Contemporary_University,ESL,BUS631_LitReview_Nguyen_TinTrung.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+657,47,4.604,0.7705,0.9163,76.83,11.2,15.2,6.5,6.4,Contemporary_University,ESL,BUS631_LitReview_Patel_Janki.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+597,39,4.571,0.7823,0.9205,50.78,9.2,15.8,5.5,5.1,Contemporary_University,ESL,BUS631_LitReview_waghela_pal.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1393,62,4.39,0.7332,0.9449,101.99,51.1,11.7,2.0,9.7,Contemporary_University,ESL,Mamoona Ejaz - Understanding Social Science Research.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1689,116,4.395,0.7167,0.9381,60.85,29.7,12.7,5.5,25.9,Contemporary_University,ESL,Assignment - Research Methodologies  Ethics.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+692,37,4.535,0.7547,0.8738,568.43,21.5,14.9,4.6,5.4,Contemporary_University,ESL,BUS631_Parekh_ResearchMethodologiesEthics.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1174,38,4.538,0.7721,0.9366,170.36,34.1,16.2,1.9,7.9,Contemporary_University,ESL,Mamoona EJaz - Textbook Summary.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1204,80,4.471,0.7252,0.9366,65.05,27.0,13.2,6.0,11.2,Contemporary_University,ESL,Week 4 Textbook Summary.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1412,66,4.551,0.7546,0.9377,207.33,8.9,17.3,5.7,6.1,Contemporary_University,ESL,BUS631_Parekh_Week4TextbookSummary.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1288,63,4.504,0.791,0.9272,138.88,42.4,12.4,3.2,15.9,Contemporary_University,ESL,Ejaz_Mamoona_PaperReview1.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1053,58,4.467,0.7309,0.9225,55.68,25.1,14.3,6.6,17.2,Contemporary_University,ESL,Lo_Tran_PaperReview1.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1177,51,4.459,0.7695,0.9354,102.43,28.7,15.0,4.6,13.7,Contemporary_University,ESL,DSC631_Parekh_CriticalPaperReview.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+2212,124,4.634,0.7651,0.9448,156.99,38.8,12.3,3.6,21.0,Contemporary_University,ESL,Technical Report.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+602,47,4.14,0.7265,0.9381,81.94,22.2,13.3,3.7,6.4,Contemporary_University,ESL,GAI_LitReview_Avinash_Ganta.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+577,42,4.599,0.7628,0.9263,66.29,10.3,15.2,4.0,4.8,Contemporary_University,ESL,Paper Review.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+687,33,4.531,0.7218,0.9094,115.3,23.5,15.2,2.3,0.0,Contemporary_University,ESL,GAI_LitReview_CHAVAN_RITIKA.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+777,51,4.644,0.7558,0.9316,120.49,4.5,16.4,5.4,15.7,Contemporary_University,ESL,Sushma Kamshetti_Generative AI Ethics.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+437,45,4.7,0.7628,0.8765,84.47,6.9,14.7,4.6,2.2,Contemporary_University,ESL,Paper review.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+618,54,4.417,0.7738,0.9159,127.43,12.7,14.3,5.5,3.7,Contemporary_University,ESL,GAI_LitReview_Patil_Tarun.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+543,48,4.82,0.7462,0.9266,65.71,40.0,10.5,4.2,8.3,Contemporary_University,ESL,Paoer Research Review_Week2_SimranRajani.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+796,52,4.442,0.7894,0.9331,107.52,10.2,15.6,3.8,17.3,Contemporary_University,ESL,GAI_LitReview_Enriquez_Clarice.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+250,18,4.594,0.7008,0.886,102.88,19.1,14.0,2.0,0.0,Contemporary_University,ESL,GAI_LitReview_Francescone_Madyson.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+849,69,4.733,0.7275,0.9265,79.2,32.0,11.8,5.3,10.1,Contemporary_University,ESL,GAI_LitReview_Ma_Yangchun.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+604,36,4.501,0.8148,0.9137,82.06,0.0,17.8,8.9,2.8,Contemporary_University,ESL,DSC 600 Research Proposal Enriquez.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+949,60,4.617,0.8066,0.9301,290.45,0.0,17.4,7.1,3.3,Contemporary_University,ESL,Madyson Francescone week 5 homework .pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1956,134,4.637,0.7921,0.945,83.39,26.4,13.2,3.9,17.9,Contemporary_University,ESL,W5_Research Proposal_Ma_Yangchun.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+2527,149,4.672,0.7857,0.9466,128.12,41.6,11.7,3.7,6.0,Contemporary_University,ESL,Research Proposal GenAI Governance.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+542,43,4.649,0.7268,0.921,68.43,31.4,12.0,4.4,11.6,Contemporary_University,ESL,GAI_LitReview_Kyaw_Daniel.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+785,53,4.735,0.8173,0.911,82.34,33.7,12.2,1.5,15.1,Contemporary_University,ESL,GAI_LitReview_Fernandus_Alwyn.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+579,49,4.582,0.7664,0.8847,72.84,15.7,14.0,2.8,2.0,Contemporary_University,ESL,GAI_LitReview_Kaur_Lovepreet (1).pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+899,53,4.513,0.7378,0.9249,107.89,34.0,12.7,3.7,11.3,Contemporary_University,ESL,GAI_LitReview_CharanPreet_Kaur.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1407,81,4.704,0.8058,0.9449,334.38,9.6,16.2,5.3,8.6,Contemporary_University,ESL,Recent Paper Review.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+545,39,4.587,0.7735,0.8479,37.1,43.9,10.6,2.2,17.9,Contemporary_University,ESL,GAI_LitReview_[Patel]_[Sahil].pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+547,55,4.442,0.7717,0.9027,56.78,23.2,12.5,3.7,1.8,Contemporary_University,ESL,ExampGAI_LitReview_[suthar]_[rashmi].pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+797,48,4.623,0.8176,0.9299,89.03,9.7,16.0,3.9,10.4,Contemporary_University,ESL,GAI_LitReview_[Zaw Pe]_[Dawn].pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+437,20,4.565,0.7573,0.8721,87.53,10.2,17.3,5.9,0.0,Contemporary_University,ESL,DSC 600 Week 7 Submission.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1206,67,4.504,0.7287,0.9446,119.25,12.8,15.9,3.6,16.4,Contemporary_University,ESL,Part 1-Dataset Selection and Reporting Paper_Cardenas_.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+3731,254,4.596,0.6647,0.967,63.65,15.3,14.8,5.8,7.9,Contemporary_University,ESL,Course Project Part  Datasets Selection and Reporting_Ranpreet Gill.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+760,51,4.472,0.7266,0.9185,98.7,36.6,11.8,2.9,23.5,Contemporary_University,ESL,DSC600_Week5_Part1_Giri.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1013,68,4.539,0.726,0.9386,108.92,11.9,15.3,4.7,11.8,Contemporary_University,ESL,Course Project Part 1 Dataset Selection and Reporting_Dilpreet_Singh_Lnu .pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1572,96,4.502,0.7676,0.949,115.57,10.4,15.9,5.3,7.3,Contemporary_University,ESL,Course Project - Part 1 - Dataset Selection and Reporting Harpreet Kaur Lnu.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+841,37,4.241,0.7558,0.9366,262.25,46.4,12.4,2.7,10.8,Contemporary_University,ESL,DSC654_Parekh_CourseProject_Part1.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1561,94,4.511,0.7531,0.9434,126.47,0.0,17.4,7.8,10.6,Contemporary_University,ESL,Week 5_Assignment_Course Project 1_Sharmanpreet.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1025,77,4.56,0.721,0.9443,183.88,2.5,16.2,8.1,14.3,Contemporary_University,ESL,Course_Project_Part_1_Anmoldeep Singh.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1018,60,4.545,0.7418,0.9453,177.63,15.2,15.4,6.0,16.7,Contemporary_University,ESL,Course Project Part 1 Dataset Selection and Reporting Komalpreet Singh.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+605,40,4.518,0.7333,0.9408,47.16,53.9,9.5,2.1,20.0,Contemporary_University,ESL,week3project.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+677,44,4.797,0.7337,0.9204,581.33,29.6,12.9,2.1,13.6,Contemporary_University,ESL,DSC 654 week6_Part2_Giri.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1624,122,4.737,0.7257,0.9499,144.05,41.4,10.8,2.6,9.0,Contemporary_University,ESL,DSC654_Part2_YanZuo_submit.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1332,68,4.496,0.7685,0.9525,107.71,20.0,15.3,3.0,27.9,Contemporary_University,ESL,Week 5 Researh Proposal Theorectical Intervention_Cardenas_.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1086,80,4.712,0.7795,0.9334,174.24,0.0,17.4,5.8,5.0,Contemporary_University,ESL,Week 5 assignment research proposal Ranpreet Singh Gill.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+693,52,4.638,0.7639,0.9142,65.49,27.0,12.8,6.3,28.8,Contemporary_University,ESL,week5_researchproposal_Giri.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+914,67,4.596,0.7894,0.9275,113.87,10.1,15.2,8.2,9.0,Contemporary_University,ESL,Week 5 Assignment Research Proposal Theoretical Intervention Dilpreet Singh Lnu.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1403,120,4.693,0.781,0.9414,95.76,24.7,12.7,4.5,10.8,Contemporary_University,ESL,Week 5_Assignment_Harpreet Kaur.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1229,68,4.223,0.7357,0.9505,201.39,51.8,10.5,2.6,19.1,Contemporary_University,ESL,DSC654_Parekh_W5ResearchProposal.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1296,111,4.592,0.7791,0.9341,109.7,23.5,12.9,5.8,9.0,Contemporary_University,ESL,Week 5_Assignment_Research Proposal Theoretical Intervention_Sharmanpreet.docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1506,161,4.61,0.7995,0.9499,60.28,12.6,13.8,6.9,5.0,Contemporary_University,ESL,Week 5 Assignment Research Proposal Theoretical Intervention Anmoldeep Singh .docx,Post-LLM (2025-2026),,,,,,,,,,,,
+1359,113,4.641,0.8073,0.942,98.77,9.0,15.0,5.9,8.0,Contemporary_University,ESL,Week 5 Assignment Research Proposal Theoretical Intervention_Komalpreet_Singh.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1311,87,4.419,0.6982,0.9574,44.02,54.6,9.4,2.6,18.4,Contemporary_University,ESL,week5homework.pdf,Post-LLM (2025-2026),,,,,,,,,,,,
+1413,65,4.4,0.7535,0.9367,44.56,17.4,16.2,4.9,21.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),60.1,Review,2.0,"Synthetic Trigrams (1), AI Vocabulary (furthermore, crucial)",Doc_0002.docx,Sub_db3efc8c,BUS-631,2025.0,Fall,Final Report-3321810.zip,,
+1057,43,4.44,0.6533,0.9334,78.62,41.2,13.6,4.4,23.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),84.9,Human,0.0,,Doc_0003.pdf,Sub_b7048c53,BUS-631,2025.0,Fall,Final Report-3321810.zip,,
+3111,185,4.66,0.7243,0.958,73.08,20.4,14.6,7.1,21.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.6,Review,1.0,"AI Vocabulary (furthermore, crucial)",Doc_0008.docx,Sub_a4d0f65c,BUS-631,2025.0,Fall,Final Report-3321810.zip,,
+1181,64,4.44,0.6994,0.9165,153.03,15.3,15.7,3.5,12.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.3,Review,1.0,"AI Vocabulary (furthermore, crucial)",Doc_0021.docx,Sub_db3efc8c,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+1346,74,4.44,0.6627,0.9425,84.75,30.4,13.5,2.6,33.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.0,Human,0.0,,Doc_0022.docx,Sub_b7048c53,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+1988,156,4.24,0.716,0.9552,47.68,23.3,13.2,4.3,9.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),77.9,Human,0.0,,Doc_0025.pdf,Sub_e600ae08,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+422,33,4.62,0.7039,0.9188,59.08,4.8,15.8,3.8,6.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),60.8,Review,1.0,Zero-Width Unicode (13),Doc_0028.docx,Sub_339adae5,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+534,47,4.57,0.7145,0.9061,53.22,9.3,14.8,4.3,10.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),79.5,Human,0.0,,Doc_0031.docx,Sub_cc0fe35e,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+1418,34,4.42,0.7209,0.9368,2268.15,0.0,27.1,6.1,11.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.0,Human,0.0,,Doc_0034.docx,Sub_94b3b7eb,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+571,52,4.67,0.7133,0.9332,22.75,10.6,14.5,4.0,1.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),60.5,Review,1.0,"AI Vocabulary (foster, crucial)",Doc_0035.docx,Sub_cce3bf8d,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+531,55,4.55,0.7075,0.9083,30.48,17.2,13.3,4.9,3.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),52.5,Hybrid,1.0,Zero-Width Unicode (8),Doc_0036.docx,Sub_030a8422,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+385,37,4.65,0.7429,0.8753,64.08,0.0,16.3,8.1,0.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.6,Review,1.0,Zero-Width Unicode (9),Doc_0037.docx,Sub_eefa01a3,BUS-631,2025.0,Fall,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3316385.zip",,
+542,41,4.53,0.7699,0.9165,60.46,7.2,15.5,5.2,2.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),34.8,Bot/AI,3.0,"Synthetic Trigrams (1), Synthetic Citation (1), AI Vocabulary (realm, underscore, pivotal)",Doc_0038.pdf,Sub_cf8ab874,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+627,28,4.57,0.7137,0.8998,384.24,13.0,17.0,4.5,10.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.8,Human,0.0,,Doc_0039.pdf,Sub_db3efc8c,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+924,42,4.58,0.6696,0.9098,176.62,16.1,16.5,4.5,4.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.3,Review,1.0,Synthetic Citation (1),Doc_0040.docx,Sub_b7048c53,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+606,35,4.5,0.7361,0.9302,65.87,6.7,16.6,6.4,5.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),48.9,Hybrid,2.0,"Synthetic Citation (1), AI Vocabulary (synergy, crucial)",Doc_0047.pdf,Sub_092e9399,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+935,40,4.49,0.716,0.9361,3524.83,2.6,18.7,6.8,2.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.9,Review,1.0,Synthetic Citation (4),Doc_0048.docx,Sub_49ce2fd9,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+632,34,4.5,0.7184,0.9423,55.65,3.0,17.5,5.9,2.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),55.3,Review,1.0,Synthetic Citation (1),Doc_0049.docx,Sub_cc0fe35e,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+588,35,4.53,0.7651,0.9261,70.33,0.0,17.8,5.8,2.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),45.7,Hybrid,2.0,"Synthetic Citation (1), AI Vocabulary (realm, underscore, multifaceted)",Doc_0050.pdf,Sub_808d0d03,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+487,40,4.61,0.7165,0.9251,73.44,8.3,15.1,5.3,0.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),60.5,Review,1.0,Synthetic Citation (1),Doc_0051.pdf,Sub_99c731e8,BUS-631,2025.0,Fall,Week 1-2 - Paper Review Assignment ( Methods )-3314684.zip,,
+1062,67,4.82,0.7282,0.9351,121.26,27.9,13.3,6.1,20.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.3,Human,0.0,,Doc_0057.pdf,Sub_810865a7,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+591,29,4.52,0.7304,0.9029,44.24,0.0,18.4,6.8,37.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),77.4,Human,0.0,,Doc_0058.docx,Sub_02b7bdce,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1062,43,4.37,0.7079,0.9314,144.82,16.2,17.1,6.2,23.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.6,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0059.pdf,Sub_dcc61c2c,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+421,29,4.7,0.7646,0.8693,45.28,5.4,16.1,6.4,24.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.3,Human,0.0,,Doc_0060.pdf,Sub_e3cf8598,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1455,70,4.67,0.7463,0.9391,159.37,12.9,16.6,6.9,14.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.9,Human,0.0,,Doc_0061.pdf,Sub_c53939b3,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1153,77,4.66,0.6973,0.94,158.05,31.4,12.6,7.2,23.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.2,Human,0.0,,Doc_0062.pdf,Sub_f2111236,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1119,66,4.57,0.7227,0.9507,91.01,4.5,16.8,6.4,21.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.1,Human,0.0,,Doc_0063.pdf,Sub_b4df6b52,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+999,62,4.53,0.6903,0.9429,42.52,19.1,14.6,4.5,24.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.5,Human,0.0,,Doc_0064.pdf,Sub_94ee045f,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+439,5,4.72,0.634,0.9275,12753.36,0.0,39.6,5.0,40.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.1,Human,0.0,,Doc_0066.pdf,Sub_2f75b28f,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1408,60,4.44,0.6959,0.9477,95.85,40.9,13.4,3.7,35.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.2,Human,0.0,,Doc_0067.pdf,Sub_3e315f43,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1250,85,4.66,0.7567,0.9438,99.62,0.0,17.0,4.8,20.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.0,Review,1.0,LLM Section Headers,Doc_0068.pdf,Sub_0f67d92e,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1304,76,4.55,0.7642,0.9494,109.21,0.0,17.6,7.7,18.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),90.0,Human,0.0,,Doc_0070.pdf,Sub_6ace85e5,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1147,49,4.47,0.7091,0.942,64.28,19.6,16.3,3.9,30.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.5,Review,1.0,"AI Vocabulary (imperative, furthermore)",Doc_0074.pdf,Sub_32d255ad,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1507,94,4.53,0.7662,0.9456,47.88,14.0,15.3,7.4,29.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),79.1,Human,0.0,,Doc_0075.pdf,Sub_a30c8cd8,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+979,44,4.25,0.7514,0.8969,79.6,28.0,14.9,4.3,22.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.4,Review,1.0,Unnatural Para Symmetry (CV=0.03),Doc_0077.pdf,Sub_b94482f6,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+638,30,4.4,0.6094,0.9329,73.94,32.2,14.0,4.7,23.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.1,Human,0.0,,Doc_0078.docx,Sub_2c03f35d,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+624,44,4.65,0.7186,0.9299,58.38,8.9,15.5,5.6,11.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),81.1,Human,0.0,,Doc_0079.pdf,Sub_2bade8e9,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+1119,56,4.26,0.6547,0.931,123.87,40.5,12.6,5.4,28.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.8,Review,1.0,Unnatural Para Symmetry (CV=0.06),Doc_0080.pdf,Sub_9704a2ee,BUS-631,2026.0,Fall,Assignment - Final Report (Due Friday March 6th)-3534836.zip,,
+692,72,4.61,0.7592,0.8762,67.06,6.7,14.7,4.6,2.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),84.7,Human,0.0,,Doc_0081.pdf,Sub_8acf5a5b,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+1739,60,4.4,0.6979,0.9454,194.98,27.5,16.6,2.8,26.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.3,Human,0.0,,Doc_0085.docx,Sub_695d8b09,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+1020,61,4.09,0.6433,0.9313,110.43,40.6,11.8,3.1,19.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.4,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0090.pdf,Sub_4068715f,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+998,74,4.46,0.6578,0.9487,45.95,44.9,10.3,3.7,12.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.4,Human,0.0,,Doc_0095.docx,Sub_d5fe07d2,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+1834,96,4.38,0.6904,0.951,114.68,33.7,13.3,3.1,33.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.0,Review,1.0,Web Clipboard Spaces (27),Doc_0096.docx,Sub_85a86bd9,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+718,45,4.38,0.6612,0.9292,171.55,32.4,12.7,3.9,13.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.0,Human,0.0,,Doc_0097.docx,Sub_7be82dd0,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+618,41,4.29,0.6474,0.9253,113.24,18.5,14.4,5.5,17.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.6,Human,0.0,,Doc_0098.pdf,Sub_2560eb05,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+680,40,4.1,0.6696,0.9096,121.75,36.3,12.4,3.2,22.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.3,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0099.pdf,Sub_c3d88e8b,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+929,45,4.34,0.6936,0.9399,90.85,34.5,13.6,3.1,31.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.1,Human,0.0,,Doc_0100.docx,Sub_d49e99d5,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+1032,65,4.24,0.7312,0.9376,77.8,18.2,14.7,3.8,4.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.3,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0101.pdf,Sub_11ee5158,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+810,40,4.41,0.6869,0.9196,100.19,29.8,14.1,4.3,20.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.9,Human,0.0,,Doc_0102.docx,Sub_f4c9b841,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299(1).zip",,
+692,72,4.61,0.7592,0.8762,67.06,6.7,14.7,4.6,2.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),84.7,Human,0.0,,Doc_0103.pdf,Sub_8acf5a5b,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+1739,60,4.4,0.6979,0.9454,194.98,27.5,16.6,2.8,26.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.3,Human,0.0,,Doc_0107.docx,Sub_695d8b09,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+1020,61,4.09,0.6433,0.9313,110.43,40.6,11.8,3.1,19.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.4,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0112.pdf,Sub_4068715f,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+998,74,4.46,0.6578,0.9487,45.95,44.9,10.3,3.7,12.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.4,Human,0.0,,Doc_0117.docx,Sub_d5fe07d2,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+1834,96,4.38,0.6904,0.951,114.68,33.7,13.3,3.1,33.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.0,Review,1.0,Web Clipboard Spaces (27),Doc_0118.docx,Sub_85a86bd9,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+718,45,4.38,0.6612,0.9292,171.55,32.4,12.7,3.9,13.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.0,Human,0.0,,Doc_0119.docx,Sub_7be82dd0,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+618,41,4.29,0.6474,0.9253,113.24,18.5,14.4,5.5,17.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.6,Human,0.0,,Doc_0120.pdf,Sub_2560eb05,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+680,40,4.1,0.6696,0.9096,121.75,36.3,12.4,3.2,22.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.3,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0121.pdf,Sub_c3d88e8b,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+929,45,4.34,0.6936,0.9399,90.85,34.5,13.6,3.1,31.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.1,Human,0.0,,Doc_0122.docx,Sub_d49e99d5,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+1032,65,4.24,0.7312,0.9376,77.8,18.2,14.7,3.8,4.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.3,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0123.pdf,Sub_11ee5158,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+810,40,4.41,0.6869,0.9196,100.19,29.8,14.1,4.3,20.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.9,Human,0.0,,Doc_0124.docx,Sub_f4c9b841,BUS-631,2025.0,Unknown,"Homework Assignment Understanding Social Science Research Principles, Methods, and Practices-3379299.zip",,
+860,16,4.56,0.7407,0.9113,8204.69,0.0,28.1,4.3,31.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),64.7,Review,1.0,Synthetic Citation (1),Doc_0130.docx,Sub_695d8b09,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+614,52,4.65,0.758,0.9048,53.04,11.6,14.6,6.4,5.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.6,Human,0.0,,Doc_0132.pdf,Sub_204b8445,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+571,62,4.73,0.7478,0.8962,72.55,21.0,12.6,4.4,4.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.3,Human,0.0,,Doc_0133.pdf,Sub_00de4982,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+648,56,4.64,0.7977,0.9045,80.53,18.8,13.5,5.7,3.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.7,Review,1.0,Synthetic Citation (2),Doc_0134.pdf,Sub_0044befd,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+481,31,4.13,0.6758,0.9136,112.31,32.8,12.5,4.0,9.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.5,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0136.pdf,Sub_4068715f,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+821,46,4.59,0.7576,0.8867,234.56,19.4,15.0,3.9,4.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),90.0,Human,0.0,,Doc_0137.pdf,Sub_8d7de676,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+858,77,4.72,0.7655,0.9391,94.36,17.2,13.6,6.8,2.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Synthetic Citation (5),Doc_0140.pdf,Sub_857df144,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+751,59,4.61,0.7461,0.9211,111.62,24.2,13.1,5.6,8.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.9,Human,0.0,,Doc_0141.pdf,Sub_22e23ea8,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+655,47,4.6,0.7709,0.9152,76.23,11.1,15.2,6.6,6.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),52.4,Hybrid,2.0,"Synthetic Citation (1), AI Vocabulary (crucial, pivotal)",Doc_0142.pdf,Sub_20155e5f,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+380,43,4.5,0.6938,0.9371,81.35,52.5,8.1,3.9,2.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.1,Human,0.0,,Doc_0143.pdf,Sub_d5fe07d2,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+935,39,4.55,0.6771,0.9276,248.33,29.3,15.1,3.9,7.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.6,Review,1.0,Synthetic Citation (1),Doc_0144.docx,Sub_85a86bd9,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+1039,107,4.72,0.6598,0.9309,66.11,31.0,11.4,9.0,6.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),46.4,Hybrid,2.0,"Synthetic Citation (14), LLM Section Headers",Doc_0145.pdf,Sub_2560eb05,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+707,43,4.21,0.7595,0.9315,290.94,31.5,13.0,4.1,7.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),50.0,Hybrid,2.0,"Synthetic Citation (1), Unnatural Para Symmetry (CV=0.04)",Doc_0146.pdf,Sub_c3d88e8b,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+802,51,4.24,0.7466,0.9398,122.67,13.2,15.3,6.9,7.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),49.9,Hybrid,2.0,"Synthetic Citation (1), Unnatural Para Symmetry (CV=0.05)",Doc_0147.pdf,Sub_11ee5158,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+878,36,4.43,0.6948,0.9254,141.18,29.0,15.3,3.2,16.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.2,Review,1.0,Synthetic Citation (1),Doc_0148.pdf,Sub_f4c9b841,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285(1).zip,,
+860,16,4.56,0.7407,0.9113,8204.69,0.0,28.1,4.3,31.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),64.7,Review,1.0,Synthetic Citation (1),Doc_0154.docx,Sub_695d8b09,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+614,52,4.65,0.758,0.9048,53.04,11.6,14.6,6.4,5.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.6,Human,0.0,,Doc_0156.pdf,Sub_204b8445,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+571,62,4.73,0.7478,0.8962,72.55,21.0,12.6,4.4,4.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.3,Human,0.0,,Doc_0157.pdf,Sub_00de4982,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+648,56,4.64,0.7977,0.9045,80.53,18.8,13.5,5.7,3.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.7,Review,1.0,Synthetic Citation (2),Doc_0158.pdf,Sub_0044befd,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+481,31,4.13,0.6758,0.9136,112.31,32.8,12.5,4.0,9.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.5,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0160.pdf,Sub_4068715f,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+821,46,4.59,0.7576,0.8867,234.56,19.4,15.0,3.9,4.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),90.0,Human,0.0,,Doc_0161.pdf,Sub_8d7de676,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+858,77,4.72,0.7655,0.9391,94.36,17.2,13.6,6.8,2.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Synthetic Citation (5),Doc_0164.pdf,Sub_857df144,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+751,59,4.61,0.7461,0.9211,111.62,24.2,13.1,5.6,8.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.9,Human,0.0,,Doc_0165.pdf,Sub_22e23ea8,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+655,47,4.6,0.7709,0.9152,76.23,11.1,15.2,6.6,6.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),52.4,Hybrid,2.0,"Synthetic Citation (1), AI Vocabulary (crucial, pivotal)",Doc_0166.pdf,Sub_20155e5f,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+380,43,4.5,0.6938,0.9371,81.35,52.5,8.1,3.9,2.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.1,Human,0.0,,Doc_0167.pdf,Sub_d5fe07d2,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+935,39,4.55,0.6771,0.9276,248.33,29.3,15.1,3.9,7.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.6,Review,1.0,Synthetic Citation (1),Doc_0168.docx,Sub_85a86bd9,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+1039,107,4.72,0.6598,0.9309,66.11,31.0,11.4,9.0,6.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),46.4,Hybrid,2.0,"Synthetic Citation (14), LLM Section Headers",Doc_0169.pdf,Sub_2560eb05,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+707,43,4.21,0.7595,0.9315,290.94,31.5,13.0,4.1,7.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),50.0,Hybrid,2.0,"Synthetic Citation (1), Unnatural Para Symmetry (CV=0.04)",Doc_0170.pdf,Sub_c3d88e8b,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+802,51,4.24,0.7466,0.9398,122.67,13.2,15.3,6.9,7.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),49.9,Hybrid,2.0,"Synthetic Citation (1), Unnatural Para Symmetry (CV=0.05)",Doc_0171.pdf,Sub_11ee5158,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+878,36,4.43,0.6948,0.9254,141.18,29.0,15.3,3.2,16.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.2,Review,1.0,Synthetic Citation (1),Doc_0172.pdf,Sub_f4c9b841,BUS-631,2025.0,Unknown,Week 1-2 - Paper Review Assignment ( Methods )-3379285.zip,,
+2255,92,4.51,0.7375,0.9495,238.95,8.0,18.2,3.5,25.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),81.6,Review,1.0,Synthetic Trigrams (1),Doc_0174.pdf,Sub_8c425c05,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+2050,117,4.44,0.7821,0.9484,87.65,19.6,14.9,4.1,15.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),90.0,Human,0.0,,Doc_0175.docx,Sub_73532b13,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+994,67,4.41,0.7209,0.934,122.05,17.1,14.6,3.5,6.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.0,Human,0.0,,Doc_0176.docx,Sub_1f21b5a8,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+2377,145,4.53,0.6907,0.9521,115.82,39.7,11.8,3.4,31.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),55.0,Review,2.0,"Synthetic Trigrams (1), Synthetic Citation (5)",Doc_0178.docx,Sub_40f1d66a,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+472,19,4.44,0.7051,0.8773,791.46,25.3,15.9,4.7,5.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.5,Human,0.0,,Doc_0179.pdf,Sub_cc6dd35f,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1497,102,4.19,0.7152,0.9538,67.02,13.2,15.1,4.1,20.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),68.6,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0180.pdf,Sub_9fd3bb50,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+872,46,4.41,0.6546,0.9299,122.63,41.6,12.2,3.0,28.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.8,Human,0.0,,Doc_0181.docx,Sub_9468904f,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+639,41,4.15,0.6883,0.9266,97.41,23.7,13.8,4.1,26.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.9,Review,2.0,"LLM Section Headers, Unnatural Para Symmetry (CV=0.06)",Doc_0182.pdf,Sub_d4ac985d,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1259,74,4.33,0.667,0.9601,60.69,23.5,14.2,3.2,21.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.1,Human,0.0,,Doc_0183.docx,Sub_2e844115,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1227,77,4.43,0.7547,0.9544,42.11,3.3,16.8,5.8,15.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),77.4,Human,0.0,,Doc_0185.docx,Sub_29ccf994,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1021,58,4.39,0.6492,0.946,132.17,27.1,13.8,3.8,31.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),76.6,Review,1.0,"AI Vocabulary (imperative, crucial)",Doc_0186.docx,Sub_50fa1e43,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+2182,153,4.38,0.7424,0.9603,23.94,46.7,10.3,3.2,24.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.8,Review,0.0,,Doc_0187.docx,Sub_2ef0c109,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+600,41,4.41,0.6905,0.8914,53.45,27.9,13.0,2.5,29.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.7,Human,0.0,,Doc_0188.docx,Sub_9166cf07,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1187,80,4.49,0.7483,0.9187,95.14,15.0,14.9,4.3,12.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.9,Human,0.0,,Doc_0190.pdf,Sub_c4fe5a39,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1104,61,4.37,0.6527,0.946,115.47,35.1,12.9,3.2,26.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.8,Human,0.0,,Doc_0191.pdf,Sub_006373da,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1020,64,4.38,0.674,0.9359,68.81,36.6,12.1,4.0,14.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.7,Human,0.0,,Doc_0192.docx,Sub_242c4e18,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1266,62,4.36,0.7261,0.9396,47.63,11.8,16.7,5.1,19.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.2,Human,0.0,,Doc_0193.docx,Sub_b76d9399,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+546,27,4.12,0.6843,0.8976,59.21,27.8,14.4,3.1,22.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.2,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0194.pdf,Sub_42a4fb53,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+983,46,4.39,0.6174,0.9535,63.45,25.4,15.0,3.3,32.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.2,Review,1.0,Synthetic Trigrams (1),Doc_0195.pdf,Sub_f8e2428f,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1466,101,4.45,0.7214,0.9467,75.14,24.6,13.4,3.8,19.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),76.1,Review,1.0,Web Clipboard Spaces (17),Doc_0196.docx,Sub_54e30a8c,BUS-631,2026.0,Unknown,"Assignment Understanding Social Science Research Principles, Methods, and Practices-3685453.zip",,
+1216,74,4.57,0.7694,0.9409,36.92,4.8,16.7,5.5,14.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.9,Human,0.0,,Doc_0197.pdf,Sub_8c425c05,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1171,68,4.44,0.7809,0.9392,58.82,23.0,14.3,5.3,4.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.3,Human,0.0,,Doc_0198.docx,Sub_73532b13,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1692,34,4.48,0.7164,0.9568,4895.18,0.0,28.1,4.8,23.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.9,Human,0.0,,Doc_0199.docx,Sub_1f21b5a8,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1197,68,4.42,0.7093,0.9479,61.65,30.4,13.4,2.3,39.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),81.8,Human,0.0,,Doc_0201.docx,Sub_40f1d66a,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1701,41,4.42,0.7272,0.956,3381.32,2.7,23.2,3.6,29.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.2,Human,0.0,,Doc_0202.pdf,Sub_cc6dd35f,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1181,68,4.27,0.7486,0.9509,62.26,7.8,16.5,4.2,5.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),68.3,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0203.pdf,Sub_9fd3bb50,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1378,89,4.46,0.7271,0.9444,52.97,24.8,13.6,4.5,14.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),69.8,Review,1.0,LLM Section Headers,Doc_0204.docx,Sub_9468904f,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1086,60,4.23,0.7173,0.9512,50.99,12.3,16.0,3.5,13.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.9,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0205.pdf,Sub_d4ac985d,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1085,63,4.45,0.7146,0.9431,43.19,30.3,13.3,3.2,23.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),76.5,Human,0.0,,Doc_0206.docx,Sub_2e844115,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1271,68,4.41,0.7594,0.948,75.6,17.9,15.4,4.4,16.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.2,Human,0.0,,Doc_0208.docx,Sub_29ccf994,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1776,82,4.38,0.695,0.951,111.03,25.0,15.2,3.9,32.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.2,Human,0.0,,Doc_0209.docx,Sub_50fa1e43,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+2524,171,4.42,0.747,0.9552,26.05,39.8,11.4,4.1,12.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.6,Review,0.0,,Doc_0210.docx,Sub_2ef0c109,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+4813,216,4.44,0.6947,0.9675,85.28,21.9,15.7,4.2,29.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.2,Human,0.0,,Doc_0211.docx,Sub_9166cf07,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1576,91,4.38,0.7303,0.9546,31.43,28.6,13.6,3.9,17.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.6,Review,0.0,,Doc_0212.pdf,Sub_422a6b80,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1374,94,4.53,0.7593,0.9341,75.7,8.9,15.7,5.2,12.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.3,Human,0.0,,Doc_0214.pdf,Sub_c4fe5a39,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1449,75,4.5,0.7123,0.9454,129.82,32.0,13.6,3.7,28.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.7,Human,0.0,,Doc_0215.pdf,Sub_006373da,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1182,70,4.41,0.7066,0.9476,47.44,32.9,12.9,3.9,28.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),77.5,Human,0.0,,Doc_0216.docx,Sub_242c4e18,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1955,55,4.43,0.7323,0.9525,2516.1,19.3,19.4,2.8,45.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),79.4,Review,1.0,Web Clipboard Spaces (6),Doc_0217.docx,Sub_42a4fb53,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+1991,90,4.41,0.7188,0.9524,94.22,21.0,15.8,3.9,26.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.0,Human,0.0,,Doc_0218.docx,Sub_f8e2428f,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+3389,164,4.45,0.7104,0.9611,532.17,24.7,14.9,3.6,17.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.7,Human,0.0,,Doc_0219.pdf,Sub_54e30a8c,BUS-631,2026.0,Unknown,Assignment Week 4 Textbook Summary-3685459.zip,,
+736,68,4.68,0.7645,0.9362,80.2,9.2,14.7,7.3,7.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.6,Review,1.0,Synthetic Citation (3),Doc_0220.pdf,Sub_8c425c05,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1363,83,4.42,0.7902,0.9435,72.65,31.0,13.0,5.9,15.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.4,Human,0.0,,Doc_0221.docx,Sub_73532b13,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+608,17,4.56,0.6899,0.9469,3223.0,7.5,21.1,7.2,17.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.0,Review,1.0,Synthetic Trigrams (1),Doc_0222.docx,Sub_1f21b5a8,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1286,63,4.5,0.7911,0.9275,138.53,42.4,12.4,3.2,15.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.0,Review,1.0,Synthetic Trigrams (1),Doc_0223.pdf,Sub_0c3d9b6b,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1174,55,4.67,0.7041,0.9381,210.04,32.3,14.1,4.7,21.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.5,Review,1.0,Synthetic Citation (4),Doc_0224.pdf,Sub_40f1d66a,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+459,21,4.18,0.6893,0.9348,119.84,20.1,15.9,4.4,14.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.0,Human,0.0,,Doc_0225.pdf,Sub_cc6dd35f,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+2250,126,4.23,0.7717,0.9564,73.07,12.1,16.0,6.4,12.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.5,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0226.pdf,Sub_9fd3bb50,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+359,18,4.6,0.7096,0.907,387.72,30.8,13.9,6.4,22.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.7,Review,1.0,Synthetic Citation (1),Doc_0227.docx,Sub_9468904f,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+625,39,4.19,0.6945,0.9325,195.97,39.5,11.7,2.6,10.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.1,Review,1.0,Unnatural Para Symmetry (CV=0.05),Doc_0228.pdf,Sub_d4ac985d,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1507,80,4.4,0.7567,0.9472,60.49,18.5,15.4,6.4,15.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.8,Human,0.0,,Doc_0229.docx,Sub_2e844115,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1051,58,4.46,0.7312,0.9222,54.8,25.0,14.3,6.6,17.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.5,Human,0.0,,Doc_0230.pdf,Sub_c53dba96,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+548,44,4.49,0.7792,0.938,60.66,6.9,15.4,7.3,11.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.8,Human,0.0,,Doc_0231.pdf,Sub_29ccf994,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+443,24,4.5,0.6412,0.883,111.0,15.5,15.7,5.9,20.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.4,Human,0.0,,Doc_0232.docx,Sub_50fa1e43,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+748,42,4.16,0.6953,0.9412,57.2,37.3,12.5,4.8,21.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0233.pdf,Sub_2ef0c109,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1104,63,4.39,0.7084,0.9551,38.82,13.3,15.8,6.2,17.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.0,Human,0.0,,Doc_0234.docx,Sub_9166cf07,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1492,80,4.67,0.7882,0.9501,150.08,0.0,18.1,7.4,5.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),90.0,Human,0.0,,Doc_0236.pdf,Sub_c4fe5a39,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1094,80,4.17,0.7516,0.9452,41.82,38.3,11.3,4.1,12.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),77.3,Human,0.0,,Doc_0237.pdf,Sub_8dc3e908,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1014,37,4.49,0.7261,0.9379,337.38,29.6,15.9,3.6,16.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),64.2,Review,1.0,Synthetic Citation (1),Doc_0238.pdf,Sub_006373da,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+265,18,4.62,0.6718,0.9077,133.65,30.7,12.6,5.3,16.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.4,Human,0.0,,Doc_0239.pdf,Sub_242c4e18,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+1240,50,4.44,0.7871,0.9294,138.0,11.0,17.9,7.4,8.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Synthetic Citation (1),Doc_0240.pdf,Sub_b76d9399,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+660,39,4.16,0.6961,0.9192,314.48,42.9,11.5,3.8,20.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.2,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0241.pdf,Sub_42a4fb53,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+659,36,4.52,0.7033,0.9241,167.93,22.3,14.7,7.6,11.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.4,Human,0.0,,Doc_0242.pdf,Sub_f8e2428f,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+371,38,4.53,0.6587,0.9349,110.71,42.8,9.7,3.5,13.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.0,Review,1.0,Synthetic Citation (1),Doc_0243.pdf,Sub_54e30a8c,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433(1).zip,,
+736,68,4.68,0.7645,0.9362,80.2,9.2,14.7,7.3,7.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.6,Review,1.0,Synthetic Citation (3),Doc_0244.pdf,Sub_8c425c05,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1363,83,4.42,0.7902,0.9435,72.65,31.0,13.0,5.9,15.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.4,Human,0.0,,Doc_0245.docx,Sub_73532b13,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+608,17,4.56,0.6899,0.9469,3223.0,7.5,21.1,7.2,17.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.0,Review,1.0,Synthetic Trigrams (1),Doc_0246.docx,Sub_1f21b5a8,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1286,63,4.5,0.7911,0.9275,138.53,42.4,12.4,3.2,15.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.0,Review,1.0,Synthetic Trigrams (1),Doc_0247.pdf,Sub_0c3d9b6b,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1174,55,4.67,0.7041,0.9381,210.04,32.3,14.1,4.7,21.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.5,Review,1.0,Synthetic Citation (4),Doc_0248.pdf,Sub_40f1d66a,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+459,21,4.18,0.6893,0.9348,119.84,20.1,15.9,4.4,14.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.0,Human,0.0,,Doc_0249.pdf,Sub_cc6dd35f,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+2250,126,4.23,0.7717,0.9564,73.07,12.1,16.0,6.4,12.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),71.5,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0250.pdf,Sub_9fd3bb50,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+359,18,4.6,0.7096,0.907,387.72,30.8,13.9,6.4,22.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),63.7,Review,1.0,Synthetic Citation (1),Doc_0251.docx,Sub_9468904f,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+625,39,4.19,0.6945,0.9325,195.97,39.5,11.7,2.6,10.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.1,Review,1.0,Unnatural Para Symmetry (CV=0.05),Doc_0252.pdf,Sub_d4ac985d,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1507,80,4.4,0.7567,0.9472,60.49,18.5,15.4,6.4,15.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.8,Human,0.0,,Doc_0253.docx,Sub_2e844115,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1051,58,4.46,0.7312,0.9222,54.8,25.0,14.3,6.6,17.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.5,Human,0.0,,Doc_0254.pdf,Sub_c53dba96,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+548,44,4.49,0.7792,0.938,60.66,6.9,15.4,7.3,11.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),82.8,Human,0.0,,Doc_0255.pdf,Sub_29ccf994,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+443,24,4.5,0.6412,0.883,111.0,15.5,15.7,5.9,20.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),86.4,Human,0.0,,Doc_0256.docx,Sub_50fa1e43,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+748,42,4.16,0.6953,0.9412,57.2,37.3,12.5,4.8,21.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0257.pdf,Sub_2ef0c109,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1104,63,4.39,0.7084,0.9551,38.82,13.3,15.8,6.2,17.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),75.0,Human,0.0,,Doc_0258.docx,Sub_9166cf07,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1492,80,4.67,0.7882,0.9501,150.08,0.0,18.1,7.4,5.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),90.0,Human,0.0,,Doc_0260.pdf,Sub_c4fe5a39,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1094,80,4.17,0.7516,0.9452,41.82,38.3,11.3,4.1,12.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),77.3,Human,0.0,,Doc_0261.pdf,Sub_8dc3e908,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1014,37,4.49,0.7261,0.9379,337.38,29.6,15.9,3.6,16.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),64.2,Review,1.0,Synthetic Citation (1),Doc_0262.pdf,Sub_006373da,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+265,18,4.62,0.6718,0.9077,133.65,30.7,12.6,5.3,16.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),87.4,Human,0.0,,Doc_0263.pdf,Sub_242c4e18,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+1240,50,4.44,0.7871,0.9294,138.0,11.0,17.9,7.4,8.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Synthetic Citation (1),Doc_0264.pdf,Sub_b76d9399,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+660,39,4.16,0.6961,0.9192,314.48,42.9,11.5,3.8,20.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.2,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0265.pdf,Sub_42a4fb53,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+659,36,4.52,0.7033,0.9241,167.93,22.3,14.7,7.6,11.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.4,Human,0.0,,Doc_0266.pdf,Sub_f8e2428f,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+371,38,4.53,0.6587,0.9349,110.71,42.8,9.7,3.5,13.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.0,Review,1.0,Synthetic Citation (1),Doc_0267.pdf,Sub_54e30a8c,BUS-631,2026.0,Unknown,Week 1 - Paper Review Assignment ( Methods) [Due by Class Week 2]-3685433.zip,,
+836,58,4.72,0.7325,0.9307,118.41,20.3,14.0,5.6,20.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),54.4,Hybrid,2.0,"Web Clipboard Spaces (7), Synthetic Citation (2)",Doc_0268.docx,Sub_7b9d176c,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+1002,64,4.63,0.7636,0.9218,68.01,23.8,13.8,3.0,14.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),50.0,Hybrid,2.0,"Synthetic Citation (2), AI Vocabulary (imperative, crucial)",Doc_0272.pdf,Sub_c3a54f22,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+2698,200,4.75,0.7041,0.9464,220.46,25.9,13.0,5.4,9.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),48.5,Hybrid,2.0,"Synthetic Citation (1), AI Vocabulary (paramount, foster, crucial)",Doc_0273.pdf,Sub_3764db1f,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+1024,45,4.52,0.7038,0.9439,136.01,25.4,15.4,3.3,24.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.5,Human,0.0,,Doc_0274.docx,Sub_3ce2acf8,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+808,37,4.5,0.6658,0.9444,275.22,24.8,15.2,7.7,21.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.2,Review,1.0,Synthetic Citation (2),Doc_0275.pdf,Sub_88625e31,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+732,54,4.58,0.739,0.9271,120.65,23.5,13.3,4.2,13.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.6,Human,0.0,,Doc_0276.docx,Sub_4a21f64b,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+718,64,4.65,0.7059,0.8761,77.61,22.4,12.9,6.5,6.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),61.4,Review,1.0,Synthetic Citation (2),Doc_0281.pdf,Sub_d6b110fe,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+736,41,4.43,0.6702,0.9432,102.63,37.2,12.5,2.2,22.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.3,Review,1.0,Synthetic Citation (1),Doc_0282.pdf,Sub_81c588da,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521(1).zip,,
+836,58,4.72,0.7325,0.9307,118.41,20.3,14.0,5.6,20.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),54.4,Hybrid,2.0,"Web Clipboard Spaces (7), Synthetic Citation (2)",Doc_0283.docx,Sub_7b9d176c,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+1002,64,4.63,0.7636,0.9218,68.01,23.8,13.8,3.0,14.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),50.0,Hybrid,2.0,"Synthetic Citation (2), AI Vocabulary (imperative, crucial)",Doc_0287.pdf,Sub_c3a54f22,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+2698,200,4.75,0.7041,0.9464,220.46,25.9,13.0,5.4,9.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),48.5,Hybrid,2.0,"Synthetic Citation (1), AI Vocabulary (paramount, foster, crucial)",Doc_0288.pdf,Sub_3764db1f,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+1024,45,4.52,0.7038,0.9439,136.01,25.4,15.4,3.3,24.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.5,Human,0.0,,Doc_0289.docx,Sub_3ce2acf8,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+808,37,4.5,0.6658,0.9444,275.22,24.8,15.2,7.7,21.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.2,Review,1.0,Synthetic Citation (2),Doc_0290.pdf,Sub_88625e31,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+732,54,4.58,0.739,0.9271,120.65,23.5,13.3,4.2,13.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.6,Human,0.0,,Doc_0291.docx,Sub_4a21f64b,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+718,64,4.65,0.7059,0.8761,77.61,22.4,12.9,6.5,6.2,Moodle_PostLLM,NES,,Post-LLM (2025-2026),61.4,Review,1.0,Synthetic Citation (2),Doc_0296.pdf,Sub_d6b110fe,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+736,41,4.43,0.6702,0.9432,102.63,37.2,12.5,2.2,22.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),62.3,Review,1.0,Synthetic Citation (1),Doc_0297.pdf,Sub_81c588da,DSC-600,2025.0,Fall,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3314521.zip,,
+702,41,4.57,0.7932,0.9257,40.4,24.5,14.1,3.1,14.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),76.9,Human,0.0,,Doc_0306.pdf,Sub_daa0ca69,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+542,52,4.5,0.8003,0.9051,77.71,5.7,15.1,6.3,5.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),72.9,Review,1.0,Unnatural Para Symmetry (CV=0.15),Doc_0307.pdf,Sub_9b0773f8,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+635,37,4.55,0.7105,0.9278,333.05,28.2,13.6,3.3,18.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.7,Human,0.0,,Doc_0308.pdf,Sub_6d099beb,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+1025,20,4.58,0.6941,0.9225,5422.19,2.4,25.7,4.0,20.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.1,Human,0.0,,Doc_0309.pdf,Sub_e08ac8f5,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+488,54,4.46,0.7602,0.9096,70.04,20.3,12.7,7.2,3.7,Moodle_PostLLM,NES,,Post-LLM (2025-2026),70.6,Review,1.0,Unnatural Para Symmetry (CV=0.04),Doc_0310.pdf,Sub_98f81ef0,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+770,38,4.55,0.7134,0.9277,166.83,23.7,15.0,2.1,18.4,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.8,Review,1.0,"AI Vocabulary (paramount, foster)",Doc_0311.pdf,Sub_b7048c53,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+894,53,4.51,0.7369,0.9265,107.02,34.0,12.7,3.7,11.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),89.6,Human,0.0,,Doc_0315.pdf,Sub_6d01f058,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+1284,75,4.56,0.7595,0.9422,89.6,26.7,13.8,3.9,9.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),65.0,Review,1.0,Synthetic Citation (3),Doc_0319.pdf,Sub_d75e39f8,DSC-654,2025.0,Unknown,Week 2 - Paper Review Assignment ( Generative AI Ethics )-3448242.zip,,
+518,33,4.57,0.7853,0.9052,57.12,46.5,10.7,3.3,6.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),81.8,Human,0.0,,Doc_0321.docx,Sub_9b0773f8,DSC-654,2025.0,Unknown,Week 7 Assignment Dataset Preparation and Generative AI Application-3448307.zip,,
+240,18,4.83,0.8062,0.8308,63.22,60.1,8.2,3.3,5.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),73.6,Review,0.0,,Doc_0322.docx,Sub_98f81ef0,DSC-654,2025.0,Unknown,Week 7 Assignment Dataset Preparation and Generative AI Application-3448307.zip,,
+41,3,4.76,0.8049,0.7615,106.89,30.0,12.5,4.9,0.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),80.0,Human,0.0,,Doc_0324.docx,Sub_5763a309,DSC-654,2025.0,Unknown,Week 7 Assignment Dataset Preparation and Generative AI Application-3448307.zip,,
+35,3,5.11,0.9143,0.5552,48.22,52.4,8.9,0.0,0.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),69.2,Review,0.0,,Doc_0325.docx,Sub_6d01f058,DSC-654,2025.0,Unknown,Week 7 Assignment Dataset Preparation and Generative AI Application-3448307.zip,,
+433,20,4.54,0.7569,0.875,78.23,10.6,17.2,6.0,0.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.0,Human,0.0,,Doc_0326.docx,Sub_573a0e77,DSC-654,2025.0,Unknown,Week 7 Assignment Dataset Preparation and Generative AI Application-3448307.zip,,
+1108,53,4.69,0.7337,0.9082,131.03,26.1,14.8,3.6,24.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),46.5,Hybrid,3.0,"Synthetic Trigrams (1), Synthetic Citation (3), AI Vocabulary (underscore, crucial)",Doc_0328.pdf,Sub_d75e39f8,DSC-654,2025.0,Unknown,Week 7 Assignment Dataset Preparation and Generative AI Application-3448307.zip,,
+792,57,4.72,0.7009,0.9181,104.59,27.4,12.9,4.8,7.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),43.4,Hybrid,3.0,"Synthetic Citation (2), LLM Section Headers, AI Vocabulary (seamlessly, crucial)",Doc_0334.docx,Sub_2b61578d,DSC-654,2026.0,Unknown,Course Project - Part 1 - Dataset Selection and Reporting (DUE END OF WEEK 5)-3655776.zip,,
+1037,59,4.3,0.743,0.9287,63.06,33.0,13.0,3.4,30.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),68.3,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0336.pdf,Sub_62d5dd89,DSC-654,2026.0,Unknown,Course Project - Part 1 - Dataset Selection and Reporting (DUE END OF WEEK 5)-3655776.zip,,
+365,21,4.19,0.7117,0.8952,23.57,42.0,11.7,1.6,19.0,Moodle_PostLLM,NES,,Post-LLM (2025-2026),55.7,Review,1.0,Unnatural Para Symmetry (CV=0.0),Doc_0337.pdf,Sub_d9644761,DSC-654,2026.0,Unknown,Course Project - Part 1 - Dataset Selection and Reporting (DUE END OF WEEK 5)-3655776.zip,,
+901,65,4.77,0.7036,0.9385,127.78,45.3,10.4,4.2,21.5,Moodle_PostLLM,NES,,Post-LLM (2025-2026),78.5,Review,1.0,LLM Section Headers,Doc_0343.docx,Sub_2b61578d,DSC-654,2026.0,Unknown,Course Project - Part 2 Exploratory Data Analysis Preprocessing (Due Sunday)-3669261.zip,,
+1402,103,4.66,0.716,0.9488,100.26,40.1,11.1,4.1,13.6,Moodle_PostLLM,NES,,Post-LLM (2025-2026),88.9,Human,0.0,,Doc_0345.docx,Sub_2b61578d,DSC-654,2026.0,Unknown,Course Project - Part 3 Model Development and Evaluation-3670110.zip,,
+1269,91,4.59,0.7288,0.9314,95.99,35.7,11.7,3.5,12.1,Moodle_PostLLM,NES,,Post-LLM (2025-2026),79.3,Review,1.0,LLM Section Headers,Doc_0351.docx,Sub_2b61578d,DSC-654,2026.0,Unknown,Week 5 - Assignment Research Proposal Theoretical Intervention-3655767.zip,,
+1017,58,4.55,0.722,0.9387,116.97,39.6,12.1,3.8,29.3,Moodle_PostLLM,NES,,Post-LLM (2025-2026),64.1,Review,1.0,Synthetic Citation (1),Doc_0353.docx,Sub_62d5dd89,DSC-654,2026.0,Unknown,Week 5 - Assignment Research Proposal Theoretical Intervention-3655767.zip,,
+714,39,4.34,0.7497,0.9071,96.73,20.1,15.0,4.8,17.9,Moodle_PostLLM,NES,,Post-LLM (2025-2026),50.0,Hybrid,2.0,"Synthetic Citation (1), Unnatural Para Symmetry (CV=0.14)",Doc_0354.pdf,Sub_d9644761,DSC-654,2026.0,Unknown,Week 5 - Assignment Research Proposal Theoretical Intervention-3655767.zip,,
+1327,90,4.43,0.6962,0.9578,44.99,54.9,9.3,2.6,17.8,Moodle_PostLLM,NES,,Post-LLM (2025-2026),76.4,Human,0.0,,Doc_0358.pdf,Sub_459f0899,DSC-654,2026.0,Unknown,Week 5 - Assignment Research Proposal Theoretical Intervention-3655767.zip,,
+4929,415,4.798,0.7191,0.9606,200.95,39.6,10.7,3.1,4.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.04.1,NS
+1175,49,4.5,0.6694,0.943,141.65,34.2,14.4,2.5,46.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G3.03.1,NS
+3729,176,4.852,0.7332,0.9545,296.43,18.7,15.9,3.9,16.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.01.1,NNS (L1: Spanish)
+1287,57,4.591,0.575,0.9534,281.61,54.3,11.3,4.8,10.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.07.1,NNS (L1: Chinese)
+2105,105,4.622,0.7157,0.948,180.06,34.0,13.5,4.8,27.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.06.1,NNS (L1: Chinese)
+14565,1128,4.852,0.7372,0.9704,118.72,36.4,11.4,3.7,6.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G3.02.1,NS
+3077,304,4.74,0.7201,0.959,139.76,30.5,11.5,4.7,5.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.03.1,NS
+4479,320,4.632,0.7169,0.9535,175.8,33.6,12.0,3.9,10.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.06.1,NS
+2911,132,4.607,0.7044,0.9532,189.82,38.6,13.4,2.4,12.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.02.1,NS
+934,60,4.696,0.7431,0.932,142.28,47.9,10.4,2.9,16.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.05.1,NNS (L1: Chinese)
+1988,86,4.832,0.735,0.9363,1000.0,25.2,15.5,4.3,12.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.05.2,NNS (L1: Chinese)
+4990,351,4.727,0.764,0.9576,153.74,37.5,11.6,3.2,13.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.07.1,NS
+2852,255,4.796,0.6936,0.9508,128.6,33.0,11.4,4.3,12.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.02.1,NNS (L1: Chinese)
+6235,450,4.907,0.7341,0.9584,258.26,35.7,11.7,2.1,11.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.05.1,NS
+5757,442,4.801,0.7113,0.9648,141.27,31.2,12.1,2.9,13.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.01.1,NS
+1997,144,4.799,0.7134,0.9368,173.89,32.9,12.1,2.2,18.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G2.04.1,NS
+2186,110,4.68,0.7164,0.9404,499.85,27.2,14.4,4.0,20.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,BIO.G3.01.1,NS
+787,44,4.576,0.664,0.9554,60.65,41.4,11.9,2.4,4.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,BIO.G1.08.2,NNS (L1: Chinese)
+1236,49,4.572,0.7056,0.9395,225.19,40.3,13.9,2.6,26.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G3.04.3,NS
+3095,175,4.567,0.6956,0.9635,235.78,50.4,10.6,2.5,26.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.08.1,NNS (L1: Malayalam)
+4774,464,4.811,0.7088,0.9567,147.23,28.4,11.9,2.8,12.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.01.1,NS
+2517,124,4.499,0.6969,0.951,240.95,49.1,11.4,3.2,30.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.02.2,NNS (L1: Spanish)
+7134,380,4.588,0.7063,0.9653,225.51,35.6,13.0,3.5,28.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.02.3,NNS (L1: Spanish)
+4514,262,4.788,0.6947,0.9643,188.35,39.4,12.0,3.6,22.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.03.1,NS
+5385,336,4.789,0.7021,0.9653,220.0,45.1,11.0,3.8,18.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.04.1,NS
+7998,535,4.807,0.6592,0.9697,127.7,47.3,10.4,3.9,25.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.05.1,NS
+3425,172,4.516,0.6642,0.9573,112.59,53.4,10.8,2.7,29.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.06.1,NS
+4265,181,4.58,0.7054,0.962,183.24,32.8,14.5,3.0,34.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.07.1,NS
+2728,147,4.674,0.726,0.9602,172.02,28.8,13.9,3.4,24.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.07.2,NS
+3669,203,4.435,0.6729,0.9646,82.99,44.3,11.6,2.3,19.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.09.1,NS
+7095,563,4.756,0.682,0.9687,119.45,41.5,10.6,3.5,17.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.10.1,NS
+6484,415,4.758,0.6585,0.9646,191.52,40.9,11.4,3.3,22.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.10.2,NS
+7662,413,4.715,0.7359,0.9646,124.05,38.5,12.5,2.5,27.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G2.01.1,NS
+464,33,4.872,0.25,0.6377,107.03,17.5,14.3,0.0,0.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G3.04.1,NS
+4207,215,4.737,0.7434,0.9494,223.11,35.2,13.2,3.1,13.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G3.04.2,NS
+2740,196,4.683,0.6736,0.9529,103.3,46.3,10.3,3.9,27.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,CEE.G1.02.1,NNS (L1: Spanish)
+6972,362,4.802,0.6634,0.9583,190.36,42.6,12.1,3.0,38.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,CEE.G3.01.1,NNS (L1: Korean)
+1859,92,4.867,0.6357,0.9432,384.21,32.5,13.7,3.8,20.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,CEE.G3.02.1,NNS (L1: Mandarin)
+5707,284,4.753,0.7042,0.9593,281.27,34.0,13.5,4.6,27.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CEE.G3.03.1,NS
+1088,45,4.442,0.6979,0.9423,144.03,33.5,14.6,5.0,11.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.07.3,NS
+1908,86,4.588,0.6362,0.9627,176.92,53.1,11.4,1.9,11.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.06.1,NNS (L1: Russian)
+883,41,4.503,0.6785,0.9463,196.1,45.8,12.2,2.8,7.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.07.1,NS
+786,41,4.657,0.728,0.9215,211.85,36.3,13.0,2.2,9.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G1.02.2,NS
+2259,157,4.832,0.6563,0.9557,130.42,40.7,11.2,3.1,8.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.02.1,NS
+5017,244,4.649,0.7035,0.9672,142.3,41.7,12.6,2.2,13.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.03.1,NS
+8305,457,4.76,0.6997,0.9674,138.5,50.1,10.8,2.4,11.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G1.01.1,NS
+2268,125,4.837,0.6778,0.9455,221.08,37.2,12.6,4.0,17.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G1.02.1,NS
+7891,378,4.833,0.6545,0.9614,281.6,23.7,15.1,3.7,22.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ECO.G1.03.1,NNS (L1: Chinese)
+2616,149,4.696,0.6928,0.9571,146.21,36.3,12.6,2.4,6.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.01.1,"NNS (L1: German, Mandarin)"
+6997,381,4.819,0.6478,0.9561,278.77,34.8,13.0,4.0,22.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.04.1,NNS (L1: Korean)
+5309,218,4.462,0.6857,0.9598,162.59,38.4,14.0,3.9,16.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.08.1,NNS (L1: Turkish)
+2206,104,4.991,0.6396,0.9536,224.32,42.0,12.7,3.8,17.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ECO.G3.01.1,NNS (L1: Korean)
+817,38,4.508,0.6833,0.9501,92.25,43.9,12.5,2.6,26.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ECO.G2.07.2,NS
+1550,80,4.605,0.7556,0.9362,261.93,51.2,10.9,2.2,8.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G2.02.1,NS
+5136,267,4.595,0.7225,0.9565,222.81,24.8,14.6,3.2,17.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G2.03.1,NS
+5265,218,4.572,0.7429,0.9385,487.86,40.4,13.6,3.2,13.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.3,NS
+2722,149,4.545,0.7418,0.9524,134.3,30.0,13.6,4.8,10.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.09.1,NS
+1705,123,4.685,0.6897,0.9411,219.89,39.7,11.2,2.2,8.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G2.04.1,NS
+7130,416,4.55,0.6781,0.9694,208.74,40.8,11.8,3.0,10.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.11.1,NS
+10572,564,4.67,0.7227,0.9726,350.32,28.7,13.9,5.4,8.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.01.1,NS
+5987,382,4.688,0.7309,0.9632,171.63,27.9,13.3,4.0,7.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.04.1,NS
+5128,201,4.605,0.682,0.9699,444.42,30.7,15.3,3.2,10.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.06.1,NS
+4094,256,4.65,0.6815,0.9624,129.68,35.4,12.3,5.1,11.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.08.1,NS
+10709,511,4.449,0.686,0.9697,121.11,43.8,12.4,2.6,22.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.12.1,NS
+5674,353,4.753,0.7132,0.9616,106.35,40.5,11.6,4.3,13.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,EDU.G2.01.1,"NNS (L1: Chinese, Tagalog)"
+1151,44,4.594,0.7005,0.9396,734.63,32.8,15.2,3.4,11.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.1,NS
+2368,85,4.567,0.7294,0.9415,467.37,38.2,14.8,2.7,17.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.2,NS
+1941,73,4.582,0.7468,0.9365,496.41,37.2,14.7,2.6,19.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.4,NS
+1424,51,4.639,0.7446,0.9409,542.86,31.9,15.8,3.2,11.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.5,NS
+1163,55,4.615,0.7342,0.911,377.83,36.8,13.4,4.0,20.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.6,NS
+1635,85,4.632,0.7487,0.9426,337.76,56.5,10.2,1.8,11.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.03.7,NS
+8604,450,4.684,0.7114,0.9697,205.0,34.8,13.2,2.5,9.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G3.04.1,NS
+8081,351,4.626,0.7142,0.9631,275.78,26.2,15.3,4.2,12.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.03.1,NS
+6174,342,4.61,0.7118,0.9674,212.11,18.4,15.2,4.5,9.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,EDU.G1.05.1,NNS (L1: Korean)
+4876,218,4.605,0.7021,0.9637,385.95,44.9,12.6,2.4,11.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.02.1,NS
+9047,394,4.509,0.6289,0.9685,273.03,48.0,12.3,2.8,21.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.03.1,NS
+7367,337,4.66,0.6898,0.9661,450.42,34.1,13.9,2.1,13.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.04.1,NS
+7530,319,4.66,0.7115,0.9478,444.81,52.7,11.8,1.4,7.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.05.1,NS
+5358,219,4.669,0.7162,0.9292,262.69,45.2,13.0,1.5,11.9,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.06.1,NNS (L1: Tamil)
+6481,279,4.626,0.7248,0.9454,693.35,37.7,13.8,3.0,15.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.01.1,NS
+3675,159,4.572,0.6714,0.9406,286.48,35.3,14.1,3.3,9.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.02.1,NS
+5447,227,4.61,0.6732,0.9406,415.26,38.4,13.9,2.8,15.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.02.2,NS
+11319,502,4.593,0.7296,0.9542,340.47,44.4,12.7,1.6,5.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.03.1,NS
+2879,115,4.563,0.7356,0.9325,247.76,45.6,13.1,1.9,2.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.04.1,NS
+6173,307,4.623,0.7309,0.9439,406.96,49.4,11.4,2.1,6.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G3.04.1,NS
+8011,399,4.596,0.6924,0.9573,241.76,44.2,12.1,2.6,8.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.05.1,NS
+7605,392,4.632,0.7182,0.9559,273.88,46.7,11.6,2.5,13.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G3.03.1,NS
+5671,294,4.597,0.729,0.9341,325.31,48.1,11.3,2.1,10.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.01.1,NS
+10319,501,4.6,0.7092,0.9671,184.15,31.3,14.0,2.8,18.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G1.07.1,NS
+6281,262,4.596,0.7287,0.951,347.73,35.7,14.2,3.1,6.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.06.1,NS
+6875,385,4.656,0.695,0.9638,284.64,40.0,12.1,3.0,10.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,ENG.G2.07.1,NS
+9758,495,4.619,0.7321,0.952,310.41,43.8,12.0,2.0,12.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CLS.G1.01.1,NS
+4018,245,4.762,0.7434,0.9474,512.09,43.3,11.3,1.4,5.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CLS.G1.04.1,NS
+8366,359,4.558,0.7477,0.9357,316.1,41.6,13.3,1.8,12.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CLS.G2.01.1,NS
+5112,214,4.764,0.7562,0.9313,707.17,44.1,13.0,1.4,14.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CLS.G2.02.1,NS
+9150,328,5.354,0.7099,0.9564,629.39,44.7,14.0,2.0,11.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CLS.G3.01.1,NS
+2207,108,4.575,0.7325,0.8911,373.04,26.4,14.7,2.4,11.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.01.1,NS
+14794,924,4.781,0.726,0.9711,626.78,36.4,12.2,3.1,3.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.03.1,NS
+4930,180,4.611,0.7234,0.9398,549.33,36.5,15.0,2.2,21.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.04.1,NNS (L1: Hebrew)
+13916,536,4.602,0.7192,0.9655,405.41,28.2,15.8,2.6,7.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G2.04.1,NS
+11396,531,4.647,0.7345,0.962,701.71,44.6,12.4,1.2,13.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G2.05.1,NS
+2868,111,4.578,0.7386,0.9075,371.05,31.5,15.3,2.9,1.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.05.2,NS
+3721,179,4.601,0.7043,0.954,194.75,45.8,12.0,2.5,10.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.10.1,NNS (L1: Korean)
+2371,87,4.494,0.6641,0.9562,231.04,39.7,14.5,2.2,9.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,CLS.G1.03.1,NS
+3381,132,4.561,0.7162,0.9478,338.9,35.1,14.7,2.3,15.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.02.1,NS
+3169,117,4.645,0.742,0.9338,431.31,33.3,15.3,1.5,2.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.05.1,NS
+3950,191,4.641,0.7077,0.9431,334.51,42.2,12.5,2.3,7.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.06.1,NS
+1358,68,4.567,0.7221,0.927,220.19,34.6,13.4,2.5,20.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.07.1,NS
+1994,86,4.533,0.7158,0.9414,322.73,32.1,14.5,2.6,18.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.07.2,NS
+5909,280,4.711,0.7297,0.9585,286.91,33.9,13.8,3.0,16.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.08.1,NS
+6108,392,4.842,0.7236,0.9525,591.01,49.6,10.2,1.8,9.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G1.09.1,NS
+7161,317,4.588,0.7284,0.9582,446.22,34.7,14.0,2.5,11.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G2.02.1,NS
+6092,244,4.593,0.751,0.9541,327.58,39.1,14.0,2.2,11.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G2.03.2,NS
+12552,640,4.713,0.6964,0.9716,305.78,33.3,13.5,3.5,11.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G3.01.1,NS
+13272,478,4.626,0.7145,0.9637,448.61,32.6,15.6,3.6,16.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G3.02.1,NS
+931,34,4.506,0.7132,0.9333,251.47,39.0,14.6,2.9,23.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,HIS.G2.03.1,NS
+893,57,4.612,0.6803,0.9464,169.17,46.9,10.6,5.0,21.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.02.2,NS
+5003,212,4.645,0.6915,0.9659,327.68,40.8,13.4,3.9,28.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.02.3,NNS (L1: Korean)
+2105,122,4.554,0.7475,0.9436,78.3,39.8,12.0,3.2,17.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.01.3,NS
+1796,94,4.471,0.6524,0.9579,84.24,50.8,10.9,2.9,26.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.04.2,NS
+1923,106,4.549,0.7158,0.9515,89.22,48.2,11.0,3.0,13.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.03.1,NS
+8003,466,4.547,0.7061,0.9609,92.86,45.1,11.2,3.1,16.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.04.1,NNS (L1: Marathi)
+7368,328,4.537,0.7166,0.9557,136.96,31.3,14.5,3.8,23.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.05.1,NNS (L1: Teluga)
+3206,132,4.509,0.7119,0.9387,201.54,41.1,13.6,3.6,22.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.05.2,NNS (L1: Teluga)
+1589,79,4.538,0.7069,0.9359,113.95,32.3,13.8,4.8,29.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.06.1,NNS (L1: Chinese)
+2215,113,4.631,0.6973,0.944,219.39,44.9,11.9,2.8,8.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.09.1,NNS (L1: Hindi)
+1526,88,4.743,0.684,0.9418,128.65,40.1,12.0,4.0,25.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.10.2,NNS (L1: Marathi)
+798,34,4.835,0.6769,0.9307,193.96,38.2,13.8,1.4,47.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.11.1,NNS (L1: Tamil)
+928,48,4.467,0.649,0.9511,113.06,32.9,13.5,3.2,43.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.11.2,NNS (L1: Tamil)
+2052,132,4.602,0.7398,0.933,62.51,38.8,11.7,3.2,12.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.01.2,NS
+5651,228,4.877,0.6811,0.9609,256.29,32.0,15.0,2.9,26.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G3.03.1,NS
+3119,111,4.768,0.6207,0.9589,1000.0,42.6,14.3,2.5,28.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.01.1,NS
+1022,44,4.706,0.6673,0.9536,215.95,48.0,12.3,2.7,45.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.02.2,NNS (L1: Korean)
+3729,174,5.012,0.5761,0.9348,360.27,56.9,10.6,4.0,39.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.02.4,NNS (L1: Korean)
+10577,378,5.195,0.6222,0.9632,1000.0,28.2,16.3,2.2,16.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.07.1,NS
+3512,205,4.714,0.7118,0.9558,176.74,38.5,12.1,2.1,31.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.08.1,NS
+3608,214,4.796,0.6703,0.9588,187.68,40.1,11.9,3.1,33.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.01.1,NS
+11168,447,4.478,0.679,0.9625,222.7,51.3,12.3,2.1,11.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.03.1,NS
+6375,361,4.643,0.6521,0.961,224.8,21.7,14.6,3.7,19.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G3.01.1,NS
+1054,47,4.71,0.695,0.9396,189.73,30.2,14.6,4.6,21.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.02.1,NNS (L1: Korean)
+755,51,4.634,0.7341,0.9223,83.62,39.8,11.4,3.2,15.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,IOE.G1.10.1,NNS (L1: Marathi)
+1114,52,4.491,0.6951,0.9415,156.4,42.1,12.7,3.7,15.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,IOE.G2.02.3,NS
+2768,134,4.6,0.6371,0.961,274.57,52.4,11.1,3.0,14.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.02.1,NS
+3232,223,4.756,0.662,0.9586,85.48,53.8,9.4,3.3,21.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.03.1,NS
+5913,333,4.58,0.6528,0.9592,247.13,45.5,11.3,6.6,15.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.06.4,NS
+8961,538,4.856,0.6859,0.9674,200.05,49.7,10.5,3.8,16.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G2.02.1,NS
+5331,309,4.66,0.7136,0.9599,207.06,32.4,13.0,4.2,18.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.06.2,NS
+3845,195,4.897,0.6276,0.9641,212.36,46.6,11.7,2.8,11.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,LIN.G2.01.2,NNS (L1: Mandarin)
+5683,249,4.725,0.649,0.961,357.55,49.9,12.0,3.1,12.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.02.2,NS
+6336,328,4.644,0.7007,0.9648,281.65,42.0,12.2,5.0,17.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.06.3,NS
+5517,291,4.667,0.6502,0.9611,262.31,53.4,10.5,5.1,14.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,LIN.G2.01.1,NNS (L1: Mandarin)
+2949,119,4.404,0.6249,0.9634,216.41,50.1,12.4,7.5,24.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,LIN.G2.01.3,NNS (L1: Mandarin)
+1761,74,4.593,0.6903,0.9467,261.62,41.5,13.4,5.2,24.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,LIN.G3.01.1,"NNS (L1: Cantonese, Mandarin)"
+11528,584,4.615,0.6786,0.9697,236.55,40.0,12.6,4.6,12.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,LIN.G3.01.2,"NNS (L1: Cantonese, Mandarin)"
+4449,223,4.659,0.6846,0.959,211.46,49.8,11.3,3.5,16.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.01.1,NS
+2920,140,4.951,0.607,0.9598,201.44,53.0,11.0,2.9,16.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.01.2,NS
+2360,91,4.862,0.613,0.9396,642.92,41.8,13.9,2.0,30.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.01.4,NS
+2879,121,4.722,0.6317,0.9589,168.78,44.8,12.9,3.6,42.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.01.5,NS
+3717,221,4.769,0.708,0.9576,214.47,47.8,10.8,1.7,27.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.05.1,NS
+2953,148,4.739,0.7088,0.9592,287.94,43.2,12.2,2.3,10.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G1.06.1,NS
+3612,195,4.846,0.717,0.9558,334.64,48.7,11.1,2.4,29.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,LIN.G2.03.1,NS
+2590,154,4.581,0.6287,0.9566,100.75,46.8,10.9,3.6,20.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,LIN.G3.02.1,NNS (L1: Mandarin)
+2783,144,4.896,0.6444,0.9504,153.62,49.2,11.2,1.8,25.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.02.1,NNS (L1: Korean)
+10024,445,4.809,0.6973,0.964,367.19,38.2,13.5,2.9,22.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.04.1,NNS (L1: Marathi)
+7342,454,4.884,0.7034,0.9681,151.6,32.1,12.8,4.9,13.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.03.1,NS
+2909,175,4.664,0.689,0.9612,129.08,36.0,12.4,4.8,31.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.05.2,NNS (L1: Malayalam)
+4245,292,4.608,0.6348,0.9633,105.58,50.8,9.8,3.1,17.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.08.1,NS
+13191,675,4.756,0.6434,0.9681,230.56,47.9,11.4,2.2,24.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.09.1,NNS (L1: Hindi)
+2864,160,4.771,0.6924,0.9535,217.85,44.3,11.5,3.5,20.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G3.02.1,NS
+2928,154,4.638,0.7189,0.9493,176.73,24.1,14.6,2.6,21.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G3.03.1,NNS (L1: Hindi)
+4519,227,4.645,0.6659,0.9643,238.72,40.2,12.6,2.2,40.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.01.1,NS
+2341,115,4.721,0.64,0.9514,239.36,26.3,14.7,3.2,21.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.05.1,NNS (L1: Malayalam)
+1772,84,4.626,0.6466,0.9483,183.92,42.7,12.5,1.7,45.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.06.1,NS
+7566,369,4.704,0.663,0.9602,439.28,45.0,12.1,2.6,12.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G1.07.1,NS
+3094,218,4.75,0.6608,0.9486,174.82,52.0,9.5,4.4,6.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G2.01.1,NNS (L1: Chinese)
+3148,155,4.83,0.7218,0.9644,282.13,31.4,13.9,3.2,31.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G2.03.1,NNS (L1: Hindi)
+5178,333,4.942,0.6674,0.9567,131.33,55.7,9.4,1.9,25.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,MEC.G2.04.1,NS
+4850,282,4.731,0.724,0.9641,283.14,37.8,12.3,4.3,37.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,MEC.G3.01.1,NNS (L1: Chinese)
+1867,72,4.422,0.7396,0.9261,156.56,29.8,15.6,3.1,11.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.02.1,NS
+972,53,4.584,0.733,0.9504,198.19,27.3,14.0,4.1,7.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.22.2,NS
+4321,170,4.588,0.732,0.958,234.55,26.5,15.9,3.7,20.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.31.1,NNS (L1: Thai)
+3714,242,4.865,0.7223,0.9489,177.41,41.6,11.3,3.6,7.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G3.02.1,NS
+928,46,4.581,0.7281,0.937,68.19,23.1,15.1,2.7,8.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.14.2,NS
+2212,100,4.642,0.7337,0.949,161.08,36.6,13.7,2.5,18.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.01.1,NS
+1143,74,4.457,0.6625,0.9533,35.03,39.6,11.6,2.6,59.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.10.1,NS
+4520,237,4.651,0.6927,0.9648,230.88,34.0,13.3,4.3,14.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.28.1,NS
+4815,268,4.912,0.7164,0.9662,342.88,39.6,12.2,2.5,10.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.01.1,NS
+1783,131,4.71,0.7202,0.9451,177.48,39.7,11.1,2.4,12.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.03.1,NS
+4342,226,4.622,0.7304,0.9548,201.03,26.0,14.4,4.0,14.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.04.1,NS
+5061,317,4.813,0.7083,0.9492,161.56,33.3,12.6,4.3,14.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.05.1,NNS (L1: Hindi)
+6670,312,4.735,0.7004,0.9597,246.91,35.2,13.7,4.1,16.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.06.1,NS
+2443,180,4.785,0.707,0.9503,126.03,45.1,10.3,1.5,13.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.07.1,NS
+1858,71,4.578,0.707,0.9449,574.87,27.5,15.9,3.8,15.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.08.1,NS
+3018,135,4.602,0.7404,0.9447,365.71,41.6,13.0,3.0,8.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.09.1,NS
+1877,126,4.461,0.6694,0.9656,46.33,53.0,9.6,3.4,24.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.10.2,NS
+2227,120,4.602,0.6204,0.9502,108.78,48.4,11.1,1.5,15.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.11.1,NS
+6552,402,4.72,0.6695,0.971,192.6,40.0,11.7,1.9,8.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.12.1,NS
+1995,126,4.904,0.7269,0.9448,281.76,31.1,12.9,3.8,9.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.14.1,NS
+3541,168,4.76,0.7244,0.9518,161.25,32.8,13.9,4.3,17.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.15.1,NS
+866,37,4.58,0.7292,0.9461,136.13,29.0,15.0,4.4,29.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.15.2,NS
+4810,294,4.736,0.7232,0.9565,239.46,45.8,10.9,3.3,5.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.16.1,NS
+5312,249,4.652,0.7147,0.9616,118.2,55.8,10.8,1.2,15.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.17.1,NS
+2293,103,4.719,0.6884,0.9558,314.5,38.3,13.4,2.0,11.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.18.2,NS
+2078,140,4.846,0.7074,0.9491,276.86,41.7,11.1,2.8,10.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.19.1,NS
+2182,147,4.638,0.7063,0.9532,289.32,32.0,12.5,3.8,6.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.22.1,NS
+2173,110,4.567,0.6799,0.9581,153.95,45.0,11.9,2.3,28.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.23.1,NS
+3094,192,4.774,0.7262,0.9462,204.73,41.9,11.4,3.0,13.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.24.1,NS
+5437,290,4.744,0.7108,0.959,184.71,53.0,10.5,1.4,12.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.24.2,NS
+5409,352,4.761,0.6427,0.9581,466.43,39.3,11.6,3.7,9.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.25.1,NS
+5436,238,4.956,0.6829,0.9466,1000.0,27.2,15.1,3.8,7.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.26.1,NS
+6608,382,4.594,0.7058,0.9615,107.86,36.1,12.5,5.1,16.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.29.1,NNS (L1: Chinese)
+1895,79,4.492,0.7227,0.9439,173.91,51.0,12.1,2.3,8.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.30.1,NS
+1732,86,4.655,0.7577,0.9453,83.84,19.0,15.6,4.7,10.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.02.1,NS
+7103,408,4.586,0.7094,0.9627,238.23,35.9,12.6,4.5,22.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.03.1,NS
+2717,95,4.782,0.6534,0.9474,1000.0,20.1,17.6,3.8,10.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.04.1,NS
+7277,603,4.745,0.7784,0.9453,287.26,38.4,10.9,2.7,4.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.05.1,NS
+576,25,4.56,0.715,0.8931,159.96,31.7,14.6,4.3,28.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.08.1,NNS (L1: Thai)
+2365,96,4.457,0.6772,0.956,168.46,41.6,13.6,4.1,22.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.18.1,NS
+1581,76,4.678,0.6918,0.9439,121.39,35.5,13.5,5.4,21.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.20.1,NS
+2482,171,4.61,0.7157,0.9577,96.5,45.3,10.6,3.4,15.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.21.1,NS
+2554,134,4.49,0.6448,0.9527,111.52,57.7,9.9,2.8,20.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.27.1,NS
+2161,107,4.712,0.6411,0.9539,101.38,46.5,11.8,3.8,24.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.27.2,NS
+2254,107,4.662,0.6262,0.9598,127.36,46.1,12.1,3.9,39.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G1.27.4,NS
+2133,124,4.657,0.7515,0.9399,161.63,38.4,12.2,3.0,20.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G2.07.1,NS
+4488,207,4.285,0.7078,0.9494,277.26,37.1,13.5,1.9,15.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NRE.G3.01.1,NS
+3142,167,4.638,0.6956,0.9559,139.66,38.0,12.6,3.4,12.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.07.1,NNS (L1: Bengali)
+3274,279,4.772,0.7312,0.951,89.88,48.6,9.4,2.8,10.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.03.2,NNS (L1: Korean)
+6198,414,4.738,0.7035,0.9679,178.2,23.8,13.7,5.5,15.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.03.3,NNS (L1: Korean)
+3972,274,4.724,0.7031,0.9657,166.21,30.4,12.6,4.4,16.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G3.01.1,NS
+8294,398,4.615,0.6514,0.9695,331.86,36.5,13.3,2.6,30.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G3.06.1,NNS (L1: URDU)
+3850,218,4.662,0.7069,0.9629,188.55,27.6,13.8,3.9,17.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.01.1,NNS (L1: Mandarin)
+2477,155,4.722,0.7125,0.9519,205.28,43.1,11.2,2.5,16.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.02.2,NS
+2098,135,4.748,0.7245,0.9535,149.7,31.5,12.7,6.3,16.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.03.1,NS
+1412,66,4.617,0.7077,0.9465,311.94,32.5,14.0,2.3,9.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.04.1,NNS (L1: Romanian)
+1194,66,4.649,0.6931,0.9556,251.46,35.6,12.8,2.2,9.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.04.2,NNS (L1: Romanian)
+2164,165,4.75,0.722,0.9493,127.6,35.5,11.6,2.5,11.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.05.1,NS
+3295,173,4.51,0.7079,0.9534,122.21,34.5,13.2,4.2,9.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.06.1,NS
+3233,144,4.584,0.738,0.9545,180.72,39.0,13.4,3.1,16.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G1.08.1,NS
+4359,238,4.542,0.7003,0.9623,155.79,58.2,9.7,1.4,3.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.01.1,NS
+11356,565,4.625,0.7133,0.9718,484.92,46.9,11.7,2.5,6.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.02.1,NS
+5449,386,4.731,0.7389,0.9636,99.11,46.5,10.3,3.3,11.9,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.03.1,NNS (L1: Korean)
+5402,417,4.824,0.7075,0.9666,167.47,30.5,12.2,4.1,9.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.03.4,NNS (L1: Korean)
+2702,173,4.72,0.6809,0.9603,184.72,38.3,11.8,3.7,12.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.04.1,NS
+2742,176,4.739,0.7123,0.9568,141.64,36.8,12.0,2.7,13.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,NUR.G2.05.1,NNS (L1: Unknown)
+1371,84,4.602,0.7303,0.9434,99.58,55.5,9.6,2.0,8.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G3.02.1,NS
+6314,485,4.779,0.6712,0.9742,143.87,34.4,11.7,2.2,17.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G3.03.1,NS
+2039,123,4.543,0.7086,0.9483,133.35,41.1,11.6,3.3,26.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G3.04.1,NS
+13894,1025,4.544,0.664,0.9779,129.36,53.4,9.2,2.2,11.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,NUR.G3.05.1,NS
+2974,147,4.545,0.6655,0.9563,214.83,57.0,10.3,2.1,10.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G1.01.1,NS
+7148,347,4.127,0.6723,0.9639,149.08,44.6,12.2,2.5,12.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PHI.G1.02.1,NNS (L1: Spanish)
+2893,113,4.528,0.673,0.9487,301.23,42.9,13.6,2.9,14.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PHI.G1.04.1,NNS (L1: Swedish)
+2797,147,4.573,0.6904,0.9555,180.83,42.9,12.0,4.6,10.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G2.01.1,NS
+3201,138,4.493,0.7111,0.954,289.94,43.1,13.0,2.4,9.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G2.02.1,NS
+9507,322,4.435,0.682,0.9639,325.67,43.6,14.5,3.1,12.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G3.01.1,NS
+4110,209,4.52,0.6714,0.9599,146.54,43.7,12.1,1.7,9.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G3.02.1,NS
+20419,1288,4.587,0.6935,0.9702,165.15,56.5,9.3,2.7,3.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G3.03.1,NS
+6574,276,4.616,0.673,0.9673,306.29,39.3,13.7,3.3,18.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G1.05.1,NS
+4937,247,4.497,0.6587,0.9658,168.25,49.3,11.4,3.0,8.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHI.G1.03.1,NS
+4403,225,4.486,0.6433,0.9541,177.27,59.5,9.8,3.0,13.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PHI.G1.02.2,NNS (L1: Spanish)
+977,60,4.758,0.7284,0.9349,259.5,44.7,11.1,6.0,11.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.03.2,NS
+1792,137,4.734,0.7079,0.9452,185.02,46.2,10.1,3.5,12.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G3.01.1,NS
+1770,123,4.658,0.7253,0.944,129.9,42.8,10.9,3.2,21.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G1.01.1,NS
+2035,123,4.993,0.646,0.9468,232.1,48.3,10.6,3.8,17.9,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PHY.G1.02.1,NNS (L1: Chinese)
+3276,185,4.616,0.7607,0.9352,106.5,39.3,12.2,2.7,17.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.01.1,NS
+2791,143,5.043,0.6739,0.9589,203.12,55.0,10.4,1.9,18.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.02.1,NNS (L1: Sinhala)
+2194,170,4.926,0.687,0.9512,179.21,61.5,7.9,3.6,12.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.03.1,NS
+2525,147,4.888,0.6458,0.9544,260.2,58.8,9.3,3.6,11.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.04.1,NS
+1691,108,4.604,0.6728,0.946,243.13,52.5,9.8,3.1,15.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.05.2,NS
+1960,87,4.557,0.657,0.9543,238.71,34.6,14.0,2.8,20.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.07.1,NS
+1427,69,4.529,0.6557,0.9494,232.77,38.3,13.0,4.0,37.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.08.1,NS
+1265,58,4.613,0.6411,0.9552,138.5,33.2,14.0,7.3,29.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G3.02.1,NS
+4638,292,4.885,0.6916,0.9591,149.94,55.0,9.5,2.3,8.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G3.03.1,NS
+168,13,4.861,0.24,0.6476,91.61,30.6,12.2,0.0,0.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.05.1,NS
+2261,147,4.673,0.6667,0.9548,134.37,54.1,9.5,3.5,18.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PHY.G2.06.1,NS
+5045,151,4.528,0.6657,0.9662,849.26,32.5,17.0,3.1,16.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G1.03.1,NS
+6933,283,4.548,0.6961,0.9606,293.15,35.7,14.4,3.0,20.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G1.05.1,NS
+4133,165,4.558,0.6894,0.9565,308.39,34.5,14.7,3.2,14.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G2.02.1,NS
+2436,128,4.663,0.698,0.9504,201.75,40.5,12.3,3.2,12.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G3.01.1,NS
+4247,231,4.626,0.7262,0.9584,196.2,34.4,13.0,4.8,6.9,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,POL.G3.02.1,NNS (L1: Japanese)
+9401,447,4.657,0.7165,0.9663,376.1,29.9,14.3,4.1,15.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G2.03.1,NS
+5955,331,4.641,0.7071,0.9631,309.98,36.6,12.6,2.4,14.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G3.03.1,NS
+3205,192,4.584,0.7003,0.9452,295.55,38.5,12.0,4.3,10.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G1.01.1,NS
+4785,230,4.587,0.7358,0.9362,181.1,31.9,14.0,2.3,15.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G1.02.1,NS
+2258,113,4.568,0.737,0.9513,182.46,34.9,13.4,3.6,9.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,POL.G1.04.1,NS
+1167,58,4.505,0.7454,0.9392,119.45,39.1,12.8,3.4,10.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,POL.G2.01.1,NNS (L1: Spanish)
+2192,141,4.623,0.6869,0.9587,160.8,37.3,11.9,2.8,5.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.11.4,NNS (L1: German and Spanish)
+4488,321,4.698,0.7325,0.9618,175.74,29.1,12.7,4.8,10.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.03.1,NS
+5636,431,4.786,0.6892,0.969,170.77,31.3,12.1,6.8,6.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.08.1,NS
+2199,149,4.718,0.6999,0.9552,131.39,35.7,12.0,3.1,17.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.10.1,NNS (L1: Korean)
+2641,139,4.604,0.7069,0.9573,172.14,45.4,11.6,2.3,17.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.10.2,NNS (L1: Korean)
+4810,244,4.595,0.7313,0.9407,198.88,50.6,11.1,1.6,9.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.01.1,NS
+5153,385,4.808,0.7144,0.9638,155.47,36.0,11.6,6.4,12.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.08.1,NS
+2374,114,4.565,0.7407,0.9506,137.29,28.3,14.5,2.6,12.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.08.1,NS
+4837,314,4.674,0.6757,0.9639,134.95,28.2,13.2,3.9,12.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.10.1,NS
+2787,127,4.528,0.6809,0.9581,139.66,30.1,14.5,2.0,17.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.11.5,NNS (L1: German and Spanish)
+2688,140,4.6,0.7045,0.9513,310.73,32.9,13.4,2.4,18.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.05.1,NS
+2730,124,4.484,0.6839,0.9611,144.55,34.2,14.0,2.7,17.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.10.4,NNS (L1: Korean)
+2197,141,4.674,0.6865,0.96,146.75,41.9,11.3,2.4,17.7,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.10.5,NNS (L1: Korean)
+5444,282,4.697,0.7312,0.9631,317.94,27.2,14.3,3.6,11.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.06.1,NS
+1492,96,4.758,0.693,0.9489,129.91,29.1,13.1,2.7,5.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.11.3,NNS (L1: German and Spanish)
+4176,236,4.616,0.7089,0.9643,151.54,28.0,13.7,4.0,24.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.02.1,NS
+3228,182,4.675,0.749,0.9506,240.33,32.5,13.1,3.0,8.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.01.1,NS
+2129,133,4.696,0.7327,0.9504,200.53,31.2,12.9,3.2,9.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.02.1,NNS (L1: Marathi)
+7057,438,4.698,0.7308,0.9661,246.75,36.4,12.2,3.4,14.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.03.1,NS
+3302,188,4.645,0.7343,0.9544,148.1,33.6,12.9,2.2,14.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.05.1,NS
+3569,199,4.674,0.7151,0.9655,186.95,40.1,12.1,3.3,20.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.07.1,NS
+3381,170,4.576,0.7281,0.9581,123.68,28.7,14.2,2.8,15.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.09.1,NS
+6297,474,4.805,0.6947,0.9639,144.9,30.9,12.3,3.2,9.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.11.1,NNS (L1: German and Spanish)
+3734,153,4.524,0.7153,0.9603,164.27,31.6,14.9,5.0,28.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.12.1,NS
+10307,660,4.84,0.7211,0.9734,248.3,27.6,13.3,5.2,12.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G1.13.1,NS
+3942,227,4.636,0.7053,0.962,218.51,39.2,12.1,4.6,14.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.02.1,NS
+3313,187,4.643,0.7071,0.9547,186.96,35.8,12.7,3.8,11.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.02.2,NS
+6562,472,4.709,0.7021,0.9649,141.94,31.5,12.3,3.7,11.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.04.1,NS
+1088,74,4.639,0.7193,0.9362,107.59,25.5,13.4,2.8,5.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.06.1,NS
+1311,83,4.658,0.6942,0.9362,77.3,28.8,13.2,3.8,22.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.06.2,NS
+4771,281,4.624,0.6968,0.9632,128.8,36.1,12.4,4.9,18.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.07.1,NS
+10459,559,4.665,0.7561,0.9679,314.54,31.3,13.5,3.6,10.7,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.09.1,NS
+2921,207,4.796,0.7394,0.9557,139.97,25.3,13.2,2.9,15.9,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.10.3,NNS (L1: Korean)
+1714,131,4.689,0.7439,0.9374,116.96,50.0,9.5,2.5,8.4,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.11.1,NNS (L1: Cantonese)
+1325,88,4.621,0.7676,0.9164,175.03,33.5,12.3,4.2,8.0,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.11.2,NNS (L1: Cantonese)
+2088,116,4.653,0.7283,0.9364,169.21,30.1,13.5,3.1,12.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.12.1,NS
+5085,264,4.634,0.6792,0.9619,308.07,42.2,12.2,3.3,15.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G2.14.1,NS
+4021,250,4.72,0.7458,0.9629,289.92,32.1,12.8,2.9,7.2,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.03.2,NS
+3041,174,4.655,0.6967,0.9561,298.92,33.4,12.9,4.9,10.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.04.1,NS
+5895,323,4.518,0.686,0.9716,185.59,20.9,14.9,4.0,16.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.05.1,NS
+3617,124,4.469,0.6871,0.9537,194.74,44.9,14.2,4.0,22.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.07.1,NS
+5122,393,4.798,0.7021,0.9579,174.71,22.7,13.3,2.3,10.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,PSY.G3.06.1,NS
+3546,171,4.563,0.6806,0.9635,199.83,34.8,13.6,2.8,19.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.01.1,NS
+3963,251,4.683,0.7103,0.953,183.33,36.4,12.1,2.2,10.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.01.2,NS
+1777,67,4.498,0.7077,0.9325,211.32,39.6,14.3,3.2,14.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.06.1,NS
+2263,91,4.641,0.7048,0.9334,313.72,28.4,15.5,2.3,17.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.10.2,NNS (L1: Chinese)
+1903,86,4.583,0.7012,0.9493,180.39,34.1,14.0,2.2,19.8,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.10.7,NNS (L1: Chinese)
+1860,91,4.569,0.7243,0.9293,213.15,33.6,13.7,3.4,6.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G2.02.2,NS
+3894,191,4.578,0.7037,0.9606,413.92,43.8,12.2,2.5,18.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G2.03.2,NS
+2193,161,4.629,0.6989,0.9474,130.47,45.3,10.3,2.7,10.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.01.2,NNS (L1: Japanese)
+2003,131,4.64,0.6849,0.9367,137.24,44.5,10.9,2.1,17.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.01.3,NNS (L1: Japanese)
+3381,159,4.64,0.6974,0.9508,181.65,31.4,14.2,3.0,8.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.03.1,NNS (L1: Korean)
+1468,70,4.556,0.7138,0.9281,221.03,46.2,12.0,2.1,14.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.06.1,NNS (L1: Urdu)
+1810,95,4.56,0.7764,0.9017,214.2,40.2,12.4,2.2,18.9,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.09.1,NS
+1493,91,4.534,0.7332,0.919,153.76,45.0,11.1,2.7,8.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.09.2,NS
+1470,70,4.522,0.7199,0.946,153.03,37.2,13.3,3.1,27.1,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.08.2,NS
+3543,304,4.799,0.7057,0.9371,134.9,44.9,9.9,2.3,5.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.09.1,NS
+3610,170,4.698,0.7147,0.9596,294.78,37.6,13.3,3.3,11.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.10.3,NNS (L1: Chinese)
+3052,151,4.755,0.6925,0.957,317.11,36.0,13.3,3.2,4.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.10.4,NNS (L1: Chinese)
+6998,470,4.714,0.7088,0.9654,210.64,35.3,12.0,5.7,11.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G2.04.1,NS
+5550,333,4.65,0.7232,0.9552,199.96,32.2,12.9,3.6,7.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.11.1,NS
+11539,575,4.612,0.7125,0.9701,433.36,31.6,13.8,4.8,15.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.03.1,NS
+1804,91,4.668,0.6815,0.9382,169.2,42.9,12.2,4.5,14.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.04.1,NS
+2054,100,4.574,0.7277,0.918,172.27,40.6,12.7,4.2,9.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.05.2,NS
+1725,55,4.521,0.7098,0.9462,216.05,26.4,17.4,3.7,14.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.06.3,NS
+6551,420,4.703,0.717,0.9676,205.03,27.4,13.3,3.3,8.6,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.07.1,NS
+2633,137,4.646,0.6523,0.9538,194.35,31.6,13.6,4.3,9.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.11.2,NS
+2610,130,4.491,0.7309,0.9564,100.01,33.6,13.6,2.3,20.0,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G2.01.1,NS
+1770,105,4.616,0.7032,0.9303,154.79,36.0,12.4,4.4,9.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G2.02.1,NS
+996,42,4.563,0.7152,0.9328,193.49,40.7,13.5,2.4,4.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G2.05.1,NS
+4104,256,4.641,0.6749,0.96,161.18,44.3,11.1,2.7,13.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.01.1,NNS (L1: Japanese)
+7876,434,4.664,0.6956,0.962,227.41,35.1,12.9,3.9,10.8,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.05.1,NS
+3283,142,4.673,0.7106,0.9335,235.44,36.0,14.0,3.1,16.2,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.06.2,NNS (L1: Urdu)
+2585,136,4.51,0.6769,0.9491,133.42,50.0,11.0,2.5,20.6,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.10.1,NNS (L1: Russian)
+2802,149,4.507,0.6663,0.9505,96.77,43.6,11.8,3.6,19.5,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.10.2,NNS (L1: Russian)
+5767,298,4.812,0.694,0.9625,336.16,30.1,13.9,4.1,14.1,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.04.1,NNS (L1: Nepali)
+14141,832,4.66,0.7034,0.9719,223.11,53.0,10.1,2.0,9.5,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.05.2,NS
+6444,342,4.718,0.7057,0.9637,195.08,36.6,12.8,5.2,16.4,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.07.1,NS
+5146,279,4.58,0.7199,0.9548,118.48,30.7,13.6,2.9,13.3,MICUSP_Historical,ESL,,Pre-LLM Baseline,,,,,,,,,,,SOC.G3.08.1,NNS (L1: Mandarin)
+421,21,4.544,0.7631,0.9116,157.28,39.2,12.8,0.7,14.3,MICUSP_Historical,NES,,Pre-LLM Baseline,,,,,,,,,,,SOC.G1.08.1,NS

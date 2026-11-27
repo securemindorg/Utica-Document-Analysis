@@ -1,0 +1,27 @@
+Word_Count,Sentence_Count,Entropy,MATTR,Zipf_R2,Sentence_Var,Flesch_Ease,Grade_Level,Nominal_Ratio_%,Passive_%,Corpus,Model_Family,Source_File
+840,73,4.775,0.7618,0.9137,88.3,24.3,12.7,5.6,8.2,AI_Synthetic,ChatGPT 6,AI-Generated-DSC654_Final_Integrated_Technical_Report.pdf
+2065,134,4.586,0.8025,0.948,91.84,25.1,13.6,5.8,17.2,AI_Synthetic,ChatGPT 6,AI-Generated-Week5_Theoretical_Intervention_AI_Bias_Proposal.pdf
+1573,91,4.465,0.8106,0.9288,68.8,20.4,14.7,6.4,11.0,AI_Synthetic,ChatGPT 6,AI-Generated-White_Joshua_PaperReview1.pdf
+2003,106,4.439,0.7844,0.9364,47.21,10.4,16.5,5.4,13.2,AI_Synthetic,ChatGPT 6,AI-Generated-White_Joshua_ResearchMethodologies_Ethics.pdf
+464,58,4.883,0.7713,0.9066,71.45,29.3,11.2,6.2,6.9,AI_Synthetic,ChatGPT 6,AI-Generated-Course_Project_Part3_Model_Development_Evaluation_Report.pdf
+952,77,4.768,0.8141,0.9319,56.39,26.2,12.7,5.6,13.0,AI_Synthetic,ChatGPT 6,AI-Generated-Research_Dataset_Selection_Reporting (2).pdf
+1330,86,4.596,0.7893,0.9284,108.81,23.7,13.8,6.3,17.4,AI_Synthetic,ChatGPT 6,AI-Generated-Research_Dataset_Selection_Reporting (1).pdf
+854,75,4.574,0.7821,0.9205,106.29,28.0,12.2,5.5,16.0,AI_Synthetic,ChatGPT 6,AI-Generated-Course_Project_Part2_EDA_Preprocessing_Report.pdf
+783,45,4.527,0.7799,0.9278,113.71,32.9,13.0,5.2,8.9,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Week 4 Textbook Summary - Research Design and Data Collection.pdf
+1488,103,4.532,0.7762,0.9303,110.93,42.5,10.9,3.6,7.8,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Dataset Selection Report - Enron Email Corpus.pdf
+1631,98,4.646,0.7654,0.9491,169.37,52.2,10.1,2.0,8.2,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Course Project Part 2 - EDA and Preprocessing.pdf
+1783,110,4.442,0.7702,0.9272,86.06,34.3,12.5,3.6,25.5,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Research Methodologies and Ethics Assignment.pdf
+1596,83,4.695,0.753,0.9324,222.37,49.0,11.2,3.3,6.0,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Course Project Part 3 - Model Development and Evaluation.pdf
+1720,106,4.601,0.7714,0.9329,209.63,45.2,11.0,2.6,11.3,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Week 5 Research Proposal - Right-Sized AI.pdf
+2061,106,4.653,0.7855,0.9464,208.62,44.5,11.9,2.1,15.1,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-DSC654 Final Project - Integrated Technical Report.pdf
+1630,97,4.498,0.7934,0.9183,92.18,38.6,12.0,4.7,10.3,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Critical Paper Review 1 - Meng (2021).pdf
+1533,104,4.634,0.758,0.9446,69.29,44.2,10.8,5.3,13.5,AI_Synthetic,Claude Sonnet 5.5 Medium,AI-Generated-Strategic Analytics Report - Service Channel and Satisfaction.pdf
+740,60,4.386,0.8284,0.8929,139.42,11.2,14.8,4.3,6.7,AI_Synthetic,Google Gemini 3.5,AI-Generated-Week_5_Research_Proposal_Theoretical_Intervention.pdf
+561,33,4.433,0.7644,0.9039,176.61,0.0,17.9,8.7,3.0,AI_Synthetic,Google Gemini 3.5,AI-Generated-Course_Project_Part_3_Model_Development_and_Evaluation.pdf
+795,39,4.292,0.7989,0.8958,72.24,0.0,19.5,4.5,12.8,AI_Synthetic,Google Gemini 3.5,AI-Generated-Week_4_Textbook_Summary.pdf
+643,33,4.345,0.7746,0.8947,201.46,2.7,17.7,4.8,27.3,AI_Synthetic,Google Gemini 3.5,AI-Generated-Course_Project_Part_2_EDA_and_Preprocessing.pdf
+759,47,4.477,0.835,0.8991,147.06,3.1,16.8,5.8,4.3,AI_Synthetic,Google Gemini 3.5,AI-Generated-Course_Project_The_Grand_Finale.pdf
+999,52,4.254,0.7998,0.8767,161.24,7.1,17.0,5.1,9.6,AI_Synthetic,Google Gemini 3.5,AI-Generated-Critical_Paper_Review_Meng_2021.pdf
+910,45,4.282,0.7922,0.8711,124.08,0.0,18.5,5.3,4.4,AI_Synthetic,Google Gemini 3.5,AI-Generated-Research_Methodologies_and_Ethics.pdf
+523,35,4.403,0.8237,0.8539,196.51,0.0,17.9,6.5,5.7,AI_Synthetic,Google Gemini 3.5,AI-Generated-Dataset_Selection_and_Reporting.pdf
+874,53,4.42,0.8299,0.8747,101.31,0.0,17.9,6.5,13.2,AI_Synthetic,Google Gemini 3.5,AI-Generated-Strategic_Analytics_Report.pdf
