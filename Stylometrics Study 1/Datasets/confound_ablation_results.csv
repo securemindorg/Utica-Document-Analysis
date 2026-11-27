@@ -1,0 +1,9 @@
+Ablation_Scenario,N_PreLLM,N_PostLLM,AuthorDisjoint_Acc,AuthorDisjoint_AUC,AUC_95CI,Brier,Top_3_Features
+1_Full_Baseline,365,353,0.9304,0.982,"[0.9732, 0.9894]",0.0542,"Flesch_Ease, Sentence_Var, Zipf_R2"
+2_MICUSP_STEM_Only,222,353,0.9304,0.9775,"[0.9660, 0.9882]",0.058,"Zipf_R2, Flesch_Ease, Entropy"
+3_MICUSP_Eng_Phys_Econ,92,353,0.9416,0.978,"[0.9652, 0.9885]",0.0481,"Flesch_Ease, Zipf_R2, Sentence_Var"
+4_MICUSP_Reports_Papers,266,353,0.9435,0.9853,"[0.9765, 0.9923]",0.0504,"Zipf_R2, Flesch_Ease, Sentence_Var"
+5_LengthBand_750_2000w,75,183,0.8798,0.9278,"[0.8840, 0.9600]",0.095,"Flesch_Ease, Sentence_Var, Entropy"
+6_LengthMatched_1to1,88,88,0.8693,0.9409,"[0.9056, 0.9694]",0.0941,"Flesch_Ease, Entropy, Sentence_Var"
+7_STEM_Plus_LengthBand,52,183,0.8723,0.917,"[0.8674, 0.9585]",0.0915,"Flesch_Ease, Entropy, Sentence_Var"
+8_STEM_LengthMatched_1to1,71,71,0.8803,0.9498,"[0.9121, 0.9797]",0.0962,"Flesch_Ease, Entropy, Nominal_Ratio_%"

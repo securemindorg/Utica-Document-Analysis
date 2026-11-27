@@ -1,0 +1,7 @@
+Model,Protocol,N,N_PreLLM,N_PostLLM,Accuracy,F1,ROC_AUC,AUC_95CI,PR_AUC,Brier,Fold_AUC_Mean,Fold_AUC_SD
+RandomForest,Stratified_5Fold,718,365,353,0.9443,0.9438,0.9872,"[0.9782, 0.9933]",0.9877,0.0438,0.9875,0.0089
+RandomForest,Author_Disjoint_5Fold,718,365,353,0.9304,0.9288,0.982,"[0.9732, 0.9894]",0.9817,0.0542,0.9845,0.0075
+LogisticRegression,Stratified_5Fold,718,365,353,0.9192,0.9171,0.9669,"[0.9527, 0.9793]",0.9471,0.0643,0.9672,0.015
+LogisticRegression,Author_Disjoint_5Fold,718,365,353,0.9178,0.9151,0.9689,"[0.9557, 0.9791]",0.9724,0.0654,0.9713,0.0202
+HistGradientBoosting,Stratified_5Fold,718,365,353,0.9429,0.9425,0.986,"[0.9780, 0.9925]",0.987,0.0481,0.9856,0.0087
+HistGradientBoosting,Author_Disjoint_5Fold,718,365,353,0.9318,0.9295,0.9805,"[0.9713, 0.9881]",0.9805,0.0613,0.9829,0.0122

@@ -1,0 +1,6 @@
+,Sentence_Var,Sentence_Var,Sentence_Var,Flesch_Ease,Flesch_Ease,Flesch_Ease,Zipf_R2,Zipf_R2,Zipf_R2,Entropy,Entropy,Entropy,Nominal_Ratio_%,Nominal_Ratio_%,Nominal_Ratio_%,MATTR,MATTR,MATTR,Grade_Level,Grade_Level,Grade_Level,Passive_%,Passive_%,Passive_%,Predicted_Prob_PostLLM,Predicted_Prob_PostLLM,Predicted_Prob_PostLLM
+,count,mean,std,count,mean,std,count,mean,std,count,mean,std,count,mean,std,count,mean,std,count,mean,std,count,mean,std,count,mean,std
+Model_Family,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ChatGPT 6,8,79.769,22.487,8,23.388,5.912,8,0.927,0.013,8,4.636,0.157,8,5.85,0.393,8,0.79,0.019,8,13.425,1.637,8,12.875,3.982,8,0.951,0.037
+Claude Sonnet 5.5 Medium,9,142.204,60.362,9,42.589,6.391,9,0.934,0.01,9,4.58,0.085,9,3.6,1.253,9,0.773,0.013,9,11.489,0.923,9,11.844,5.863,9,0.579,0.331
+Google Gemini 3.5,9,144.042,43.818,9,2.722,4.032,9,0.886,0.016,9,4.363,0.076,9,5.767,1.404,9,0.805,0.026,9,17.511,1.297,9,9.667,7.573,9,0.987,0.01

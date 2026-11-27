@@ -1,0 +1,9 @@
+Feature,Mean_|TreeSHAP|
+Flesch_Ease,0.1346
+Sentence_Var,0.1201
+Zipf_R2,0.1177
+Entropy,0.08
+Nominal_Ratio_%,0.0543
+MATTR,0.0277
+Grade_Level,0.0253
+Passive_%,0.0092
