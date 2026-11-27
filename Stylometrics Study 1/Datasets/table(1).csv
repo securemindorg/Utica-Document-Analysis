@@ -1,9 +1,0 @@
-﻿Ablation Scenario (Author-Disjoint 5-Fold RF),Pre-LLM (nnn),Post-LLM (nnn),Accuracy,ROC-AUC,Brier,Top 3 Features (Permutation)
-1. Full Baseline,365,355,0.9306,0.9815,0.0550,"Flesch_Ease, Zipf_R2, Entropy"
-2. MICUSP STEM Disciplines Only,222,355,0.9237,0.9772,0.0580,"Zipf_R2, Entropy, Flesch_Ease"
-3. MICUSP Eng / Physics / Econ Only,92,355,0.9329,0.9789,0.0484,"Flesch_Ease, Entropy, Zipf_R2"
-4. MICUSP Reports / Research / Proposals,266,355,0.9388,0.9809,0.0548,"Zipf_R2, Entropy, Flesch_Ease"
-"5. Length Band (750–2,000 words)",75,183,0.8682,0.9258,0.0963,"Flesch_Ease, Entropy, Sentence_Var"
-6. 1:1 Word-Count Matched (±20%\pm 20\%±20%),88,88,0.8864,0.9406,0.0951,"Flesch_Ease, Entropy, Sentence_Var"
-"7. STEM + Length Band (750–2,000 words)",52,183,0.8723,0.9178,0.0921,"Flesch_Ease, Entropy, Sentence_Var"
-8. STEM + 1:1 Word-Count Matched,71,71,0.8873,0.9502,0.0956,"Flesch_Ease, Entropy, Nominal_Ratio_%"
